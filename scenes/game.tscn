@@ -1,5 +1,6 @@
-[gd_scene load_steps=36 format=3 uid="uid://7irymsguxr1n"]
+[gd_scene load_steps=37 format=3 uid="uid://7irymsguxr1n"]
 
+[ext_resource type="Script" uid="uid://bfys28ih4t0op" path="res://scenes/camera_mvmt.gd" id="1_dinhu"]
 [ext_resource type="Script" uid="uid://ccrn643plqokb" path="res://cards/player_hand.gd" id="1_lbhrr"]
 [ext_resource type="Script" uid="uid://lks37hmucqb8" path="res://cards/deck.gd" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://cjhruytcug36n" path="res://sprites/table/table.blend" id="3_lnu2h"]
@@ -144,6 +145,7 @@ environment = SubResource("Environment_gee14")
 transform = Transform3D(1, 0, 0, 0, 0.967832, 0.251596, 0, -0.251596, 0.967832, 0, 4.61701, 8.49182)
 fov = 26.2
 size = 3.702
+script = ExtResource("1_dinhu")
 
 [node name="Room" type="Node3D" parent="."]
 
