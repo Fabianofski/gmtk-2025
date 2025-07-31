@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://7irymsguxr1n"]
+[gd_scene load_steps=38 format=3 uid="uid://7irymsguxr1n"]
 
 [ext_resource type="Script" uid="uid://bfys28ih4t0op" path="res://scenes/camera_mvmt.gd" id="1_dinhu"]
 [ext_resource type="Script" uid="uid://ccrn643plqokb" path="res://cards/player_hand.gd" id="1_lbhrr"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bv33trgmwkwvx" path="res://sprites/enviro/decorations/decoration_3.png" id="8_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://bnveft57om3d8" path="res://sprites/enviro/decorations/decoration_6.png" id="9_dinhu"]
 [ext_resource type="Texture2D" uid="uid://wu4ppt58u1cu" path="res://sprites/enviro/decorations/decoration_5.png" id="10_kvuet"]
+[ext_resource type="PackedScene" uid="uid://b882fewg5y6x5" path="res://scenes/player.tscn" id="10_trtic"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p57ef"]
 sky_top_color = Color(0.394084, 0.179147, 0.423439, 1)
@@ -29,13 +30,19 @@ background_energy_multiplier = 0.37
 sky = SubResource("Sky_u5sy4")
 tonemap_mode = 2
 glow_enabled = true
+glow_bloom = 0.11
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 1.0
+fog_depth_begin = 0.0
+fog_depth_end = 35.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iywne"]
 albedo_texture = ExtResource("4_iywne")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p57ef"]
 albedo_texture = ExtResource("4_iywne")
-metallic = 1.0
 uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p57ef"]
@@ -150,9 +157,10 @@ script = ExtResource("1_dinhu")
 [node name="Room" type="Node3D" parent="."]
 
 [node name="table" parent="Room" instance=ExtResource("3_lnu2h")]
+transform = Transform3D(0.923879, 0, 0.382683, 0, 1, 0, -0.382683, 0, 0.923879, 0, 0, 0)
 
 [node name="Carpet" type="MeshInstance3D" parent="Room"]
-transform = Transform3D(17.2472, 0, 0, 0, 1.0005, 0, 0, 0, 33.3852, 0, 0, 0)
+transform = Transform3D(12.6678, 0, 0, 0, 1.0005, 0, 0, 0, 33.3852, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_iywne")
 mesh = SubResource("PlaneMesh_p57ef")
 
@@ -187,7 +195,7 @@ directional_shadow_mode = 0
 directional_shadow_fade_start = 0.629
 
 [node name="Decoration" type="Node3D" parent="Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.430153, -0.09, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09, 0)
 
 [node name="Attacker\'s side" type="Node3D" parent="Room/Decoration"]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 1.46231, 0, 0)
@@ -248,7 +256,7 @@ mesh = SubResource("QuadMesh_5newe")
 skeleton = NodePath("../..")
 
 [node name="Defender\'s side" type="Node3D" parent="Room/Decoration"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.46231, 0, 0)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.462, 0, 8.74228e-08)
 
 [node name="Slots" type="MeshInstance3D" parent="Room/Decoration/Defender\'s side"]
 transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -7.63861, 3.27922, -13.9217)
@@ -299,6 +307,9 @@ skeleton = NodePath("../..")
 transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, 8.29837, 3.22405, -14.467)
 mesh = SubResource("QuadMesh_rysoc")
 skeleton = NodePath("../..")
+
+[node name="Time Travel Andy" parent="Room" instance=ExtResource("10_trtic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.800049, -3)
 
 [node name="Player Hand" type="Node3D" parent="."]
 script = ExtResource("1_lbhrr")

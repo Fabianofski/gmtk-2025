@@ -1,0 +1,215 @@
+[gd_scene load_steps=18 format=3 uid="uid://b882fewg5y6x5"]
+
+[ext_resource type="Texture2D" uid="uid://c8t0qfl1ijti2" path="res://sprites/player/shades_tex.png" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://bfxtvi31bc2b4" path="res://sprites/player/generic_shadow_tex.png" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://co24emyllcpo2" path="res://sprites/player/hand_shadow_tex.png" id="3_qhqgy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhqgy"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("1_g2els")
+
+[sub_resource type="QuadMesh" id="QuadMesh_dqkch"]
+material = SubResource("StandardMaterial3D_qhqgy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2els"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("1_3vyb7")
+uv1_scale = Vector3(0.33, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_qhqgy"]
+material = SubResource("StandardMaterial3D_g2els")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqkch"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("1_g2els")
+uv1_scale = Vector3(1, 0.5, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_qlg0r"]
+material = SubResource("StandardMaterial3D_dqkch")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qlg0r"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("3_qhqgy")
+
+[sub_resource type="QuadMesh" id="QuadMesh_tuyoq"]
+material = SubResource("StandardMaterial3D_qlg0r")
+
+[sub_resource type="Animation" id="Animation_qhqgy"]
+resource_name = "generic"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.0333333, 1, 0, 2.98, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0.0333333, 1, 0, 0, 0)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hand")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0.0333333, 1, 0.355724, 1.95536, 0.289772)
+
+[sub_resource type="Animation" id="Animation_dqkch"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 2.98, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hand")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.355724, 1.95536, 0.289772)
+
+[sub_resource type="Animation" id="Animation_qlg0r"]
+resource_name = "idle"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 2.98, 0, 3, 1, 0, 2.89156, 0.0477965, 6, 1, 0, 2.98, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 3, 1, 0, -0.05, 0, 6, 1, 0, 0, 0)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hand")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.355724, 1.95536, 0.289772, 3, 1, 0.356, 2.005, 0.29, 6, 1, 0.355724, 1.95536, 0.289772)
+
+[sub_resource type="Animation" id="Animation_tuyoq"]
+resource_name = "laugh"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 3.14238, 0, 0.1, 1, 0, 2.8854, 0, 0.2, 1, 0, 2.8854, 0, 0.25, 1, 0, 3.14238, 0, 0.35, 1, 0, 2.8854, 0, 0.45, 1, 0, 2.8854, 0, 0.5, 1, 0, 3.14238, 0, 0.55, 1, 0, 2.8854, 0, 0.65, 1, 0, 2.8854, 0, 0.85, 1, 0, 2.98, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.05, 1, 0, 0.196679, 0, 0.15, 1, 0, 0.196679, 0, 0.2, 1, 0, 0, 0, 0.25, 1, 0, 0.196679, 0, 0.35, 1, 0, 0.196679, 0, 0.4, 1, 0, 0, 0, 0.45, 1, 0, 0.196679, 0, 0.55, 1, 0, 0.196679, 0, 0.6, 1, 0, 0, 0, 0.65, 1, 0, 0.196679, 0, 0.75, 1, 0, 0.196679, 0, 0.8, 1, 0, 0, 0)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hand")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.355724, 1.95536, 0.289772, 0.2, 1, 0.355724, 1.95536, 0.289772, 0.3, 1, -0.039893, 2.81067, 0.289772, 0.666667, 1, 0.55618, 2.75083, 0.289772, 0.766667, 1, 0.355724, 1.95536, 0.289772)
+
+[sub_resource type="Animation" id="Animation_fjrip"]
+resource_name = "angry"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 2.98, 0, 0.1, 1, 0, 2.79634, 0, 0.9, 1, 0, 2.79634, 0, 1, 1, 0, 2.98, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.1, 1, 0, 0.0857161, 0, 0.9, 1, 0, 0.0857161, 0, 1, 1, 0, 0, 0)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hand")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.355724, 1.95536, 0.289772, 0.1, 1, 0.54001, 1.69058, 0.289772, 0.9, 1, 0.54001, 1.69058, 0.289772, 1, 1, 0.355724, 1.95536, 0.289772)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dqkch"]
+_data = {
+&"RESET": SubResource("Animation_dqkch"),
+&"angry": SubResource("Animation_fjrip"),
+&"generic": SubResource("Animation_qhqgy"),
+&"idle": SubResource("Animation_qlg0r"),
+&"laugh": SubResource("Animation_tuyoq")
+}
+
+[node name="Time Travel Andy" type="Node3D"]
+
+[node name="Head" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.11364, 0, 0, 0, 1.09197, 0, 0, 0, 1.5, 0, 2.98, 0)
+mesh = SubResource("QuadMesh_dqkch")
+
+[node name="Shades" type="MeshInstance3D" parent="Head"]
+transform = Transform3D(1.34693, 0, 0, 0, 1.37366, 0, 0, 0, 1, 0, 0.00423598, 0.0558907)
+mesh = SubResource("QuadMesh_qhqgy")
+skeleton = NodePath("../..")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.69109, 3.30575e-07, 0, -1.4784e-07, -3.78134, 0, 0, 0, 1.5, 0, 0, 0)
+mesh = SubResource("QuadMesh_qlg0r")
+
+[node name="ShoulderL" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(-0.814641, -7.95668e-08, 0, 3.18502e-08, -0.407032, 0, 0, 0, 1, -0.0928396, -0.463874, 0)
+mesh = SubResource("QuadMesh_dqkch")
+skeleton = NodePath("../..")
+
+[node name="ShoulderR" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(-0.814641, -7.95668e-08, 0, 3.18502e-08, -0.407032, 0, 0, 0, 1, 0.0927362, -0.46394, -0.000291087)
+mesh = SubResource("QuadMesh_dqkch")
+skeleton = NodePath("../..")
+
+[node name="Hand" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.355724, 1.95536, 0.289772)
+mesh = SubResource("QuadMesh_tuyoq")
+
+[node name="Cards" type="Node3D" parent="Hand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.120549)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dqkch")
+}
+autoplay = "idle"
