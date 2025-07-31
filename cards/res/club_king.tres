@@ -1,11 +1,9 @@
-[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://b85y6xppvqsok"]
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://b85y6xppvqsok"]
 
 [ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_m5gqw"]
-[ext_resource type="Texture2D" uid="uid://tfpq3hf27bll" path="res://sprites/cards/individual/club/K.png" id="2_5vpjs"]
 
 [resource]
 script = ExtResource("1_m5gqw")
-sprite = ExtResource("2_5vpjs")
 score = 13
 attack = 2
 defense = 2

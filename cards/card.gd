@@ -1,7 +1,6 @@
 extends Resource 
 class_name Card
 
-@export var sprite: Texture2D = null
 @export var score: int = 0
 @export var attack: int = 0
 @export var defense: int = 0

@@ -1,25 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7r5cmd7t0th8"]
+[gd_scene load_steps=4 format=3 uid="uid://b7r5cmd7t0th8"]
 
-[ext_resource type="Script" uid="uid://ckbkclqwiud1a" path="res://cards/card_display.gd" id="1_ivai2"]
-[ext_resource type="Texture2D" uid="uid://cd5f4oknh6we5" path="res://sprites/cards/back.png" id="2_4k7q8"]
-[ext_resource type="Texture2D" uid="uid://dr6frecynmwrv" path="res://sprites/cards/individual/club/7.png" id="3_f61jr"]
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_45qsb"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4k7q8"]
-size = Vector3(0.845, 1.18, 0.01)
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0qqw3"]
+size = Vector2(64, 64)
 
-[node name="Card" type="Area3D"]
-script = ExtResource("1_ivai2")
+[sub_resource type="CanvasTexture" id="CanvasTexture_jl6rh"]
+
+[node name="Card" type="Node3D"]
+script = ExtResource("1_45qsb")
 
 [node name="back" type="Sprite3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-double_sided = false
-texture_filter = 0
-texture = ExtResource("2_4k7q8")
+texture = SubResource("PlaceholderTexture2D_0qqw3")
 
 [node name="front" type="Sprite3D" parent="."]
-double_sided = false
-texture_filter = 0
-texture = ExtResource("3_f61jr")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_4k7q8")
+texture = SubResource("CanvasTexture_jl6rh")
