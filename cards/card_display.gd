@@ -9,6 +9,11 @@ signal update
 
 func _init():
 	update.connect(update_card)
+	SignalBus.next_round_started.connect(destroy_card)
+
+func destroy_card(_state):
+	if selected:
+		queue_free()
 
 func update_card(_card: Card): 
 	card = _card
@@ -24,6 +29,10 @@ func _unhandled_input(event):
 		return 
 
 	selected = not selected
+	if selected: 
+		SignalBus.select_card.emit(card)
+	else: 
+		SignalBus.deselect_card.emit(card)
 
 func _on_mouse_entered() -> void:
 	mouse_on_card = true

@@ -6,9 +6,11 @@
 [resource]
 script = ExtResource("1_0fp76")
 sprite = ExtResource("2_3tb1v")
+id = "club_7"
 score = 7
 attack = 2
 defense = 2
-score_multiplier = 0
-damage_multiplier = 0
+score_multiplier = 1
+attack_multiplier = 1
+defense_multiplier = 1
 metadata/_custom_type_script = "uid://btup2q77vrcjp"
