@@ -309,7 +309,7 @@ mesh = SubResource("QuadMesh_rysoc")
 skeleton = NodePath("../..")
 
 [node name="Time Travel Andy" parent="Room" instance=ExtResource("10_trtic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.800049, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.800049, -4.01387)
 
 [node name="Player Hand" type="Node3D" parent="."]
 script = ExtResource("1_lbhrr")
