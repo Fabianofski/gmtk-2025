@@ -1,12 +1,86 @@
-[gd_scene load_steps=3 format=3 uid="uid://7irymsguxr1n"]
+[gd_scene load_steps=5 format=3 uid="uid://7irymsguxr1n"]
 
-[ext_resource type="Script" uid="uid://b6ab25lk8a8u0" path="res://common/player_hand.gd" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://ccrn643plqokb" path="res://cards/player_hand.gd" id="1_lbhrr"]
 [ext_resource type="Script" uid="uid://lks37hmucqb8" path="res://cards/deck.gd" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://bwg0x7ww2m3l8" path="res://sprites/table/table.blend" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://q24iakckc8l2" path="res://common/game_manager.gd" id="4_lbhrr"]
 
 [node name="Node3D" type="Node3D"]
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.967832, 0.251596, 0, -0.251596, 0.967832, 0, 4.52339, 7.27379)
+fov = 33.0
+size = 3.702
+
 [node name="Player Hand" type="Node3D" parent="."]
-script = ExtResource("1_uwrxv")
+script = ExtResource("1_lbhrr")
 
 [node name="Deck" type="Node3D" parent="Player Hand"]
 script = ExtResource("2_yqjtg")
+
+[node name="Cards" type="Node3D" parent="Player Hand"]
+transform = Transform3D(0.7, 0, 0, 0, 0.646303, 0.268871, 0, -0.268871, 0.646303, -1.47678, 2.56393, 2.8005)
+
+[node name="table" parent="Player Hand" instance=ExtResource("3_lnu2h")]
+
+[node name="Game Manager" type="Node3D" parent="."]
+script = ExtResource("4_lbhrr")
+
+[node name="Score" type="Label" parent="Game Manager"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Score: 0"
+
+[node name="Health" type="Label" parent="Game Manager"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Health: 10"
+
+[node name="StateInfo" type="Label" parent="Game Manager"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 48.0
+grow_vertical = 0
+text = "ATK"
+
+[node name="GoalInfo" type="Label" parent="Game Manager"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_right = 24.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Score Points"
+
+[node name="RoundInfo" type="Label" parent="Game Manager"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -23.0
+offset_right = 24.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="Game Manager"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Next"
+
+[connection signal="pressed" from="Game Manager/Button" to="Game Manager" method="next_round"]

@@ -1,12 +1,16 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://8moo5amek2pv"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://8moo5amek2pv"]
 
 [ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_t18ln"]
+[ext_resource type="Texture2D" uid="uid://clikmlisqmgcw" path="res://sprites/cards/individual/club/Q.png" id="2_xwq2i"]
 
 [resource]
 script = ExtResource("1_t18ln")
+sprite = ExtResource("2_xwq2i")
+id = "club_q"
 score = 12
 attack = 2
 defense = 2
-score_multiplier = 0
-damage_multiplier = 0
+score_multiplier = 1
+attack_multiplier = 1
+defense_multiplier = 1
 metadata/_custom_type_script = "uid://btup2q77vrcjp"
