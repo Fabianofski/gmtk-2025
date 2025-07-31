@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4nixbheu0pj3"
-path.s3tc="res://.godot/imported/floor_tex.png-da6f0eb23598d38abb879b27561d7f70.s3tc.ctex"
+uid="uid://bd32xq8hcba2d"
+path.s3tc="res://.godot/imported/decoration_1.png-95c69b546d0ef4a9cfd51c7a8105b5ad.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://sprites/enviro/floor_tex.png"
-dest_files=["res://.godot/imported/floor_tex.png-da6f0eb23598d38abb879b27561d7f70.s3tc.ctex"]
+source_file="res://sprites/enviro/decorations/decoration_1.png"
+dest_files=["res://.godot/imported/decoration_1.png-95c69b546d0ef4a9cfd51c7a8105b5ad.s3tc.ctex"]
 
 [params]
 
