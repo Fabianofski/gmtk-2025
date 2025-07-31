@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccrn643plqokb" path="res://cards/player_hand.gd" id="1_lbhrr"]
 [ext_resource type="Script" uid="uid://lks37hmucqb8" path="res://cards/deck.gd" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://bwg0x7ww2m3l8" path="res://sprites/table/table.blend" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cjhruytcug36n" path="res://sprites/table/table.blend" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://q24iakckc8l2" path="res://common/game_manager.gd" id="4_lbhrr"]
 
 [node name="Node3D" type="Node3D"]

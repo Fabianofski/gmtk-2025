@@ -9,5 +9,3 @@ class_name Card
 @export var score_multiplier: int = 1
 @export var attack_multiplier: int = 1
 @export var defense_multiplier: int = 1
-
-
