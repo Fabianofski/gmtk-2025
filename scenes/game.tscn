@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://7irymsguxr1n"]
+
+[ext_resource type="Script" uid="uid://b6ab25lk8a8u0" path="res://common/player_hand.gd" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://lks37hmucqb8" path="res://cards/deck.gd" id="2_yqjtg"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Player Hand" type="Node3D" parent="."]
+script = ExtResource("1_uwrxv")
+
+[node name="Deck" type="Node3D" parent="Player Hand"]
+script = ExtResource("2_yqjtg")

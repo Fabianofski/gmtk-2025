@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7r5cmd7t0th8"]
+
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_45qsb"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0qqw3"]
+size = Vector2(64, 64)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_jl6rh"]
+
+[node name="Card" type="Node3D"]
+script = ExtResource("1_45qsb")
+
+[node name="back" type="Sprite3D" parent="."]
+texture = SubResource("PlaceholderTexture2D_0qqw3")
+
+[node name="front" type="Sprite3D" parent="."]
+texture = SubResource("CanvasTexture_jl6rh")

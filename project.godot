@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="gmtk-2025"
+run/main_scene="uid://7irymsguxr1n"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SignalBus="*res://common/signal_bus.gd"
 
 [rendering]
 

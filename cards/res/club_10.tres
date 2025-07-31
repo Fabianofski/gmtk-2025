@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://dms2wkp5tde5d"]
+
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_bm2qo"]
+
+[resource]
+script = ExtResource("1_bm2qo")
+score = 10
+attack = 2
+defense = 2
+score_multiplier = 0
+damage_multiplier = 0
+metadata/_custom_type_script = "uid://btup2q77vrcjp"
