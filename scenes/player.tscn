@@ -45,30 +45,6 @@ albedo_texture = ExtResource("3_qhqgy")
 [sub_resource type="QuadMesh" id="QuadMesh_tuyoq"]
 material = SubResource("StandardMaterial3D_qlg0r")
 
-[sub_resource type="Animation" id="Animation_qhqgy"]
-resource_name = "generic"
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0.0333333, 1, 0, 2.98, 0)
-tracks/1/type = "position_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Body")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0.0333333, 1, 0, 0, 0)
-tracks/2/type = "position_3d"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Hand")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0.0333333, 1, 0.355724, 1.95536, 0.289772)
-
 [sub_resource type="Animation" id="Animation_dqkch"]
 length = 0.001
 tracks/0/type = "position_3d"
@@ -92,6 +68,54 @@ tracks/2/path = NodePath("Hand")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0.355724, 1.95536, 0.289772)
+
+[sub_resource type="Animation" id="Animation_fjrip"]
+resource_name = "angry"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 2.98, 0, 0.1, 1, 0, 2.79634, 0, 0.9, 1, 0, 2.79634, 0, 1, 1, 0, 2.98, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.1, 1, 0, 0.0857161, 0, 0.9, 1, 0, 0.0857161, 0, 1, 1, 0, 0, 0)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hand")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.355724, 1.95536, 0.289772, 0.1, 1, 0.54001, 1.69058, 0.289772, 0.9, 1, 0.54001, 1.69058, 0.289772, 1, 1, 0.355724, 1.95536, 0.289772)
+
+[sub_resource type="Animation" id="Animation_qhqgy"]
+resource_name = "generic"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.0333333, 1, 0, 2.98, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0.0333333, 1, 0, 0, 0)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hand")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0.0333333, 1, 0.355724, 1.95536, 0.289772)
 
 [sub_resource type="Animation" id="Animation_qlg0r"]
 resource_name = "idle"
@@ -142,30 +166,6 @@ tracks/2/path = NodePath("Hand")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0.355724, 1.95536, 0.289772, 0.2, 1, 0.355724, 1.95536, 0.289772, 0.3, 1, -0.039893, 2.81067, 0.289772, 0.666667, 1, 0.55618, 2.75083, 0.289772, 0.766667, 1, 0.355724, 1.95536, 0.289772)
-
-[sub_resource type="Animation" id="Animation_fjrip"]
-resource_name = "angry"
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 2.98, 0, 0.1, 1, 0, 2.79634, 0, 0.9, 1, 0, 2.79634, 0, 1, 1, 0, 2.98, 0)
-tracks/1/type = "position_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Body")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.1, 1, 0, 0.0857161, 0, 0.9, 1, 0, 0.0857161, 0, 1, 1, 0, 0, 0)
-tracks/2/type = "position_3d"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Hand")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0.355724, 1.95536, 0.289772, 0.1, 1, 0.54001, 1.69058, 0.289772, 0.9, 1, 0.54001, 1.69058, 0.289772, 1, 1, 0.355724, 1.95536, 0.289772)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dqkch"]
 _data = {
