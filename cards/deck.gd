@@ -34,7 +34,7 @@ func draw_cards(amount: int) -> Array[Card]:
 		var card = cards.pop_back()
 		if card == null: 
 			if i == 0: 
-				SignalBus.game_over.emit("You ran out of cards!")
+				SignalBus.game_over.emit("(RAN OUT OF CARDS)")
 				return []
 			else: 
 				return drawed_cards

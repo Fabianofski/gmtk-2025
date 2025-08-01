@@ -1,6 +1,6 @@
 extends Control
 
-@onready var message_label: Label = $"LosePanel/Message"
+@onready var message_label: Label = $Message
 
 func _init():
 	SignalBus.game_over.connect(game_over)
@@ -11,5 +11,3 @@ func game_over(message: String):
 
 func restart(): 
 	get_tree().reload_current_scene()
-
-

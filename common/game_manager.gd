@@ -72,7 +72,7 @@ func next_round():
 
 		score_label.text = str(score).pad_zeros(9)
 		state_info.text = "DEF"
-		goal_info.text = "Beat your own attack with " + str(values['atk']) + " ATK points"
+		goal_info.text = "Beat your own attack's " + str(values['atk']) + " points"
 	else: 
 		var hand = calc_atk_dfs_values(selected_cards)
 		var old_hand = calc_atk_dfs_values(last_played)
@@ -83,7 +83,7 @@ func next_round():
 			health += diff
 
 		if health <= 0: 
-			SignalBus.game_over.emit("You ran out of hearts!")
+			SignalBus.game_over.emit("(RAN OUT OF HEALTH)")
 		
 		state = STATE.Attack
 		state_info.text = "ATK"
