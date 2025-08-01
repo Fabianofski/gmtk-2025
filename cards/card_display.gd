@@ -29,7 +29,8 @@ func _init():
 
 func next_round_started(state):
 	if selected and state == Game.STATE.Attack:
-		SignalBus.put_card_back_to_deck.emit(card)
+		# SignalBus.put_card_back_to_deck.emit(card)
+		# dont put cards back to deck like in Durak
 		queue_free()
 
 	if selected and state == Game.STATE.Defense:
