@@ -1,4 +1,5 @@
 extends Node3D 
+class_name Game
 
 var selected_cards: Array[Card] = []
 var last_played: Array[Card] = []

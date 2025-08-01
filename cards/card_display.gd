@@ -8,6 +8,7 @@ signal update
 signal tween_to_position(pos, rot, time)
 @onready var front: Sprite3D = $front
 @onready var card_number_display: Label3D = $"Card Number"
+@onready var outline: Sprite3D = $outline 
 
 func _init():
 	update.connect(update_card)
@@ -53,6 +54,7 @@ func _unhandled_input(event):
 		return 
 
 	selected = not selected
+	outline.visible = selected
 	if selected: 
 		SignalBus.select_card.emit(card)
 	else: 

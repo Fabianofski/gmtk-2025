@@ -17,9 +17,18 @@ double_sided = false
 texture_filter = 0
 texture = ExtResource("2_4k7q8")
 
+[node name="outline" type="Sprite3D" parent="."]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+modulate = Color(0, 0, 0, 1)
+double_sided = false
+texture_filter = 0
+texture = ExtResource("3_4k7q8")
+
 [node name="front" type="Sprite3D" parent="."]
 double_sided = false
 texture_filter = 0
+render_priority = 1
 texture = ExtResource("3_4k7q8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -31,6 +40,7 @@ sorting_offset = 1.0
 shaded = true
 double_sided = false
 texture_filter = 0
+render_priority = 1
 modulate = Color(0, 0, 0, 1)
 text = "6"
 font = ExtResource("4_f61jr")
