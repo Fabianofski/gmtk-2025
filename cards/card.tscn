@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7r5cmd7t0th8"]
+[gd_scene load_steps=9 format=3 uid="uid://b7r5cmd7t0th8"]
 
 [ext_resource type="Script" uid="uid://dsdyh0qfqepcn" path="res://cards/card_display.gd" id="1_ivai2"]
 [ext_resource type="Texture2D" uid="uid://diiibkn2s8khr" path="res://sprites/cards/back.png" id="2_4k7q8"]
 [ext_resource type="Texture2D" uid="uid://cnslyp8mawj3h" path="res://sprites/cards/template.png" id="3_4k7q8"]
 [ext_resource type="FontFile" uid="uid://d3pvmoqj76svu" path="res://fonts/Lexend-Regular.ttf" id="4_f61jr"]
+[ext_resource type="Texture2D" uid="uid://c82ech2rrb005" path="res://sprites/cards/blank.png" id="4_hel13"]
 [ext_resource type="Texture2D" uid="uid://cvve6ey706sqt" path="res://sprites/cards/atk_icon.png" id="5_jsqqk"]
 [ext_resource type="Texture2D" uid="uid://c1i5y21d308ek" path="res://sprites/cards/def_icon.png" id="6_nwj5s"]
 
@@ -26,7 +27,13 @@ modulate = Color(0, 0, 0, 1)
 double_sided = false
 texture_filter = 0
 render_priority = -1
-texture = ExtResource("3_4k7q8")
+texture = ExtResource("4_hel13")
+
+[node name="card_bg" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
+double_sided = false
+texture_filter = 0
+texture = ExtResource("4_hel13")
 
 [node name="front" type="Sprite3D" parent="."]
 double_sided = false
