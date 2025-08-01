@@ -38,7 +38,7 @@ Then, go BACK TO THE PAST, and set up a new attack!",
 
 ""]
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	tutorial_text.text = STRING_ARRAY[current_displayed_string] # Set text to the correct label
 	
 	# Button labels
