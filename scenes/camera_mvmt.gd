@@ -11,7 +11,7 @@ func _input(event):
 			camera.rotate_y(-event.relative.x * MOUSE_SENS)
 			if camera.rotation_degrees.x > -15.1:
 				camera.rotate_x(-event.relative.y * (MOUSE_SENS * 2.5))
-			if camera.rotation_degrees.x <= -15.1:
+			elif camera.rotation_degrees.x <= -15.1:
 				camera.rotation_degrees.x = -15.0
 			camera.rotation.z = 0 # NOTE: When the player switches sides, instead of rotating the camera, rotate the decorations. EZ!
 
