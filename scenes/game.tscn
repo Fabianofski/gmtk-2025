@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://7irymsguxr1n"]
+[gd_scene load_steps=72 format=4 uid="uid://7irymsguxr1n"]
 
 [ext_resource type="Script" uid="uid://bfys28ih4t0op" path="res://scenes/camera_mvmt.gd" id="1_dinhu"]
 [ext_resource type="Script" uid="uid://ccrn643plqokb" path="res://cards/player_hand.gd" id="1_lbhrr"]
@@ -810,6 +810,12 @@ font_color = Color(0.901961, 0.270588, 0.223529, 1)
 font = ExtResource("18_ssvqc")
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_sww3w"]
+font = SubResource("FontFile_5newe")
+font_size = 32
+font_color = Color(0.784314, 0.831373, 0.364706, 1)
+outline_color = Color(0.231373, 0.490196, 0.309804, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_37s47"]
 font = ExtResource("17_ssvqc")
 font_color = Color(0.941176, 0.709804, 0.254902, 1)
@@ -1300,7 +1306,7 @@ offset_right = 112.0
 offset_bottom = -13.0
 grow_vertical = 0
 text = "ATK"
-label_settings = SubResource("LabelSettings_1kice")
+label_settings = SubResource("LabelSettings_sww3w")
 horizontal_alignment = 1
 
 [node name="Goal" type="Control" parent="Game Manager"]
