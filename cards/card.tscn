@@ -70,7 +70,6 @@ horizontal_alignment = 0
 [node name="Card Number" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.385088, 0.483134, 0.0055145)
 sorting_offset = 1.0
-shaded = true
 double_sided = false
 texture_filter = 0
 modulate = Color(0, 0, 0, 1)

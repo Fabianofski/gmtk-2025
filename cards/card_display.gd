@@ -53,6 +53,11 @@ func update_card(_card: Card):
 			card_number_display.text = "K"
 		"14":
 			card_number_display.text = "A"
+	# Change number colour depending on the suit
+	if card.id.begins_with("heart") or card.id.begins_with("diamond"):
+		card_number_display.modulate = Color("#E64539")
+	else:
+		card_number_display.modulate = Color("BLACK")
 
 func _ready():
 	self.mouse_entered.connect(_on_mouse_entered)
