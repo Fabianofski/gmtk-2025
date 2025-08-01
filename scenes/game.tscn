@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://7irymsguxr1n"]
+[gd_scene load_steps=57 format=4 uid="uid://7irymsguxr1n"]
 
 [ext_resource type="Script" uid="uid://bfys28ih4t0op" path="res://scenes/camera_mvmt.gd" id="1_dinhu"]
 [ext_resource type="Script" uid="uid://ccrn643plqokb" path="res://cards/player_hand.gd" id="1_lbhrr"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bnveft57om3d8" path="res://sprites/enviro/decorations/decoration_6.png" id="9_dinhu"]
 [ext_resource type="Texture2D" uid="uid://wu4ppt58u1cu" path="res://sprites/enviro/decorations/decoration_5.png" id="10_kvuet"]
 [ext_resource type="PackedScene" uid="uid://b882fewg5y6x5" path="res://scenes/player.tscn" id="10_trtic"]
+[ext_resource type="Texture2D" uid="uid://b1efkpemtkmt0" path="res://sprites/ui/panel_dark.png" id="14_bt5mj"]
 [ext_resource type="Texture2D" uid="uid://c2nn2kppahdit" path="res://sprites/ui/panel.png" id="14_trtic"]
 [ext_resource type="Texture2D" uid="uid://b08bw6k7cmojr" path="res://sprites/ui/panel_light.png" id="15_ir15t"]
 [ext_resource type="Texture2D" uid="uid://bfxtvi31bc2b4" path="res://sprites/player/generic_shadow_tex.png" id="16_rysoc"]
@@ -675,7 +676,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("14_trtic")
+texture = ExtResource("14_bt5mj")
 draw_center = false
 patch_margin_left = 16
 patch_margin_top = 16
@@ -872,9 +873,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
-offset_top = 20.0
+offset_top = 27.0
 offset_right = 20.0
-offset_bottom = 60.0
+offset_bottom = 67.0
 grow_horizontal = 2
 
 [node name="Goal BG" type="NinePatchRect" parent="Game Manager/Goal"]
@@ -954,6 +955,7 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="Button BG Top" type="NinePatchRect" parent="Game Manager/Next Round"]
+layout_mode = 0
 offset_left = -61.0
 offset_top = 8.0
 offset_right = 40.0
