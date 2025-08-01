@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=4 uid="uid://7irymsguxr1n"]
+[gd_scene load_steps=65 format=4 uid="uid://7irymsguxr1n"]
 
 [ext_resource type="Script" uid="uid://bfys28ih4t0op" path="res://scenes/camera_mvmt.gd" id="1_dinhu"]
 [ext_resource type="Script" uid="uid://ccrn643plqokb" path="res://cards/player_hand.gd" id="1_lbhrr"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://c3t2gmc5br1gl" path="res://sprites/ui/next_turn_btn_3.png" id="21_bt5mj"]
 [ext_resource type="Texture2D" uid="uid://fe8f3su0b8e0" path="res://sprites/ui/next_turn_btn_2.png" id="22_e1j6l"]
 [ext_resource type="Script" uid="uid://2kk0y17tyv38" path="res://common/tutorial.gd" id="24_e1j6l"]
+[ext_resource type="Script" uid="uid://cm5w7mx5c1l28" path="res://common/lose.gd" id="25_bhx41"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p57ef"]
 sky_top_color = Color(0.394084, 0.179147, 0.423439, 1)
@@ -1042,6 +1043,94 @@ label_settings = SubResource("LabelSettings_bt5mj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="LoseScreen" type="Node3D" parent="."]
+
+[node name="Control" type="Control" parent="LoseScreen"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("25_bhx41")
+
+[node name="Mouse Input Blocker" type="ColorRect" parent="LoseScreen/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="LosePanel" type="NinePatchRect" parent="LoseScreen/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.0
+offset_top = -144.0
+offset_right = 307.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_trtic")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Title" type="Label" parent="LoseScreen/Control/LosePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -248.0
+offset_top = 14.0
+offset_right = 247.0
+offset_bottom = 75.0
+grow_horizontal = 2
+text = "You Lost!"
+label_settings = SubResource("LabelSettings_e1j6l")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Message" type="Label" parent="LoseScreen/Control/LosePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -248.5
+offset_top = 92.0
+offset_right = 246.5
+offset_bottom = 153.0
+grow_horizontal = 2
+text = "You ran out of cards"
+label_settings = SubResource("LabelSettings_e1j6l")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="RestartBtn" type="Button" parent="LoseScreen/Control/LosePanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -69.0
+offset_right = 50.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_qnb83")
+text = "Restart"
+
 [node name="Tutorial" type="Node3D" parent="."]
 
 [node name="Control" type="Control" parent="Tutorial"]
@@ -1123,5 +1212,6 @@ theme = SubResource("Theme_qnb83")
 text = "Du.. what?"
 
 [connection signal="pressed" from="Game Manager/Next Round/Button" to="Game Manager" method="next_round"]
+[connection signal="pressed" from="LoseScreen/Control/LosePanel/RestartBtn" to="LoseScreen/Control" method="restart"]
 [connection signal="pressed" from="Tutorial/Control/Tutorial Panel/Back Button" to="Tutorial/Control" method="_on_back_button_pressed"]
 [connection signal="pressed" from="Tutorial/Control/Tutorial Panel/Next Button" to="Tutorial/Control" method="_on_next_button_pressed"]

@@ -31,5 +31,13 @@ func shuffle_cards():
 func draw_cards(amount: int) -> Array[Card]: 
 	var drawed_cards: Array[Card] = []
 	for i in amount:
-		drawed_cards.append(cards.pop_back())
+		var card = cards.pop_back()
+		if card == null: 
+			if i == 0: 
+				SignalBus.game_over.emit("You ran out of cards!")
+				return []
+			else: 
+				return drawed_cards
+		else:
+			drawed_cards.append(card)
 	return drawed_cards

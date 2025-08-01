@@ -77,8 +77,11 @@ func next_round():
 		
 		var diff = hand['dfs'] - old_hand['atk']
 		if diff <= 0: 
-			print("losing", diff, 'hearts')
+			print("losing ", diff, ' hearts')
 			health += diff
+
+		if health <= 0: 
+			SignalBus.game_over.emit("You ran out of hearts!")
 		
 		state = STATE.Attack
 		state_info.text = "ATK"
