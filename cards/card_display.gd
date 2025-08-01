@@ -3,6 +3,7 @@ class_name CardDisplay
 
 var card: Card = null 
 var selected: bool = false
+var card_used: bool = false
 var mouse_on_card: bool = false
 signal update
 signal tween_to_position(pos, rot, time)
@@ -18,9 +19,12 @@ signal tween_to_position(pos, rot, time)
 @onready var past_player_hand_parent: Node3D = get_node("../../PastPlayerHandCards")
 @onready var player_hand_parent: Node3D = get_node("../../PlayerHandCards")
 
+var base_pos: Vector3; 
+var base_rot: Vector3; 
+
 func _init():
 	update.connect(update_card)
-	tween_to_position.connect(tween_to_new_position)
+	tween_to_position.connect(set_base_pos)
 	SignalBus.next_round_started.connect(next_round_started)
 
 func next_round_started(state):
@@ -28,6 +32,7 @@ func next_round_started(state):
 		queue_free()
 
 	if selected and state == Game.STATE.Defense:
+		card_used = true
 		self.reparent(past_player_hand_parent)
 
 func update_card(_card: Card): 
@@ -51,6 +56,11 @@ func _ready():
 	self.mouse_entered.connect(_on_mouse_entered)
 	self.mouse_exited.connect(_on_mouse_exited)
 
+func set_base_pos(pos: Vector3, rot: Vector3, time: float): 
+	base_rot = rot; 
+	base_pos = pos; 
+	tween_to_new_position(pos, rot, time)
+
 func tween_to_new_position(pos: Vector3, rot: Vector3, time: float): 
 	var tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
@@ -60,7 +70,7 @@ func tween_to_new_position(pos: Vector3, rot: Vector3, time: float):
 
 func _unhandled_input(event):
 	var left_click = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed
-	if not left_click or not mouse_on_card:
+	if card_used or not left_click or not mouse_on_card:
 		return 
 
 	selected = not selected
@@ -71,12 +81,16 @@ func _unhandled_input(event):
 		SignalBus.deselect_card.emit(card)
 
 func _on_mouse_entered() -> void:
+	if card_used:
+		return
 	mouse_on_card = true
 	Input.set_default_cursor_shape(Input.CursorShape.CURSOR_POINTING_HAND)
-	tween_to_new_position(Vector3(position.x, 0.2, position.z), Vector3(-10,30,10), 0.2)
+	tween_to_new_position(Vector3(base_pos.x, 0.2, base_pos.z), Vector3(-10,30,10), 0.2)
 	
 func _on_mouse_exited() -> void:
+	if card_used: 
+		return
 	mouse_on_card = false
 	Input.set_default_cursor_shape(Input.CursorShape.CURSOR_ARROW)
 	if not selected: 
-		tween_to_new_position(Vector3(position.x, 0, position.z), Vector3.ZERO, 0.2)
+		tween_to_new_position(Vector3(base_pos.x, 0, base_pos.z), base_rot, 0.2)
