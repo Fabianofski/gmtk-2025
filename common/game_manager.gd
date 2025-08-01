@@ -4,10 +4,10 @@ var selected_cards: Array[Card] = []
 var last_played: Array[Card] = []
 @export var health: int = 10
 @onready var round_info: Label = $RoundInfo
-@onready var state_info: Label = $StateInfo
-@onready var goal_info: Label = $GoalInfo
-@onready var health_label: Label = $Health
-@onready var score_label: Label = $Score
+@onready var state_info: Label = $"State/StateInfo"
+@onready var goal_info: Label = $"Goal/GoalInfo"
+@onready var health_label: Label = $"Health/Health Label"
+@onready var score_label: Label = $"Score/Score Label"
 
 @export var score: int = 0
 
@@ -67,9 +67,9 @@ func next_round():
 		last_played = selected_cards
 		state = STATE.Defense
 
-		score_label.text = "Score: " + str(score)
-		state_info.text = "DFS"
-		goal_info.text = "Beat your own attack with " + str(values['atk']) + "ATK points"
+		score_label.text = str(score).pad_zeros(9)
+		state_info.text = "DEF"
+		goal_info.text = "Beat your own attack with " + str(values['atk']) + " ATK points"
 	else: 
 		var hand = calc_atk_dfs_values(selected_cards)
 		var old_hand = calc_atk_dfs_values(last_played)
@@ -82,7 +82,7 @@ func next_round():
 		state = STATE.Attack
 		state_info.text = "ATK"
 		goal_info.text = "Attack and score points!"
-		health_label.text = "Health: " + str(health)
+		health_label.text = str(health).pad_zeros(4)
 
 	selected_cards = []
 	update_label()
