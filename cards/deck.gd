@@ -20,6 +20,11 @@ func _init():
 					cards.append(card)
 		dir.list_dir_end()
 
+	SignalBus.put_card_back_to_deck.connect(put_card_back_to_deck)
+
+func put_card_back_to_deck(card: Card): 
+	cards.insert(0, card)
+
 func shuffle_cards(): 
 	cards.shuffle()
 

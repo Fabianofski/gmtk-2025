@@ -29,6 +29,7 @@ func _init():
 
 func next_round_started(state):
 	if selected and state == Game.STATE.Attack:
+		SignalBus.put_card_back_to_deck.emit(card)
 		queue_free()
 
 	if selected and state == Game.STATE.Defense:
