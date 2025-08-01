@@ -13,7 +13,7 @@ var last_played: Array[Card] = []
 @export var score: int = 0
 @export var current_round: int = 0
 @export var round_target_scores: Array[int] = [] 
-var target_score = func (): return round_target_scores[current_round]
+var target_score = func(): return round_target_scores[current_round]
 
 enum STATE { Attack, Defense }
 var state: STATE = STATE.Attack
@@ -21,6 +21,9 @@ var state: STATE = STATE.Attack
 func _init():
 	SignalBus.select_card.connect(select_card)	
 	SignalBus.deselect_card.connect(deselect_card)	
+
+func _ready():
+	goal_info.text = "Score %d more points to win" % (max(0, target_score.call() - score))
 
 func select_card(card: Card): 
 	selected_cards.append(card)
@@ -36,8 +39,13 @@ func update_label():
 	print(preview)
 	if state == STATE.Attack: 
 		round_info.text = "Atk: " + str(preview['atk']) + ", Score: " + str(preview['score'])
+		goal_info.text = "Score %d more points to win" % (max(0, target_score.call() - score))
+		state_info.text = "ATK"
 	else: 
 		round_info.text = "Def: " + str(preview['dfs'])
+		state_info.text = "DEF"
+	health_label.text = str(health).pad_zeros(4)
+	score_label.text = str(score).pad_zeros(9)
 
 func calc_atk_dfs_values(cards: Array[Card]): 
 	var atk = 0
@@ -67,11 +75,15 @@ func next_round():
 		var values = calc_atk_dfs_values(selected_cards)
 		score += values['score']
 
-		last_played = selected_cards
-		state = STATE.Defense
+		if score >= target_score.call(): 
+			print("WON!")
+			score = 0
+			current_round += 1
+			SignalBus.game_won.emit(current_round)
+		else:
+			last_played = selected_cards
+			state = STATE.Defense
 
-		score_label.text = str(score).pad_zeros(9)
-		state_info.text = "DEF"
 		goal_info.text = "Beat your own attack's " + str(values['atk']) + " points"
 	else: 
 		var hand = calc_atk_dfs_values(selected_cards)
@@ -79,16 +91,12 @@ func next_round():
 		
 		var diff = hand['dfs'] - old_hand['atk']
 		if diff <= 0: 
-			print("losing ", diff, ' hearts')
 			health += diff
 
 		if health <= 0: 
 			SignalBus.game_over.emit("(RAN OUT OF HEALTH)")
 		
 		state = STATE.Attack
-		state_info.text = "ATK"
-		goal_info.text = "Attack and score points!"
-		health_label.text = str(health).pad_zeros(4)
 
 	selected_cards = []
 	update_label()

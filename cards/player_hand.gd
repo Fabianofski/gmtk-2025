@@ -11,8 +11,16 @@ func _ready():
 	SignalBus.select_card.connect(remove_card_from_hand)	
 	SignalBus.deselect_card.connect(add_card_back_to_hand)	
 	SignalBus.next_round_started.connect(draw_cards)
+	SignalBus.game_won.connect(game_won)
 
 	deck.shuffle_cards() 
+	hand.append_array(deck.draw_cards(max_cards))
+	display_cards(hand)
+
+func game_won(_round: int): 
+	hand = [] 
+	clear_cards(hand_parent) 
+	clear_cards(atk_hand_parent) 
 	hand.append_array(deck.draw_cards(max_cards))
 	display_cards(hand)
 
@@ -28,6 +36,10 @@ func draw_cards(_state):
 	var new_cards = deck.draw_cards(cards_to_draw)
 	display_cards(new_cards) 
 	hand.append_array(new_cards)
+
+func clear_cards(node: Node3D): 
+	for child in node.get_children(): 
+		child.queue_free()
 
 func display_cards(cards: Array[Card]):
 	for i in cards.size(): 

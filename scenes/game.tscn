@@ -954,6 +954,20 @@ script = ExtResource("2_yqjtg")
 transform = Transform3D(0.585, 0, 0, 0, 0.585, 0, 0, 0, 0.585, 0, -3.7443e-09, 0.0856595)
 texture = ExtResource("13_pl11u")
 
+[node name="CardsLeft" type="Label" parent="Player Hand/Deck"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -11.0
+offset_right = -21.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Cards left: 36"
+
 [node name="PlayerHandCards" type="Node3D" parent="Player Hand"]
 transform = Transform3D(0.7, 0, 0, 0, 0.646715, 0.267878, 0, -0.267878, 0.646715, -1.5, 2.5, 3.5)
 
@@ -962,6 +976,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 3, -2)
 
 [node name="Game Manager" type="Node3D" parent="."]
 script = ExtResource("4_lbhrr")
+round_target_scores = Array[int]([1000, 5000, 20000])
 
 [node name="Border" type="NinePatchRect" parent="Game Manager"]
 anchors_preset = 15
