@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://b882fewg5y6x5"]
+[gd_scene load_steps=19 format=3 uid="uid://b882fewg5y6x5"]
 
 [ext_resource type="Texture2D" uid="uid://c8t0qfl1ijti2" path="res://sprites/player/shades_tex.png" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://bfxtvi31bc2b4" path="res://sprites/player/generic_shadow_tex.png" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://co24emyllcpo2" path="res://sprites/player/hand_shadow_tex.png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://diiibkn2s8khr" path="res://sprites/cards/back.png" id="4_dqkch"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhqgy"]
 transparency = 2
@@ -207,6 +208,42 @@ mesh = SubResource("QuadMesh_tuyoq")
 
 [node name="Cards" type="Node3D" parent="Hand"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.120549)
+
+[node name="Card 1" type="Sprite3D" parent="Hand/Cards"]
+transform = Transform3D(0.34641, 0.2, 7.38418e-15, -0.2, 0.34641, -4.26326e-15, -8.52651e-15, -1.17484e-23, 0.4, 0.0397202, 0.0513529, 0.080466)
+double_sided = false
+texture_filter = 0
+texture = ExtResource("4_dqkch")
+
+[node name="Card 2" type="Sprite3D" parent="Hand/Cards"]
+transform = Transform3D(0.38637, 0.103528, 8.23598e-15, -0.103528, 0.38637, -2.20682e-15, -8.52651e-15, -1.17484e-23, 0.4, 0.0498369, 0.126343, 0.0377222)
+double_sided = false
+texture_filter = 0
+texture = ExtResource("4_dqkch")
+
+[node name="Card 3" type="Sprite3D" parent="Hand/Cards"]
+transform = Transform3D(0.4, -1.49012e-08, 8.52651e-15, 1.49012e-08, 0.4, 4.65665e-22, -8.52651e-15, 3.27268e-22, 0.4, -0.0280795, 0.208911, -0.00153264)
+double_sided = false
+texture_filter = 0
+texture = ExtResource("4_dqkch")
+
+[node name="Card 4" type="Sprite3D" parent="Hand/Cards"]
+transform = Transform3D(0.38637, -0.103528, 8.23598e-15, 0.103528, 0.38637, 2.20682e-15, -8.52651e-15, 3.27268e-22, 0.4, -0.119084, 0.16432, -0.0539471)
+double_sided = false
+texture_filter = 0
+texture = ExtResource("4_dqkch")
+
+[node name="Card 5" type="Sprite3D" parent="Hand/Cards"]
+transform = Transform3D(0.34641, -0.2, 7.38418e-15, 0.2, 0.34641, 4.26326e-15, -8.52651e-15, 3.39017e-22, 0.4, -0.19675, 0.145236, -0.0835547)
+double_sided = false
+texture_filter = 0
+texture = ExtResource("4_dqkch")
+
+[node name="Card 6" type="Sprite3D" parent="Hand/Cards"]
+transform = Transform3D(0.282843, -0.282843, 6.02915e-15, 0.282843, 0.282843, 6.02916e-15, -8.52651e-15, 9.71251e-22, 0.4, -0.230322, 0.0665463, -0.115031)
+double_sided = false
+texture_filter = 0
+texture = ExtResource("4_dqkch")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
