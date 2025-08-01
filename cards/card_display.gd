@@ -6,6 +6,7 @@ var selected: bool = false
 var mouse_on_card: bool = false
 signal update
 @onready var front: Sprite3D = $front
+@onready var card_number_display: Label3D = $"Card Number"
 
 func _init():
 	update.connect(update_card)
@@ -18,6 +19,17 @@ func destroy_card(_state):
 func update_card(_card: Card): 
 	card = _card
 	front.texture = card.sprite
+	# Show card number (a.k.a. score)
+	card_number_display.text = str(card.score)
+	match card_number_display.text:
+		"11":
+			card_number_display.text = "J"
+		"12":
+			card_number_display.text = "Q"
+		"13":
+			card_number_display.text = "K"
+		"14":
+			card_number_display.text = "A"
 
 func _ready():
 	self.mouse_entered.connect(_on_mouse_entered)
