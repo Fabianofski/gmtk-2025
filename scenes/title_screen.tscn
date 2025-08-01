@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dh2aif2andq34"]
+[gd_scene load_steps=41 format=3 uid="uid://dh2aif2andq34"]
 
 [ext_resource type="Texture2D" uid="uid://biw85nmn6qtqt" path="res://icon.svg" id="1_3yumr"]
 [ext_resource type="Texture2D" uid="uid://b08bw6k7cmojr" path="res://sprites/ui/panel_light.png" id="1_e54dn"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://fe8f3su0b8e0" path="res://sprites/ui/next_turn_btn_2.png" id="5_tklts"]
 [ext_resource type="FontFile" uid="uid://b4aum1qd8riqh" path="res://fonts/Plaster-Regular.ttf" id="6_u26n3"]
 [ext_resource type="Script" uid="uid://bfys28ih4t0op" path="res://scenes/camera_mvmt.gd" id="8_p07av"]
+[ext_resource type="Texture2D" uid="uid://b1efkpemtkmt0" path="res://sprites/ui/panel_dark.png" id="9_174rq"]
 [ext_resource type="PackedScene" uid="uid://cjhruytcug36n" path="res://sprites/table/table.blend" id="9_khjys"]
 [ext_resource type="Texture2D" uid="uid://c4nixbheu0pj3" path="res://sprites/enviro/floor_tex.png" id="10_174rq"]
 [ext_resource type="Texture2D" uid="uid://mbc5rc7pje0a" path="res://sprites/enviro/wall_tex.png" id="11_lrxh4"]
@@ -44,7 +45,7 @@ fog_mode = 1
 fog_light_color = Color(0, 0, 0, 1)
 fog_density = 1.0
 fog_depth_begin = 0.0
-fog_depth_end = 35.0
+fog_depth_end = 36.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrrko"]
 albedo_texture = ExtResource("10_174rq")
@@ -317,6 +318,20 @@ text = "QUIT"
 label_settings = SubResource("LabelSettings_ib7db")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Border" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_174rq")
+draw_center = false
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
 
 [node name="BG" type="Node3D" parent="."]
 

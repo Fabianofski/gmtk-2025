@@ -718,9 +718,9 @@ patch_margin_bottom = 16
 [node name="Score" type="Control" parent="Game Manager"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 9.0
+offset_left = 10.0
 offset_top = 8.0
-offset_right = 9.0
+offset_right = 10.0
 offset_bottom = 8.0
 
 [node name="Score BG" type="NinePatchRect" parent="Game Manager/Score"]
@@ -780,7 +780,8 @@ layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
+offset_left = -37.0
+offset_right = 3.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
