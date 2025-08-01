@@ -6,6 +6,10 @@ extends Node
 var cards_copy: Array[Card] = []
 var cards_folder = "res://cards/res"
 
+# Used for hologram movement
+var glitchiness = 0.01
+var elapsed_time = 0.0
+
 func _init():
 	var dir := DirAccess.open(cards_folder)
 	if dir:
@@ -29,6 +33,16 @@ func _init():
 
 func _ready():
 	update_label()
+
+func _process(delta: float) -> void: # Glitchy holo movement
+	elapsed_time += delta
+	if elapsed_time >= 3.0:
+		elapsed_time -= 3.0
+		cards_label.position = Vector3(0.055, 0, -0.381) + Vector3(randf_range(-glitchiness, glitchiness), randf_range(-glitchiness, glitchiness), randf_range(-glitchiness, glitchiness))
+		cards_label.scale = Vector3(1.411 * randf_range(0.8, 1.2), 1.411 * randf_range(0.8, 1.2), 1.411 * randf_range(0.8, 1.2))
+	elif elapsed_time >= 0.15 and elapsed_time <= 1.0:
+		cards_label.position = Vector3(0.055, 0, -0.381)
+		cards_label.scale = Vector3(1.411, 1.411, 1.411)
 
 func game_won(_round: int): 
 	cards = cards_copy.duplicate()
