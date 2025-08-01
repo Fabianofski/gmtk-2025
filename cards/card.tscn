@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7r5cmd7t0th8"]
+[gd_scene load_steps=8 format=3 uid="uid://b7r5cmd7t0th8"]
 
 [ext_resource type="Script" uid="uid://dsdyh0qfqepcn" path="res://cards/card_display.gd" id="1_ivai2"]
 [ext_resource type="Texture2D" uid="uid://diiibkn2s8khr" path="res://sprites/cards/back.png" id="2_4k7q8"]
 [ext_resource type="Texture2D" uid="uid://cnslyp8mawj3h" path="res://sprites/cards/template.png" id="3_4k7q8"]
 [ext_resource type="FontFile" uid="uid://d3pvmoqj76svu" path="res://fonts/Lexend-Regular.ttf" id="4_f61jr"]
+[ext_resource type="Texture2D" uid="uid://cvve6ey706sqt" path="res://sprites/cards/atk_icon.png" id="5_jsqqk"]
+[ext_resource type="Texture2D" uid="uid://c1i5y21d308ek" path="res://sprites/cards/def_icon.png" id="6_nwj5s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4k7q8"]
 size = Vector3(0.845, 1.18, 0.01)
@@ -23,16 +25,40 @@ visible = false
 modulate = Color(0, 0, 0, 1)
 double_sided = false
 texture_filter = 0
+render_priority = -1
 texture = ExtResource("3_4k7q8")
 
 [node name="front" type="Sprite3D" parent="."]
 double_sided = false
 texture_filter = 0
-render_priority = 1
 texture = ExtResource("3_4k7q8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_4k7q8")
+
+[node name="dfs" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0744162, -0.4, 0.022)
+sorting_offset = 1.0
+shaded = true
+double_sided = false
+texture_filter = 0
+modulate = Color(0, 0, 0, 1)
+text = "6"
+font = ExtResource("4_f61jr")
+outline_size = 0
+horizontal_alignment = 0
+
+[node name="atk" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0744162, -0.2, 0)
+sorting_offset = 1.0
+shaded = true
+double_sided = false
+texture_filter = 0
+modulate = Color(0, 0, 0, 1)
+text = "6"
+font = ExtResource("4_f61jr")
+outline_size = 0
+horizontal_alignment = 0
 
 [node name="Card Number" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.385088, 0.483134, 0.0055145)
@@ -40,9 +66,18 @@ sorting_offset = 1.0
 shaded = true
 double_sided = false
 texture_filter = 0
-render_priority = 1
 modulate = Color(0, 0, 0, 1)
 text = "6"
 font = ExtResource("4_f61jr")
 outline_size = 0
 horizontal_alignment = 0
+
+[node name="atk_icon" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297382, -0.195949, 0.0173785)
+texture_filter = 0
+texture = ExtResource("5_jsqqk")
+
+[node name="dfs_icon" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297382, -0.400168, 0.0173785)
+texture_filter = 0
+texture = ExtResource("6_nwj5s")

@@ -2,7 +2,8 @@ extends Node
 
 @export var max_cards = 6
 @export var hand: Array[Card]
-@onready var hand_parent: Node3D = $Cards
+@onready var hand_parent: Node3D = $PlayerHandCards
+@onready var atk_hand_parent: Node3D = $PastPlayerHandCards
 var card_prefab = preload("res://cards/card.tscn")
 @onready var deck: Deck = $Deck
 
@@ -37,12 +38,13 @@ func display_cards(cards: Array[Card]):
 		card.global_rotation = deck.global_rotation
 		card.emit_signal("update", card_res) 
 
-	sort_cards()
+	sort_cards(hand_parent)
+	sort_cards(atk_hand_parent)
 
-func sort_cards(): 
+func sort_cards(node: Node3D): 
 	await get_tree().process_frame
 	var i = 0
-	for child in hand_parent.get_children():
+	for child in node.get_children():
 		if not is_instance_valid(child): 
 			continue
 		var target_pos = Vector3(i*0.8,0,0)

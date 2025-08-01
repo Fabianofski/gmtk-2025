@@ -692,8 +692,11 @@ script = ExtResource("2_yqjtg")
 transform = Transform3D(0.585, 0, 0, 0, 0.585, 0, 0, 0, 0.585, 0, -3.7443e-09, 0.0856595)
 texture = ExtResource("13_pl11u")
 
-[node name="Cards" type="Node3D" parent="Player Hand"]
-transform = Transform3D(0.7, 0, 0, 0, 0.646303, 0.268871, 0, -0.268871, 0.646303, -1.41181, 2.44641, 3.56764)
+[node name="PlayerHandCards" type="Node3D" parent="Player Hand"]
+transform = Transform3D(0.7, 0, 0, 0, 0.646715, 0.267878, 0, -0.267878, 0.646715, -1.5, 2.5, 3.5)
+
+[node name="PastPlayerHandCards" type="Node3D" parent="Player Hand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 3, -2)
 
 [node name="Game Manager" type="Node3D" parent="."]
 script = ExtResource("4_lbhrr")
