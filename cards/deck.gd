@@ -2,7 +2,7 @@ class_name Deck
 extends Node 
 
 @export var cards: Array[Card] = []
-@onready var cards_label: Label = $"CardsLeft"
+@onready var cards_label: Label3D = $"CardsLeft3D"
 var cards_copy: Array[Card] = []
 var cards_folder = "res://cards/res"
 
@@ -40,7 +40,7 @@ func shuffle_cards():
 	cards.shuffle()
 
 func update_label(): 
-	cards_label.text = "Cards Left: %d" % cards.size()
+	cards_label.text = "%d" % cards.size()
 
 func draw_cards(amount: int) -> Array[Card]: 
 	var drawed_cards: Array[Card] = []

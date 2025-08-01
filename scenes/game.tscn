@@ -955,6 +955,7 @@ transform = Transform3D(0.585, 0, 0, 0, 0.585, 0, 0, 0, 0.585, 0, -3.7443e-09, 0
 texture = ExtResource("13_pl11u")
 
 [node name="CardsLeft" type="Label" parent="Player Hand/Deck"]
+visible = false
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -967,6 +968,15 @@ offset_bottom = 12.0
 grow_horizontal = 0
 grow_vertical = 2
 text = "Cards left: 36"
+
+[node name="CardsLeft3D" type="Label3D" parent="Player Hand/Deck"]
+transform = Transform3D(-1.3968, -1.23333e-07, 0.141713, -0.198047, 6.16666e-08, -0.999478, 1.13455e-07, -1.41077, -5.60775e-08, 0, 2.98023e-08, -0.381341)
+modulate = Color(0.5733, 0.91, 0.752873, 0.768627)
+outline_modulate = Color(0.2294, 0.248147, 0.37, 0.501961)
+text = "6969"
+font = ExtResource("17_ssvqc")
+font_size = 24
+outline_size = 4
 
 [node name="PlayerHandCards" type="Node3D" parent="Player Hand"]
 transform = Transform3D(0.7, 0, 0, 0, 0.646715, 0.267878, 0, -0.267878, 0.646715, -1.5, 2.5, 3.5)
