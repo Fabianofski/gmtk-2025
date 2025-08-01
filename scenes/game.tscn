@@ -802,6 +802,7 @@ mesh = SubResource("BoxMesh_iywne")
 
 [node name="Spotlight 1" type="SpotLight3D" parent="Room"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 9.50974, 0)
+light_energy = 3.048
 spot_range = 14.4736
 spot_angle = 24.8039
 
