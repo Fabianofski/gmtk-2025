@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b7r5cmd7t0th8"]
 
-[ext_resource type="Script" uid="uid://ckbkclqwiud1a" path="res://cards/card_display.gd" id="1_ivai2"]
+[ext_resource type="Script" uid="uid://dsdyh0qfqepcn" path="res://cards/card_display.gd" id="1_ivai2"]
 [ext_resource type="Texture2D" uid="uid://diiibkn2s8khr" path="res://sprites/cards/back.png" id="2_4k7q8"]
 [ext_resource type="Texture2D" uid="uid://bmowq7up2b66w" path="res://sprites/cards/individual/club/7.png" id="3_f61jr"]
 
