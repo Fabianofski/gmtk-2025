@@ -12,20 +12,18 @@ const STRING_ARRAY : Array = ["OK!",
 
 "Are you familiar with Durak?",
 
-"Durak is a card game popular in Russia and other post-Soviet states.
-The goal is to get rid of all cards in the deck.",
+"Durak is a card game popular in Russia and other post-Soviet states. The goal is to get rid of all cards in the deck.
 
-"In Durak, you always have six cards in your hand.
-Ordinarily, there are two distinct roles: ATTACKERS and DEFENDERS. [Attackers do this, defenders do that, PLACEHOLDER, PLEASE REPLACE WITH A SHORT EXPLANATION]",
-"However, this is no ordinary game of Durak. Because your opponent today... is YOURSELF.",
+Ordinarily, there are two distinct roles: ATTACKERS and DEFENDERS.",
 
-"You read that right!
-A time machine malfunction has resulted in you being forced to play Durak against yourself on a loop, as both the attacker AND the defender.",
+"However, this is no ordinary game of Durak. Because your opponent... is YOURSELF!
+
+A time machine malfunction has resulted in you being forced to play against yourself on a loop, as both the attacker AND the defender.",
 
 "Play as many attack cards as you want to rack up a combo, then travel TO THE FUTURE and defend yourself from your own attack!
-Then, go BACK TO THE PAST, and set up a new attack!",
+Then, go BACK TO THE PAST, and set up a new attack!
 
-"Reach the score win condition before shedding all your cards, or else the timestream will dissipate FOREVER.",
+Reach the score win condition before shedding all your cards, or else the timestream will dissipate FOREVER.",
 
 "Fun facts about Durak:
 1. \"Durak\" means \"fool\" in Russian.
@@ -50,15 +48,15 @@ func _process(_delta: float) -> void:
 		2:
 			back_button.text = "Back"
 			next_button.text = "Next"
-		8: # Yes, I know...
+		5: # Yes, I know...
 			back_button.text = "Back"
 			next_button.text = "Next"
-		9:
+		6:
 			next_button.text = "Okay."
-		10:
+		7:
 			next_button.text = "OKAY!!!"
 	
-	if current_displayed_string == 0 or current_displayed_string == 11:
+	if current_displayed_string == 0 or current_displayed_string == 8:
 		self.queue_free() # Delete the whole dang tutorial node
 
 # Button zone
