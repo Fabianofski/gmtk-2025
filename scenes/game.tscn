@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://7irymsguxr1n"]
+[gd_scene load_steps=69 format=4 uid="uid://7irymsguxr1n"]
 
 [ext_resource type="Script" uid="uid://bfys28ih4t0op" path="res://scenes/camera_mvmt.gd" id="1_dinhu"]
 [ext_resource type="Script" uid="uid://ccrn643plqokb" path="res://cards/player_hand.gd" id="1_lbhrr"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://fe8f3su0b8e0" path="res://sprites/ui/next_turn_btn_2.png" id="22_e1j6l"]
 [ext_resource type="Script" uid="uid://2kk0y17tyv38" path="res://common/tutorial.gd" id="24_e1j6l"]
 [ext_resource type="Script" uid="uid://cm5w7mx5c1l28" path="res://common/lose.gd" id="25_bhx41"]
+[ext_resource type="Script" uid="uid://gbf10at71wfh" path="res://common/text_popup.gd" id="27_qnb83"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p57ef"]
 sky_top_color = Color(0.394084, 0.179147, 0.423439, 1)
@@ -775,6 +776,14 @@ font = ExtResource("19_264po")
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_sww3w"]
+font = ExtResource("19_264po")
+font_size = 40
+font_color = Color(0, 0.5339, 0.974667, 1)
+outline_size = 7
+shadow_size = 18
+shadow_color = Color(0, 0, 0, 1)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -1485,6 +1494,37 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = SubResource("Theme_qnb83")
 text = "Du.. what?"
+
+[node name="Popup" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+script = ExtResource("27_qnb83")
+
+[node name="Label" type="Label" parent="Popup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.5
+offset_top = -25.0
+offset_right = 68.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "POPUP"
+label_settings = SubResource("LabelSettings_sww3w")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Game Manager/Next Round/Button" to="Game Manager" method="next_round"]
 [connection signal="pressed" from="LoseScreen/Control/RestartBtn" to="LoseScreen/Control" method="restart"]
