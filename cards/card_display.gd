@@ -98,7 +98,7 @@ func _on_mouse_entered() -> void:
 		return
 	mouse_on_card = true
 	Input.set_default_cursor_shape(Input.CursorShape.CURSOR_POINTING_HAND)
-	tween_to_new_position(Vector3(base_pos.x, 0.2, base_pos.z), Vector3(-10,30,10), 0.2)
+	tween_to_new_position(Vector3(base_pos.x, 0.2, 0.2), Vector3(-15, 0, 0), 0.2)
 	
 func _on_mouse_exited() -> void:
 	if card_used: 
