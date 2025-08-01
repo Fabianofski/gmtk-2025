@@ -1,7 +1,8 @@
-[gd_scene load_steps=69 format=4 uid="uid://7irymsguxr1n"]
+[gd_scene load_steps=70 format=4 uid="uid://7irymsguxr1n"]
 
 [ext_resource type="Script" uid="uid://bfys28ih4t0op" path="res://scenes/camera_mvmt.gd" id="1_dinhu"]
 [ext_resource type="Script" uid="uid://ccrn643plqokb" path="res://cards/player_hand.gd" id="1_lbhrr"]
+[ext_resource type="Script" uid="uid://ibv1vnrm7580" path="res://scenes/room.gd" id="2_sww3w"]
 [ext_resource type="Script" uid="uid://lks37hmucqb8" path="res://cards/deck.gd" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://cjhruytcug36n" path="res://sprites/table/table.blend" id="3_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://c4nixbheu0pj3" path="res://sprites/enviro/floor_tex.png" id="4_iywne"]
@@ -796,6 +797,7 @@ size = 3.702
 script = ExtResource("1_dinhu")
 
 [node name="Room" type="Node3D" parent="."]
+script = ExtResource("2_sww3w")
 
 [node name="table" parent="Room" instance=ExtResource("3_lnu2h")]
 transform = Transform3D(0.923879, 0, 0.382683, 0, 1, 0, -0.382683, 0, 0.923879, 0, 0, 0)
@@ -843,27 +845,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09, 0)
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 1.46231, 0, 0)
 
 [node name="Slots" type="MeshInstance3D" parent="Room/Decoration/Attacker\'s side"]
-transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -7.63861, 3.27922, -13.9217)
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -8.639, 3.279, -13.922)
 mesh = SubResource("QuadMesh_0tnpc")
 skeleton = NodePath("../..")
 
 [node name="Slots3" type="MeshInstance3D" parent="Room/Decoration/Attacker\'s side"]
-transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -5.7777, 3.18393, -18.2222)
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -6.778, 3.184, -18.222)
 mesh = SubResource("QuadMesh_0tnpc")
 skeleton = NodePath("../..")
 
 [node name="Stool3" type="MeshInstance3D" parent="Room/Decoration/Attacker\'s side"]
-transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -7.93205, 3.18393, -13.3209)
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -8.932, 3.184, -13.321)
 mesh = SubResource("QuadMesh_kvpfn")
 skeleton = NodePath("../..")
 
 [node name="Stool4" type="MeshInstance3D" parent="Room/Decoration/Attacker\'s side"]
-transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -5.78627, 3.22405, -16.8378)
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -6.786, 3.224, -16.838)
 mesh = SubResource("QuadMesh_kvpfn")
 skeleton = NodePath("../..")
 
 [node name="Slots5" type="MeshInstance3D" parent="Room/Decoration/Attacker\'s side"]
-transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -3.58574, 3.18393, -23.0181)
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -4.586, 3.184, -23.018)
 mesh = SubResource("QuadMesh_0tnpc")
 skeleton = NodePath("../..")
 
@@ -901,52 +903,52 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.462, 0, 8.74228e-08)
 
 [node name="Slots" type="MeshInstance3D" parent="Room/Decoration/Defender\'s side"]
-transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -7.63861, 3.27922, -13.9217)
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, 6.361, 3.279, -13.922)
 mesh = SubResource("QuadMesh_0tnpc")
 skeleton = NodePath("../..")
 
 [node name="Slots3" type="MeshInstance3D" parent="Room/Decoration/Defender\'s side"]
-transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -5.7777, 3.18393, -18.2222)
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, 5.222, 3.184, -18.222)
 mesh = SubResource("QuadMesh_0tnpc")
 skeleton = NodePath("../..")
 
 [node name="Stool3" type="MeshInstance3D" parent="Room/Decoration/Defender\'s side"]
-transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -7.93205, 3.18393, -13.3209)
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, 6.068, 3.184, -13.321)
 mesh = SubResource("QuadMesh_kvpfn")
 skeleton = NodePath("../..")
 
 [node name="Stool4" type="MeshInstance3D" parent="Room/Decoration/Defender\'s side"]
-transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -5.78627, 3.22405, -16.8378)
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, 5.214, 3.224, -16.838)
 mesh = SubResource("QuadMesh_kvpfn")
 skeleton = NodePath("../..")
 
 [node name="Slots5" type="MeshInstance3D" parent="Room/Decoration/Defender\'s side"]
-transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -3.58574, 3.18393, -23.0181)
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, 4.414, 3.184, -23.018)
 mesh = SubResource("QuadMesh_0tnpc")
 skeleton = NodePath("../..")
 
 [node name="Stool6" type="MeshInstance3D" parent="Room/Decoration/Defender\'s side"]
-transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -3.59431, 3.22405, -21.6338)
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, 4.406, 3.224, -21.634)
 mesh = SubResource("QuadMesh_kvpfn")
 skeleton = NodePath("../..")
 
 [node name="RoundTable" type="MeshInstance3D" parent="Room/Decoration/Defender\'s side"]
-transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, 5.55236, 3.22405, -16.5676)
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -4.44764, 3.22405, -16.5676)
 mesh = SubResource("QuadMesh_dinhu")
 skeleton = NodePath("../..")
 
 [node name="Chair" type="MeshInstance3D" parent="Room/Decoration/Defender\'s side"]
-transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, 5.55236, 3.22405, -14.467)
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -4.44764, 3.22405, -14.467)
 mesh = SubResource("QuadMesh_rysoc")
 skeleton = NodePath("../..")
 
 [node name="Chair2" type="MeshInstance3D" parent="Room/Decoration/Defender\'s side"]
-transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, 2.53914, 3.22405, -14.467)
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -7.46086, 3.22405, -14.467)
 mesh = SubResource("QuadMesh_rysoc")
 skeleton = NodePath("../..")
 
 [node name="Chair3" type="MeshInstance3D" parent="Room/Decoration/Defender\'s side"]
-transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, 8.29837, 3.22405, -14.467)
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -1.70163, 3.22405, -14.467)
 mesh = SubResource("QuadMesh_rysoc")
 skeleton = NodePath("../..")
 
