@@ -25,6 +25,12 @@ func _init():
 func _ready():
 	goal_info.text = "Score %d more points to win" % (max(0, target_score.call() - score))
 
+func _process(delta: float) -> void: # Update score display
+	if int(score_label.text) < score:
+		score_label.text = str(int(score_label.text)+1).pad_zeros(9)
+	elif int(score_label.text) > score:
+		score_label.text = str(int(score_label.text)-1).pad_zeros(9)
+
 func select_card(card: Card): 
 	selected_cards.append(card)
 	update_label()
@@ -45,7 +51,6 @@ func update_label():
 		round_info.text = "Def: " + str(preview['dfs'])
 		state_info.text = "DEF"
 	health_label.text = str(health).pad_zeros(4)
-	score_label.text = str(score).pad_zeros(9)
 
 func calc_atk_dfs_values(cards: Array[Card]): 
 	var atk = 0
@@ -94,7 +99,7 @@ func next_round():
 			health += diff
 
 		if health <= 0: 
-			SignalBus.game_over.emit("(RAN OUT OF HEALTH)")
+			SignalBus.game_over.emit("( RAN OUT OF HEALTH )")
 		
 		state = STATE.Attack
 
