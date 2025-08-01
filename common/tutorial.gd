@@ -17,7 +17,7 @@ The goal is to get rid of all cards in the deck.",
 
 "In Durak, you always have six cards in your hand.
 Ordinarily, there are two distinct roles: ATTACKERS and DEFENDERS. [Attackers do this, defenders do that, PLACEHOLDER, PLEASE REPLACE WITH A SHORT EXPLANATION]",
-"However, this is no ordinary game of Durak. Because your opponent today... is YOU, FROM THE PAST.",
+"However, this is no ordinary game of Durak. Because your opponent today... is YOURSELF.",
 
 "You read that right!
 A time machine malfunction has resulted in you being forced to play Durak against yourself on a loop, as both the attacker AND the defender.",

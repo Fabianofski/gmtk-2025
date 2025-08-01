@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://7irymsguxr1n"]
+[gd_scene load_steps=63 format=4 uid="uid://7irymsguxr1n"]
 
 [ext_resource type="Script" uid="uid://bfys28ih4t0op" path="res://scenes/camera_mvmt.gd" id="1_dinhu"]
 [ext_resource type="Script" uid="uid://ccrn643plqokb" path="res://cards/player_hand.gd" id="1_lbhrr"]
@@ -495,6 +495,22 @@ font = ExtResource("18_ssvqc")
 font = ExtResource("19_264po")
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1j6l"]
+bg_color = Color(0.678431, 0.184314, 0.270588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pl11u"]
+bg_color = Color(0.901961, 0.270588, 0.223529, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhx41"]
+bg_color = Color(0.470588, 0.113725, 0.309804, 1)
+
+[sub_resource type="Theme" id="Theme_qnb83"]
+Button/fonts/font = ExtResource("19_264po")
+Button/styles/focus = SubResource("StyleBoxFlat_e1j6l")
+Button/styles/hover = SubResource("StyleBoxFlat_pl11u")
+Button/styles/normal = SubResource("StyleBoxFlat_e1j6l")
+Button/styles/pressed = SubResource("StyleBoxFlat_bhx41")
 
 [node name="Node3D" type="Node3D"]
 
@@ -1075,9 +1091,10 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 16.0
 offset_top = -47.0
-offset_right = 105.0
+offset_right = 111.0
 offset_bottom = -16.0
 grow_vertical = 0
+theme = SubResource("Theme_qnb83")
 text = "Oh yeah."
 
 [node name="Next Button" type="Button" parent="Tutorial/Control/Tutorial Panel"]
@@ -1087,12 +1104,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -105.0
+offset_left = -116.0
 offset_top = -47.0
 offset_right = -16.0
 offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = SubResource("Theme_qnb83")
 text = "Du.. what?"
 
 [connection signal="pressed" from="Game Manager/Next Round/Button" to="Game Manager" method="next_round"]
