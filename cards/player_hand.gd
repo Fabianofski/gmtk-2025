@@ -6,12 +6,11 @@ extends Node
 var card_prefab = preload("res://cards/card.tscn")
 @onready var deck: Deck = $Deck
 
-func _init():
+func _ready():
 	SignalBus.select_card.connect(remove_card_from_hand)	
 	SignalBus.deselect_card.connect(add_card_back_to_hand)	
 	SignalBus.next_round_started.connect(draw_cards)
 
-func _ready():
 	deck.shuffle_cards() 
 	hand.append_array(deck.draw_cards(max_cards))
 	display_cards(hand)
@@ -34,5 +33,19 @@ func display_cards(cards: Array[Card]):
 		var card_res = cards[i]
 		var card = card_prefab.instantiate()
 		hand_parent.add_child(card)
-		card.position.x = i * 0.8 
+		card.global_position = deck.global_position
+		card.global_rotation = deck.global_rotation
 		card.emit_signal("update", card_res) 
+
+	sort_cards()
+
+func sort_cards(): 
+	await get_tree().process_frame
+	var i = 0
+	for child in hand_parent.get_children():
+		if not is_instance_valid(child): 
+			continue
+		var target_pos = Vector3(i*0.8,0,0)
+		child.emit_signal("tween_to_position", target_pos, Vector3(0,0,0), 0.5) 
+		await get_tree().create_timer(0.1).timeout
+		i += 1

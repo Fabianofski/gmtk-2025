@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://7irymsguxr1n"]
+[gd_scene load_steps=64 format=4 uid="uid://7irymsguxr1n"]
 
 [ext_resource type="Script" uid="uid://bfys28ih4t0op" path="res://scenes/camera_mvmt.gd" id="1_dinhu"]
 [ext_resource type="Script" uid="uid://ccrn643plqokb" path="res://cards/player_hand.gd" id="1_lbhrr"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bnveft57om3d8" path="res://sprites/enviro/decorations/decoration_6.png" id="9_dinhu"]
 [ext_resource type="Texture2D" uid="uid://wu4ppt58u1cu" path="res://sprites/enviro/decorations/decoration_5.png" id="10_kvuet"]
 [ext_resource type="PackedScene" uid="uid://b882fewg5y6x5" path="res://scenes/player.tscn" id="10_trtic"]
+[ext_resource type="Texture2D" uid="uid://diiibkn2s8khr" path="res://sprites/cards/back.png" id="13_pl11u"]
 [ext_resource type="Texture2D" uid="uid://b1efkpemtkmt0" path="res://sprites/ui/panel_dark.png" id="14_bt5mj"]
 [ext_resource type="Texture2D" uid="uid://c2nn2kppahdit" path="res://sprites/ui/panel.png" id="14_trtic"]
 [ext_resource type="Texture2D" uid="uid://b08bw6k7cmojr" path="res://sprites/ui/panel_light.png" id="15_ir15t"]
@@ -684,7 +685,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.800049, -4.01387)
 script = ExtResource("1_lbhrr")
 
 [node name="Deck" type="Node3D" parent="Player Hand"]
+transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, 1.42895, 2.19787, -0.169019)
 script = ExtResource("2_yqjtg")
+
+[node name="Sprite3D" type="Sprite3D" parent="Player Hand/Deck"]
+transform = Transform3D(0.585, 0, 0, 0, 0.585, 0, 0, 0, 0.585, 0, -3.7443e-09, 0.0856595)
+texture = ExtResource("13_pl11u")
 
 [node name="Cards" type="Node3D" parent="Player Hand"]
 transform = Transform3D(0.7, 0, 0, 0, 0.646303, 0.268871, 0, -0.268871, 0.646303, -1.41181, 2.44641, 3.56764)
