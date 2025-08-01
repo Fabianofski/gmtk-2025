@@ -11,7 +11,9 @@ var last_played: Array[Card] = []
 @onready var score_label: Label = $"Score/Score Label"
 
 @export var score: int = 0
-
+@export var current_round: int = 0
+@export var round_target_scores: Array[int] = [] 
+var target_score = func (): return round_target_scores[current_round]
 
 enum STATE { Attack, Defense }
 var state: STATE = STATE.Attack

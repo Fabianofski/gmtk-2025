@@ -36,6 +36,12 @@ Reach the score win condition before shedding all your cards, or else the timest
 
 ""]
 
+func _ready():
+	if SignalBus.tutorial_shown: 
+		self.visible = false
+	else: 
+		SignalBus.tutorial_shown = true
+
 func _process(_delta: float) -> void:
 	tutorial_text.text = STRING_ARRAY[current_displayed_string] # Set text to the correct label
 	
