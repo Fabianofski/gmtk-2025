@@ -36,9 +36,11 @@ func _unhandled_input(event):
 
 func _on_mouse_entered() -> void:
 	mouse_on_card = true
+	Input.set_default_cursor_shape(Input.CursorShape.CURSOR_POINTING_HAND)
 	position.y = 0.2
 	
 func _on_mouse_exited() -> void:
 	mouse_on_card = false
+	Input.set_default_cursor_shape(Input.CursorShape.CURSOR_ARROW)
 	if not selected: 
 		position.y = 0
