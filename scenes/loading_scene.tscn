@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6tni7d1lkiuw"]
+
+[ext_resource type="Script" uid="uid://dctyl3c8uobqf" path="res://scenes/loading.gd" id="1_v0di8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smnf2"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a0egu"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_o5idu"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_smnf2")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_a0egu")
+
+[node name="Loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v0di8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -390.5
+offset_top = -163.0
+offset_right = 390.5
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_o5idu")
+show_percentage = false

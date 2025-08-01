@@ -1,0 +1,437 @@
+[gd_scene load_steps=40 format=3 uid="uid://dh2aif2andq34"]
+
+[ext_resource type="Texture2D" uid="uid://biw85nmn6qtqt" path="res://icon.svg" id="1_3yumr"]
+[ext_resource type="Texture2D" uid="uid://b08bw6k7cmojr" path="res://sprites/ui/panel_light.png" id="1_e54dn"]
+[ext_resource type="Script" uid="uid://3eumkkea5rvb" path="res://scenes/title_screen.gd" id="1_khjys"]
+[ext_resource type="Texture2D" uid="uid://c2nn2kppahdit" path="res://sprites/ui/panel.png" id="2_3yumr"]
+[ext_resource type="Texture2D" uid="uid://5llalkbpr1xj" path="res://sprites/ui/next_turn_btn_1.png" id="3_cs5ya"]
+[ext_resource type="Texture2D" uid="uid://c3t2gmc5br1gl" path="res://sprites/ui/next_turn_btn_3.png" id="4_mykxm"]
+[ext_resource type="Texture2D" uid="uid://fe8f3su0b8e0" path="res://sprites/ui/next_turn_btn_2.png" id="5_tklts"]
+[ext_resource type="FontFile" uid="uid://b4aum1qd8riqh" path="res://fonts/Plaster-Regular.ttf" id="6_u26n3"]
+[ext_resource type="Script" uid="uid://bfys28ih4t0op" path="res://scenes/camera_mvmt.gd" id="8_p07av"]
+[ext_resource type="PackedScene" uid="uid://cjhruytcug36n" path="res://sprites/table/table.blend" id="9_khjys"]
+[ext_resource type="Texture2D" uid="uid://c4nixbheu0pj3" path="res://sprites/enviro/floor_tex.png" id="10_174rq"]
+[ext_resource type="Texture2D" uid="uid://mbc5rc7pje0a" path="res://sprites/enviro/wall_tex.png" id="11_lrxh4"]
+[ext_resource type="Texture2D" uid="uid://b4cjt1ahhwvwy" path="res://sprites/enviro/decorations/decoration_2.png" id="12_neciy"]
+[ext_resource type="Texture2D" uid="uid://cctwqpvlfu6yl" path="res://sprites/enviro/decorations/decoration_4.png" id="13_w03br"]
+[ext_resource type="Texture2D" uid="uid://bv33trgmwkwvx" path="res://sprites/enviro/decorations/decoration_3.png" id="14_jr68i"]
+[ext_resource type="Texture2D" uid="uid://bnveft57om3d8" path="res://sprites/enviro/decorations/decoration_6.png" id="15_b344i"]
+[ext_resource type="Texture2D" uid="uid://wu4ppt58u1cu" path="res://sprites/enviro/decorations/decoration_5.png" id="16_gm4k0"]
+[ext_resource type="PackedScene" uid="uid://b882fewg5y6x5" path="res://scenes/player.tscn" id="17_mce2t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ib7db"]
+font = ExtResource("6_u26n3")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_htdhw"]
+sky_top_color = Color(0.394084, 0.179147, 0.423439, 1)
+sky_horizon_color = Color(0.300568, 0.246833, 0.307906, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.300568, 0.246833, 0.307906, 1)
+
+[sub_resource type="Sky" id="Sky_u5sy4"]
+sky_material = SubResource("ProceduralSkyMaterial_htdhw")
+
+[sub_resource type="Environment" id="Environment_12ga3"]
+background_mode = 2
+background_color = Color(0.629675, 0.629675, 0.629675, 1)
+background_energy_multiplier = 0.37
+sky = SubResource("Sky_u5sy4")
+tonemap_mode = 2
+glow_enabled = true
+glow_bloom = 0.11
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 1.0
+fog_depth_begin = 0.0
+fog_depth_end = 35.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrrko"]
+albedo_texture = ExtResource("10_174rq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p57ef"]
+albedo_texture = ExtResource("10_174rq")
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_aidx5"]
+material = SubResource("StandardMaterial3D_p57ef")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5sy4"]
+albedo_texture = ExtResource("11_lrxh4")
+metallic = 1.0
+uv1_scale = Vector3(1.36, 1.36, 1.36)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_6uh13"]
+material = SubResource("StandardMaterial3D_u5sy4")
+flip_faces = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tnpc"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 2
+albedo_texture = ExtResource("12_neciy")
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_y8m2v"]
+material = SubResource("StandardMaterial3D_0tnpc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtaks"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 2
+albedo_texture = ExtResource("13_w03br")
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_r0uj2"]
+material = SubResource("StandardMaterial3D_vtaks")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trtic"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 2
+albedo_texture = ExtResource("14_jr68i")
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_16pxe"]
+material = SubResource("StandardMaterial3D_trtic")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ca42v"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 2
+albedo_texture = ExtResource("15_b344i")
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_dujhn"]
+material = SubResource("StandardMaterial3D_ca42v")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ssvqc"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 2
+albedo_texture = ExtResource("16_gm4k0")
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_uapth"]
+material = SubResource("StandardMaterial3D_ssvqc")
+
+[sub_resource type="QuadMesh" id="QuadMesh_vnqit"]
+material = SubResource("StandardMaterial3D_ssvqc")
+
+[sub_resource type="QuadMesh" id="QuadMesh_86x6n"]
+material = SubResource("StandardMaterial3D_ssvqc")
+
+[node name="Title Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_khjys")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -208.0
+offset_right = 64.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3yumr")
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 164.0
+offset_right = 20.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Control" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -20.0
+offset_right = -53.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button BG Top" type="NinePatchRect" parent="Buttons/Play"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -4.0
+offset_right = 71.0
+offset_bottom = 28.0
+texture = ExtResource("1_e54dn")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Button BG Front" type="NinePatchRect" parent="Buttons/Play"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = 8.0
+offset_right = 50.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3yumr")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Start Button" type="TextureButton" parent="Buttons/Play"]
+layout_mode = 1
+offset_left = -17.0
+offset_top = -28.0
+offset_right = 59.0
+offset_bottom = 24.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_cs5ya")
+texture_pressed = ExtResource("4_mykxm")
+texture_hover = ExtResource("5_tklts")
+
+[node name="Exit Button Text" type="Label" parent="Buttons/Play"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -7.0
+offset_right = 51.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "BEGIN"
+label_settings = SubResource("LabelSettings_ib7db")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Control" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 52.0
+offset_top = -20.0
+offset_right = 92.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button BG Top" type="NinePatchRect" parent="Buttons/Quit"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -4.0
+offset_right = 71.0
+offset_bottom = 28.0
+texture = ExtResource("1_e54dn")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Button BG Front" type="NinePatchRect" parent="Buttons/Quit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = 8.0
+offset_right = 50.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3yumr")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Exit Button" type="TextureButton" parent="Buttons/Quit"]
+layout_mode = 1
+offset_left = -17.0
+offset_top = -28.0
+offset_right = 59.0
+offset_bottom = 24.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_cs5ya")
+texture_pressed = ExtResource("4_mykxm")
+texture_hover = ExtResource("5_tklts")
+
+[node name="Exit Button Text" type="Label" parent="Buttons/Quit"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -7.0
+offset_right = 51.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "QUIT"
+label_settings = SubResource("LabelSettings_ib7db")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BG" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="BG"]
+environment = SubResource("Environment_12ga3")
+
+[node name="Camera3D" type="Camera3D" parent="BG"]
+transform = Transform3D(0.888569, 0, -0.458743, 0, 1, 0, 0.458743, 0, 0.888569, -6.29247, 3.19738, 27.8955)
+fov = 26.2
+size = 3.702
+script = ExtResource("8_p07av")
+
+[node name="Room" type="Node3D" parent="BG"]
+
+[node name="table" parent="BG/Room" instance=ExtResource("9_khjys")]
+transform = Transform3D(0.923879, 0, 0.382683, 0, 1, 0, -0.382683, 0, 0.923879, 4.103, 0, 0)
+
+[node name="Carpet" type="MeshInstance3D" parent="BG/Room"]
+transform = Transform3D(12.6678, 0, 0, 0, 1.0005, 0, 0, 0, 33.3852, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_yrrko")
+mesh = SubResource("PlaneMesh_aidx5")
+
+[node name="Walls" type="MeshInstance3D" parent="BG/Room"]
+transform = Transform3D(42.843, 0, 0, 0, 18.8179, 0, 0, 0, 84.1655, 0, 9.15454, 0)
+mesh = SubResource("BoxMesh_6uh13")
+
+[node name="Spotlight 1" type="SpotLight3D" parent="BG/Room"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.103, 9.50974, 0)
+spot_range = 14.4736
+spot_angle = 24.8039
+
+[node name="Spotlight 2" type="SpotLight3D" parent="BG/Room"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.103, 9.50974, -7)
+spot_range = 14.4736
+spot_attenuation = 0.05
+spot_angle = 24.8039
+
+[node name="Spotlight 3" type="SpotLight3D" parent="BG/Room"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.103, 9.50974, 7)
+spot_range = 14.4736
+spot_attenuation = 0.05
+spot_angle = 24.8039
+
+[node name="Directional Light" type="DirectionalLight3D" parent="BG/Room"]
+transform = Transform3D(0.854169, -0.343839, 0.390091, 2.27178e-08, 0.75018, 0.661233, -0.519996, -0.564805, 0.64078, 0, 13.89, 0)
+light_color = Color(1, 0.756863, 1, 1)
+light_energy = 0.275
+light_indirect_energy = 2.616
+shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_fade_start = 0.629
+
+[node name="Decoration" type="Node3D" parent="BG/Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09, 0)
+
+[node name="Attacker\'s side" type="Node3D" parent="BG/Room/Decoration"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 1.46231, 0, 28.7859)
+
+[node name="Slots" type="MeshInstance3D" parent="BG/Room/Decoration/Attacker\'s side"]
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -7.63861, 3.27922, -13.9217)
+mesh = SubResource("QuadMesh_y8m2v")
+skeleton = NodePath("../..")
+
+[node name="Slots3" type="MeshInstance3D" parent="BG/Room/Decoration/Attacker\'s side"]
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -5.7777, 3.18393, -18.2222)
+mesh = SubResource("QuadMesh_y8m2v")
+skeleton = NodePath("../..")
+
+[node name="Stool3" type="MeshInstance3D" parent="BG/Room/Decoration/Attacker\'s side"]
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -7.93205, 3.18393, -13.3209)
+mesh = SubResource("QuadMesh_r0uj2")
+skeleton = NodePath("../..")
+
+[node name="Stool4" type="MeshInstance3D" parent="BG/Room/Decoration/Attacker\'s side"]
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -5.78627, 3.22405, -16.8378)
+mesh = SubResource("QuadMesh_r0uj2")
+skeleton = NodePath("../..")
+
+[node name="Slots5" type="MeshInstance3D" parent="BG/Room/Decoration/Attacker\'s side"]
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -3.58574, 3.18393, -23.0181)
+mesh = SubResource("QuadMesh_y8m2v")
+skeleton = NodePath("../..")
+
+[node name="Stool6" type="MeshInstance3D" parent="BG/Room/Decoration/Attacker\'s side"]
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, -3.59431, 3.22405, -21.6338)
+mesh = SubResource("QuadMesh_r0uj2")
+skeleton = NodePath("../..")
+
+[node name="LongTable" type="MeshInstance3D" parent="BG/Room/Decoration/Attacker\'s side"]
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, 5.55236, 3.22405, -16.5676)
+mesh = SubResource("QuadMesh_16pxe")
+skeleton = NodePath("../..")
+
+[node name="Chair" type="MeshInstance3D" parent="BG/Room/Decoration/Attacker\'s side"]
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, 5.55236, 3.22405, -14.467)
+mesh = SubResource("QuadMesh_dujhn")
+skeleton = NodePath("../..")
+
+[node name="TallStool" type="MeshInstance3D" parent="BG/Room/Decoration/Attacker\'s side"]
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, 5.55235, 3.22405, -20.467)
+mesh = SubResource("QuadMesh_uapth")
+skeleton = NodePath("../..")
+
+[node name="TallStool2" type="MeshInstance3D" parent="BG/Room/Decoration/Attacker\'s side"]
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, 2.53914, 3.22405, -20.467)
+mesh = SubResource("QuadMesh_vnqit")
+skeleton = NodePath("../..")
+
+[node name="TallStool3" type="MeshInstance3D" parent="BG/Room/Decoration/Attacker\'s side"]
+transform = Transform3D(7.2349, 0, 0, 0, 7.2349, 0, 0, 0, 1, 8.29837, 3.22405, -20.467)
+mesh = SubResource("QuadMesh_86x6n")
+skeleton = NodePath("../..")
+
+[node name="Time Travel Andy" parent="BG/Room" instance=ExtResource("17_mce2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.103, 0.800049, -4.01387)
+
+[connection signal="pressed" from="Buttons/Play/Start Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Buttons/Quit/Exit Button" to="." method="_on_exit_button_pressed"]

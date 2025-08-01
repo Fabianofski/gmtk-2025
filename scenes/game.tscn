@@ -30,14 +30,14 @@ sky_horizon_color = Color(0.300568, 0.246833, 0.307906, 1)
 ground_bottom_color = Color(0, 0, 0, 1)
 ground_horizon_color = Color(0.300568, 0.246833, 0.307906, 1)
 
-[sub_resource type="Sky" id="Sky_u5sy4"]
+[sub_resource type="Sky" id="Sky_bt5mj"]
 sky_material = SubResource("ProceduralSkyMaterial_p57ef")
 
 [sub_resource type="Environment" id="Environment_gee14"]
 background_mode = 2
 background_color = Color(0.629675, 0.629675, 0.629675, 1)
 background_energy_multiplier = 0.37
-sky = SubResource("Sky_u5sy4")
+sky = SubResource("Sky_bt5mj")
 tonemap_mode = 2
 glow_enabled = true
 glow_bloom = 0.11
@@ -51,24 +51,24 @@ fog_depth_end = 35.0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iywne"]
 albedo_texture = ExtResource("4_iywne")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p57ef"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1j6l"]
 albedo_texture = ExtResource("4_iywne")
 uv1_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p57ef"]
-material = SubResource("StandardMaterial3D_p57ef")
+material = SubResource("StandardMaterial3D_e1j6l")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5sy4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pl11u"]
 albedo_texture = ExtResource("5_p57ef")
 metallic = 1.0
 uv1_scale = Vector3(1.36, 1.36, 1.36)
 uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_iywne"]
-material = SubResource("StandardMaterial3D_u5sy4")
+material = SubResource("StandardMaterial3D_pl11u")
 flip_faces = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tnpc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bhx41"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
@@ -78,9 +78,9 @@ billboard_mode = 2
 billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_0tnpc"]
-material = SubResource("StandardMaterial3D_0tnpc")
+material = SubResource("StandardMaterial3D_bhx41")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtaks"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnb83"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
@@ -90,9 +90,9 @@ billboard_mode = 2
 billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_kvpfn"]
-material = SubResource("StandardMaterial3D_vtaks")
+material = SubResource("StandardMaterial3D_qnb83")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trtic"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sww3w"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
@@ -102,9 +102,9 @@ billboard_mode = 2
 billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_ir15t"]
-material = SubResource("StandardMaterial3D_trtic")
+material = SubResource("StandardMaterial3D_sww3w")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ca42v"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_suyxu"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
@@ -114,9 +114,9 @@ billboard_mode = 2
 billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_rysoc"]
-material = SubResource("StandardMaterial3D_ca42v")
+material = SubResource("StandardMaterial3D_suyxu")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ssvqc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgl2t"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
@@ -126,18 +126,18 @@ billboard_mode = 2
 billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_264po"]
-material = SubResource("StandardMaterial3D_ssvqc")
+material = SubResource("StandardMaterial3D_sgl2t")
 
 [sub_resource type="QuadMesh" id="QuadMesh_1kice"]
-material = SubResource("StandardMaterial3D_ssvqc")
+material = SubResource("StandardMaterial3D_sgl2t")
 
 [sub_resource type="QuadMesh" id="QuadMesh_5newe"]
-material = SubResource("StandardMaterial3D_ssvqc")
+material = SubResource("StandardMaterial3D_sgl2t")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_37s47"]
 load_path = "res://.godot/imported/decoration_1.png-95c69b546d0ef4a9cfd51c7a8105b5ad.s3tc.ctex"
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvpfn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qouja"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
@@ -147,7 +147,7 @@ billboard_mode = 2
 billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_dinhu"]
-material = SubResource("StandardMaterial3D_kvpfn")
+material = SubResource("StandardMaterial3D_qouja")
 
 [sub_resource type="Image" id="Image_ssvqc"]
 data = {
