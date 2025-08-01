@@ -9,7 +9,10 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseMotion:
 			camera.rotate_y(-event.relative.x * MOUSE_SENS)
-			camera.rotate_x(-event.relative.y * (MOUSE_SENS * 2.5))
+			if camera.rotation_degrees.x > -15.1:
+				camera.rotate_x(-event.relative.y * (MOUSE_SENS * 2.5))
+			if camera.rotation_degrees.x <= -15.1:
+				camera.rotation_degrees.x = -15.0
 			camera.rotation.z = 0 # NOTE: When the player switches sides, instead of rotating the camera, rotate the decorations. EZ!
 
 func switch_sides(state): 
