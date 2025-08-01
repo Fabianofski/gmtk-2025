@@ -19,6 +19,8 @@ signal tween_to_position(pos, rot, time)
 @onready var past_player_hand_parent: Node3D = get_node("../../PastPlayerHandCards")
 @onready var player_hand_parent: Node3D = get_node("../../PlayerHandCards")
 
+@onready var draw_sound: AudioStreamPlayer3D = $"DrawSound"
+
 var base_pos: Vector3; 
 var base_rot: Vector3; 
 
@@ -74,6 +76,10 @@ func tween_to_new_position(pos: Vector3, rot: Vector3, time: float):
 	tween.set_parallel(true)
 	tween.tween_property(self, "position", pos, time)
 	tween.tween_property(self, "rotation_degrees", rot, time)
+
+	if not draw_sound.playing:
+		draw_sound.pitch_scale = randf_range(.8, 1)
+		draw_sound.play()
 
 func _unhandled_input(event):
 	var left_click = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed

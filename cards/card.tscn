@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7r5cmd7t0th8"]
+[gd_scene load_steps=10 format=3 uid="uid://b7r5cmd7t0th8"]
 
 [ext_resource type="Script" uid="uid://dsdyh0qfqepcn" path="res://cards/card_display.gd" id="1_ivai2"]
 [ext_resource type="Texture2D" uid="uid://diiibkn2s8khr" path="res://sprites/cards/back.png" id="2_4k7q8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c82ech2rrb005" path="res://sprites/cards/blank.png" id="4_hel13"]
 [ext_resource type="Texture2D" uid="uid://cvve6ey706sqt" path="res://sprites/cards/atk_icon.png" id="5_jsqqk"]
 [ext_resource type="Texture2D" uid="uid://c1i5y21d308ek" path="res://sprites/cards/def_icon.png" id="6_nwj5s"]
+[ext_resource type="AudioStream" uid="uid://pi50m1ksskhk" path="res://audio/draw.wav" id="8_auvip"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4k7q8"]
 size = Vector3(0.845, 1.18, 0.01)
@@ -91,3 +92,6 @@ sorting_offset = 1.0
 double_sided = false
 texture_filter = 0
 texture = ExtResource("6_nwj5s")
+
+[node name="DrawSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_auvip")
