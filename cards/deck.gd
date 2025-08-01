@@ -3,6 +3,7 @@ extends Node
 
 @export var cards: Array[Card] = []
 @onready var cards_label: Label3D = $"CardsLeft3D"
+@onready var mesh: Node3D = $"mesh"
 var cards_copy: Array[Card] = []
 var cards_folder = "res://cards/res"
 
@@ -55,6 +56,8 @@ func shuffle_cards():
 
 func update_label(): 
 	cards_label.text = "%d" % cards.size()
+	mesh.scale.y = float(cards.size()) / cards_copy.size()
+	mesh.visible = cards.size() > 0
 
 func draw_cards(amount: int) -> Array[Card]: 
 	var drawed_cards: Array[Card] = []
