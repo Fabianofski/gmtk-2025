@@ -74,10 +74,14 @@ horizontal_alignment = 0
 
 [node name="atk_icon" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297382, -0.195949, 0.0173785)
+sorting_offset = 1.0
+double_sided = false
 texture_filter = 0
 texture = ExtResource("5_jsqqk")
 
 [node name="dfs_icon" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297382, -0.400168, 0.0173785)
+sorting_offset = 1.0
+double_sided = false
 texture_filter = 0
 texture = ExtResource("6_nwj5s")
