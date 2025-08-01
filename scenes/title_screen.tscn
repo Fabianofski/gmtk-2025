@@ -344,6 +344,16 @@ fov = 26.2
 size = 3.702
 script = ExtResource("8_p07av")
 
+[node name="Time Travel Effect" type="ColorRect" parent="BG/Camera3D"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.309804, 0.643137, 0.721569, 1)
+
 [node name="Room" type="Node3D" parent="BG"]
 
 [node name="table" parent="BG/Room" instance=ExtResource("9_khjys")]
