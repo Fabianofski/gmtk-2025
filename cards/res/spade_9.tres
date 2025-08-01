@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://8kachair1hwq"]
+
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_8cfqb"]
+[ext_resource type="Texture2D" uid="uid://dgtx5f6rnv8tn" path="res://sprites/cards/individual/spade/9.png" id="2_jbjy2"]
+
+[resource]
+script = ExtResource("1_8cfqb")
+sprite = ExtResource("2_jbjy2")
+id = "spade_9"
+score = 9
+attack = 2
+defense = 2
+score_multiplier = 1
+attack_multiplier = 1
+defense_multiplier = 1
+metadata/_custom_type_script = "uid://btup2q77vrcjp"

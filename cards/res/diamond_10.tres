@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://qu3hham4jfhh"]
+
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_bm2qo"]
+[ext_resource type="Texture2D" uid="uid://b0273xvoqt541" path="res://sprites/cards/individual/diamond/10.png" id="2_s03yp"]
+
+[resource]
+script = ExtResource("1_bm2qo")
+sprite = ExtResource("2_s03yp")
+id = "diamond_10"
+score = 10
+attack = 2
+defense = 2
+score_multiplier = 1
+attack_multiplier = 1
+defense_multiplier = 1
+metadata/_custom_type_script = "uid://btup2q77vrcjp"
