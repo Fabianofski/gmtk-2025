@@ -26,6 +26,9 @@ func game_won(_round: int):
 
 func remove_card_from_hand(card: Card): 
 	var index = hand.find_custom(func (x): return x.id == card.id)
+	if index == -1: 
+		print("Couldnt find %s in player hand" % card.id)
+		return
 	hand.remove_at(index)
 
 func add_card_back_to_hand(card: Card): 

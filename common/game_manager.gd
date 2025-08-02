@@ -46,6 +46,9 @@ func select_card(card: Card):
 func deselect_card(card: Card): 
 	print("deselect %s" % card.id) 
 	var index = selected_cards.find_custom(func (x): return x.id == card.id)
+	if index == -1: 
+		print("Couldnt find %s in selected cards" % card.id)
+		return
 	selected_cards.remove_at(index)
 	update_label()
 
