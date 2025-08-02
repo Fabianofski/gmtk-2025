@@ -51,7 +51,9 @@ texture = ExtResource("3_4k7q8")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_4k7q8")
 
-[node name="dfs" type="Label3D" parent="."]
+[node name="ATK_DEF" type="Node3D" parent="."]
+
+[node name="dfs" type="Label3D" parent="ATK_DEF"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0744162, -0.4, 0.022)
 sorting_offset = 1.0
 shaded = true
@@ -63,7 +65,7 @@ font = ExtResource("4_f61jr")
 outline_size = 0
 horizontal_alignment = 0
 
-[node name="atk" type="Label3D" parent="."]
+[node name="atk" type="Label3D" parent="ATK_DEF"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0744162, -0.2, 0)
 sorting_offset = 1.0
 shaded = true
@@ -75,6 +77,38 @@ font = ExtResource("4_f61jr")
 outline_size = 0
 horizontal_alignment = 0
 
+[node name="atk_icon" type="Sprite3D" parent="ATK_DEF"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297382, -0.195949, 0.0173785)
+sorting_offset = 1.0
+double_sided = false
+texture_filter = 0
+texture = ExtResource("5_jsqqk")
+
+[node name="dfs_icon" type="Sprite3D" parent="ATK_DEF"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297382, -0.400168, 0.0173785)
+sorting_offset = 1.0
+double_sided = false
+texture_filter = 0
+texture = ExtResource("6_nwj5s")
+
+[node name="Special" type="Node3D" parent="."]
+
+[node name="sp" type="Label3D" parent="Special"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.388255, -0.0654165, 0)
+sorting_offset = 1.0
+shaded = true
+double_sided = false
+texture_filter = 0
+modulate = Color(0, 0, 0, 1)
+text = "Sphinx of black quartz, judge my vow!"
+font = ExtResource("4_f61jr")
+font_size = 22
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 0
+autowrap_mode = 3
+width = 160.0
+
 [node name="Card Number" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.385088, 0.483134, 0.0055145)
 sorting_offset = 1.0
@@ -85,20 +119,6 @@ text = "6"
 font = ExtResource("4_f61jr")
 outline_size = 0
 horizontal_alignment = 0
-
-[node name="atk_icon" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297382, -0.195949, 0.0173785)
-sorting_offset = 1.0
-double_sided = false
-texture_filter = 0
-texture = ExtResource("5_jsqqk")
-
-[node name="dfs_icon" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297382, -0.400168, 0.0173785)
-sorting_offset = 1.0
-double_sided = false
-texture_filter = 0
-texture = ExtResource("6_nwj5s")
 
 [node name="DrawSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("8_auvip")

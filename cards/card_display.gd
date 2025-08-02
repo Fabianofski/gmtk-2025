@@ -17,10 +17,14 @@ signal tween_to_position(pos, rot, time)
 @export var crystal_bg: Texture2D; 
 
 @onready var card_number_display: Label3D = $"Card Number"
-@onready var atk_display: Label3D = $atk
-@onready var atk_icon: Sprite3D = $atk_icon
-@onready var dfs_display: Label3D = $dfs
-@onready var dfs_icon: Sprite3D = $dfs_icon
+@onready var atk_def_holder: Node3D = $ATK_DEF
+@onready var atk_display: Label3D = $"ATK_DEF/atk"
+@onready var atk_icon: Sprite3D = $"ATK_DEF/atk_icon"
+@onready var dfs_display: Label3D = $"ATK_DEF/dfs"
+@onready var dfs_icon: Sprite3D = $"ATK_DEF/dfs_icon"
+
+@onready var special_holder: Node3D = $Special
+@onready var special_display: Node3D = $"Special/sp"
 
 var atk_mult: String = ""
 var dfs_mult: String = ""
@@ -82,12 +86,17 @@ func update_card(_card: Card):
 		Card.CardType.Standard: 
 			atk_display.text = str(card.attack)
 			dfs_display.text = str(card.defense)
+			atk_def_holder.visible = true
+			special_holder.visible = false
 		Card.CardType.Multiplier: 
 			atk_display.text = "%dx" % card.attack_multiplier
 			dfs_display.text = "%dx" % card.defense_multiplier
+			atk_def_holder.visible = true
+			special_holder.visible = false
 		Card.CardType.Signal: 
-			atk_display.text = card.explanation
-			dfs_display.text = ""
+			special_display.text = card.explanation
+			atk_def_holder.visible = true
+			special_holder.visible = false
 
 
 func _ready():
