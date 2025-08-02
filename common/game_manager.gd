@@ -55,6 +55,7 @@ func deselect_card(card: Card):
 func update_label(): 
 	var hand = calc_atk_dfs_values(selected_cards)
 	var old_hand = calc_atk_dfs_values(last_played)
+	round_bonus.text = ''
 	if state == STATE.Attack: 
 		round_dfs.visible = false
 		round_hearts.visible = false

@@ -15,10 +15,10 @@ class Bonus:
 		payout = _payout
 
 static func sort_cards(a: Card, b: Card): 
-	if a.suit == b.suit: 
-		return a.score < b.score 
-	else: 
+	if a.score == b.score: 
 		return a.suit < b.suit
+	else: 
+		return a.score < b.score 
 
 static func check_for_straight(cards: Array[Card]) -> bool: 
 	if cards.size() < 3: 
