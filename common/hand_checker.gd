@@ -47,18 +47,18 @@ static func check_for_bonus(_cards: Array[Card]) -> Array[Bonus]:
 		suit_counts[card.suit] = suit_counts.get(card.suit, 0) + 1
 
 	if score_counts.values().has(2):
-		bonuses.append(Bonus.new("pair", pair_payout))
+		bonuses.append(Bonus.new("Pair", pair_payout))
 
 	if suit_counts.values().any(func(x): return x >= 3):
-		bonuses.append(Bonus.new("flush", flush_payout))
+		bonuses.append(Bonus.new("Flush", flush_payout))
 
 	if check_for_straight(cards):
-		bonuses.append(Bonus.new("straight", straight_payout))
+		bonuses.append(Bonus.new("Straight", straight_payout))
 
 	if score_counts.values().any(func(x): return x >= 3):
-		bonuses.append(Bonus.new("three of a kind", three_of_a_kind_payout))
+		bonuses.append(Bonus.new("Three of a Kind", three_of_a_kind_payout))
 
 	if check_for_straight(cards):
-		bonuses.append(Bonus.new("straight flush", straight_flush_payout))
+		bonuses.append(Bonus.new("Straight Flush", straight_flush_payout))
 
 	return bonuses
