@@ -29,7 +29,7 @@ font = ExtResource("6_u26n3")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w03br"]
 shader = ExtResource("19_lrxh4")
 shader_parameter/direction = Vector2(-1, 0)
-shader_parameter/speed = 0.125
+shader_parameter/speed = -0.125
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b344i"]
 shader = ExtResource("19_lrxh4")
@@ -332,16 +332,19 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Back" type="MeshInstance2D" parent="Logo"]
+texture_filter = 2
 texture_repeat = 2
 material = SubResource("ShaderMaterial_w03br")
-position = Vector2(72, 0)
+position = Vector2(61.8204, -0.3685)
 scale = Vector2(-100, 100)
 mesh = ExtResource("11_w03br")
 texture = ExtResource("20_w03br")
 
 [node name="Front" type="MeshInstance2D" parent="Logo"]
+texture_filter = 2
 texture_repeat = 2
 material = SubResource("ShaderMaterial_b344i")
+position = Vector2(-10.1796, -0.3685)
 scale = Vector2(100, 100)
 mesh = ExtResource("11_w03br")
 texture = ExtResource("20_neciy")
