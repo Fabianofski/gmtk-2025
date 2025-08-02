@@ -16,6 +16,9 @@ signal tween_to_position(pos, rot, time)
 @onready var dfs_display: Label3D = $dfs
 @onready var dfs_icon: Sprite3D = $dfs_icon
 
+var atk_mult: String = ""
+var dfs_mult: String = ""
+
 @onready var past_player_hand_parent: Node3D = get_node("../../PastPlayerHandCards")
 @onready var player_hand_parent: Node3D = get_node("../../PlayerHandCards")
 
@@ -42,10 +45,21 @@ func next_round_started(state):
 func update_card(_card: Card): 
 	card = _card
 	front.texture = card.sprite
-	atk_display.text = str(_card.attack)
-	dfs_display.text = str(_card.defense)
+	# Generate the attack/defense multiplier display only if it's different than 1
+	if card.attack_multiplier != 1:
+		atk_mult = "x%d" % card.attack_multiplier
+	else:
+		atk_mult = ""
+	if card.defense_multiplier != 1:
+		dfs_mult = "x%d" % card.defense_multiplier
+	else:
+		dfs_mult = ""
+	# Display attack and defense
+	atk_display.text = str(_card.attack) + atk_mult
+	dfs_display.text = str(_card.defense) + dfs_mult
 	# Show card number (a.k.a. score)
-	card_number_display.text = str(card.score)
+	# NOTE: Having the percentage be included makes it look too busy, so simply show the multiplied number
+	card_number_display.text = str(card.score*card.score_multiplier)
 	match card_number_display.text:
 		"11":
 			card_number_display.text = "J"
