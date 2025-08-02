@@ -8,7 +8,13 @@ var mouse_on_card: bool = false
 signal update
 signal tween_to_position(pos, rot, time)
 @onready var front: Sprite3D = $front
+@onready var background: Sprite3D = $card_bg
 @onready var outline: Sprite3D = $outline 
+
+@export var standard_bg: Texture2D; 
+@export var silver_bg: Texture2D; 
+@export var gold_bg: Texture2D; 
+@export var crystal_bg: Texture2D; 
 
 @onready var card_number_display: Label3D = $"Card Number"
 @onready var atk_display: Label3D = $atk
@@ -74,6 +80,16 @@ func update_card(_card: Card):
 		card_number_display.modulate = Color("#E64539")
 	else:
 		card_number_display.modulate = Color("BLACK")
+
+	match card.rarity: 
+		Card.Rarity.Standard: 
+			background.texture = standard_bg
+		Card.Rarity.Silver: 
+			background.texture = silver_bg
+		Card.Rarity.Gold: 
+			background.texture = gold_bg 
+		Card.Rarity.Crystal: 
+			background.texture = crystal_bg
 
 func _ready():
 	self.mouse_entered.connect(_on_mouse_entered)

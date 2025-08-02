@@ -2,10 +2,12 @@ extends Resource
 class_name Card
 
 enum Suits { Diamond, Club, Spade, Heart }
+enum Rarity { Standard, Silver, Gold, Crystal }
 
 @export var sprite: Texture2D = null
 @export var id: String = ""
 @export var suit: Suits = Suits.Diamond 
+@export var rarity: Rarity = Rarity.Standard
 @export var score: int = 0
 @export var attack: int = 0
 @export var defense: int = 0
