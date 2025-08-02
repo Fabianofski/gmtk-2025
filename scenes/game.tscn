@@ -43,10 +43,7 @@
 [ext_resource type="Resource" uid="uid://ci816n6pw0w1p" path="res://cards/res/club_7.tres" id="27_7gkqi"]
 [ext_resource type="Script" uid="uid://gbf10at71wfh" path="res://common/text_popup.gd" id="27_qnb83"]
 [ext_resource type="Resource" uid="uid://clcasdmpmukxt" path="res://cards/res/heart_queen.tres" id="28_753oq"]
-[ext_resource type="Texture2D" uid="uid://do58gpmouip1a" path="res://sprites/cards/heart_icon.png" id="28_v2yb1"]
 [ext_resource type="Resource" uid="uid://dums187dc36ws" path="res://cards/res/diamond_7.tres" id="29_veaf0"]
-[ext_resource type="Texture2D" uid="uid://c1i5y21d308ek" path="res://sprites/cards/def_icon.png" id="30_js0lu"]
-[ext_resource type="Texture2D" uid="uid://cvve6ey706sqt" path="res://sprites/cards/atk_icon.png" id="31_gxtfn"]
 [ext_resource type="Resource" uid="uid://omg3dxqewv78" path="res://cards/res/heart_9.tres" id="32_3x338"]
 [ext_resource type="Resource" uid="uid://br5vxcrrmjc8x" path="res://cards/res/heart_ace.tres" id="33_1yg85"]
 [ext_resource type="Resource" uid="uid://brdjydk5krqhh" path="res://cards/res/spade_queen.tres" id="35_7nv0b"]
@@ -71,6 +68,9 @@
 [ext_resource type="Resource" uid="uid://bot3ct53j3krr" path="res://cards/res/diamond_8.tres" id="49_vniw0"]
 [ext_resource type="Resource" uid="uid://dqxiqpdybxie1" path="res://cards/res/heart_8.tres" id="50_15b3c"]
 [ext_resource type="Resource" uid="uid://dfbwo5oeescl0" path="res://cards/res/spade_8.tres" id="50_753oq"]
+[ext_resource type="Texture2D" uid="uid://br0xoep63kvyl" path="res://sprites/cards/atk_icon_filled.png" id="66_sxt1d"]
+[ext_resource type="Texture2D" uid="uid://d0b6xy8gmennf" path="res://sprites/cards/def_icon_filled.png" id="68_2iuns"]
+[ext_resource type="Texture2D" uid="uid://dghuonnbb1jee" path="res://sprites/cards/heart_icon_filled.png" id="69_7gkqi"]
 [ext_resource type="Script" uid="uid://dslfm7evcbnfa" path="res://common/unlock_screen.gd" id="71_o8oq8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p57ef"]
@@ -1518,7 +1518,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Game Manager/RoundInfo/Atk"]
 layout_mode = 2
-texture = ExtResource("31_gxtfn")
+texture = ExtResource("66_sxt1d")
 expand_mode = 2
 
 [node name="Atk" type="Label" parent="Game Manager/RoundInfo/Atk"]
@@ -1533,7 +1533,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Game Manager/RoundInfo/Dfs"]
 layout_mode = 2
-texture = ExtResource("30_js0lu")
+texture = ExtResource("68_2iuns")
 expand_mode = 2
 
 [node name="Dfs" type="Label" parent="Game Manager/RoundInfo/Dfs"]
@@ -1548,7 +1548,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Game Manager/RoundInfo/Hearts"]
 layout_mode = 2
-texture = ExtResource("28_v2yb1")
+texture = ExtResource("69_7gkqi")
 expand_mode = 2
 
 [node name="Hearts" type="Label" parent="Game Manager/RoundInfo/Hearts"]
