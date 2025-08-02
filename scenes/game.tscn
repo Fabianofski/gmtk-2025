@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=4 uid="uid://7irymsguxr1n"]
+[gd_scene load_steps=77 format=4 uid="uid://7irymsguxr1n"]
 
 [ext_resource type="Script" uid="uid://bfys28ih4t0op" path="res://scenes/camera_mvmt.gd" id="1_dinhu"]
 [ext_resource type="Script" uid="uid://ccrn643plqokb" path="res://cards/player_hand.gd" id="1_lbhrr"]
@@ -30,6 +30,9 @@
 [ext_resource type="Script" uid="uid://2kk0y17tyv38" path="res://common/tutorial.gd" id="24_e1j6l"]
 [ext_resource type="Script" uid="uid://cm5w7mx5c1l28" path="res://common/lose.gd" id="25_bhx41"]
 [ext_resource type="Script" uid="uid://gbf10at71wfh" path="res://common/text_popup.gd" id="27_qnb83"]
+[ext_resource type="Texture2D" uid="uid://do58gpmouip1a" path="res://sprites/cards/heart_icon.png" id="28_v2yb1"]
+[ext_resource type="Texture2D" uid="uid://c1i5y21d308ek" path="res://sprites/cards/def_icon.png" id="30_js0lu"]
+[ext_resource type="Texture2D" uid="uid://cvve6ey706sqt" path="res://sprites/cards/atk_icon.png" id="31_gxtfn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p57ef"]
 sky_top_color = Color(0.394084, 0.179147, 0.423439, 1)
@@ -822,14 +825,14 @@ outline_color = Color(0.231373, 0.490196, 0.309804, 1)
 font = ExtResource("17_ssvqc")
 font_color = Color(0.941176, 0.709804, 0.254902, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_bt5mj"]
+font = ExtResource("18_ssvqc")
+
 [sub_resource type="LabelSettings" id="LabelSettings_kvpfn"]
 font = ExtResource("19_264po")
 font_color = Color(0.572549, 0.909804, 0.752941, 1)
 outline_size = 8
 outline_color = Color(0.227451, 0.247059, 0.368627, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_bt5mj"]
-font = ExtResource("18_ssvqc")
 
 [sub_resource type="LabelSettings" id="LabelSettings_qnb83"]
 font = SubResource("FontFile_5newe")
@@ -1375,21 +1378,6 @@ label_settings = SubResource("LabelSettings_37s47")
 horizontal_alignment = 1
 uppercase = true
 
-[node name="RoundInfo" type="Label" parent="Game Manager"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -24.0
-offset_top = -87.0
-offset_right = 24.0
-offset_bottom = -64.0
-grow_horizontal = 2
-grow_vertical = 0
-label_settings = SubResource("LabelSettings_kvpfn")
-horizontal_alignment = 1
-
 [node name="Next Round" type="Control" parent="Game Manager"]
 layout_mode = 3
 anchors_preset = 3
@@ -1460,6 +1448,61 @@ text = "TRAVEL"
 label_settings = SubResource("LabelSettings_bt5mj")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RoundInfo" type="HFlowContainer" parent="Game Manager"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -88.0
+offset_right = 250.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Atk" type="HFlowContainer" parent="Game Manager/RoundInfo"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Game Manager/RoundInfo/Atk"]
+layout_mode = 2
+texture = ExtResource("31_gxtfn")
+
+[node name="Atk" type="Label" parent="Game Manager/RoundInfo/Atk"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_kvpfn")
+horizontal_alignment = 1
+
+[node name="Dfs" type="HFlowContainer" parent="Game Manager/RoundInfo"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Game Manager/RoundInfo/Dfs"]
+layout_mode = 2
+texture = ExtResource("30_js0lu")
+
+[node name="Dfs" type="Label" parent="Game Manager/RoundInfo/Dfs"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_kvpfn")
+horizontal_alignment = 1
+
+[node name="Hearts" type="HFlowContainer" parent="Game Manager/RoundInfo"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Game Manager/RoundInfo/Hearts"]
+layout_mode = 2
+texture = ExtResource("28_v2yb1")
+
+[node name="Hearts" type="Label" parent="Game Manager/RoundInfo/Hearts"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_kvpfn")
+horizontal_alignment = 1
 
 [node name="LoseScreen" type="Node3D" parent="."]
 
