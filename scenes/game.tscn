@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://7irymsguxr1n"]
+[gd_scene load_steps=78 format=4 uid="uid://7irymsguxr1n"]
 
 [ext_resource type="Script" uid="uid://bfys28ih4t0op" path="res://scenes/camera_mvmt.gd" id="1_dinhu"]
 [ext_resource type="Script" uid="uid://ccrn643plqokb" path="res://cards/player_hand.gd" id="1_lbhrr"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bnveft57om3d8" path="res://sprites/enviro/decorations/decoration_6.png" id="9_dinhu"]
 [ext_resource type="Texture2D" uid="uid://wu4ppt58u1cu" path="res://sprites/enviro/decorations/decoration_5.png" id="10_kvuet"]
 [ext_resource type="PackedScene" uid="uid://b882fewg5y6x5" path="res://scenes/player.tscn" id="10_trtic"]
+[ext_resource type="Texture2D" uid="uid://wjbyjshdvlfd" path="res://sprites/table/bonus_info.png" id="12_js0lu"]
 [ext_resource type="PackedScene" uid="uid://cicq6ochq8oi" path="res://sprites/cards/deck.blend" id="13_bhx41"]
 [ext_resource type="Texture2D" uid="uid://b1efkpemtkmt0" path="res://sprites/ui/panel_dark.png" id="14_bt5mj"]
 [ext_resource type="Texture2D" uid="uid://c2nn2kppahdit" path="res://sprites/ui/panel.png" id="14_trtic"]
@@ -1039,6 +1040,14 @@ skeleton = NodePath("../..")
 
 [node name="Time Travel Andy" parent="Room" instance=ExtResource("10_trtic")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.800049, -4.01387)
+
+[node name="Bonus Info" type="Sprite3D" parent="Room"]
+transform = Transform3D(0.45, 0, 0, 0, -1.96701e-08, 0.45, 0, -0.45, -1.96701e-08, 0, 2.06179, 1)
+texture = ExtResource("12_js0lu")
+
+[node name="Bonus Info2" type="Sprite3D" parent="Room"]
+transform = Transform3D(-0.45, -3.93403e-08, -1.71962e-15, 0, -1.96701e-08, 0.45, -3.93403e-08, 0.45, 1.96701e-08, 0, 2.06179, -1)
+texture = ExtResource("12_js0lu")
 
 [node name="Player Hand" type="Node3D" parent="."]
 script = ExtResource("1_lbhrr")
