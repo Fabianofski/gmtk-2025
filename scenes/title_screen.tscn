@@ -1,6 +1,5 @@
-[gd_scene load_steps=41 format=3 uid="uid://dh2aif2andq34"]
+[gd_scene load_steps=47 format=3 uid="uid://dh2aif2andq34"]
 
-[ext_resource type="Texture2D" uid="uid://biw85nmn6qtqt" path="res://icon.svg" id="1_3yumr"]
 [ext_resource type="Texture2D" uid="uid://b08bw6k7cmojr" path="res://sprites/ui/panel_light.png" id="1_e54dn"]
 [ext_resource type="Script" uid="uid://3eumkkea5rvb" path="res://scenes/title_screen.gd" id="1_khjys"]
 [ext_resource type="Texture2D" uid="uid://c2nn2kppahdit" path="res://sprites/ui/panel.png" id="2_3yumr"]
@@ -13,15 +12,34 @@
 [ext_resource type="PackedScene" uid="uid://cjhruytcug36n" path="res://sprites/table/table.blend" id="9_khjys"]
 [ext_resource type="Texture2D" uid="uid://c4nixbheu0pj3" path="res://sprites/enviro/floor_tex.png" id="10_174rq"]
 [ext_resource type="Texture2D" uid="uid://mbc5rc7pje0a" path="res://sprites/enviro/wall_tex.png" id="11_lrxh4"]
+[ext_resource type="ArrayMesh" uid="uid://c545g5vajw8jy" path="res://sprites/ui/logo_loop_mesh.obj" id="11_w03br"]
 [ext_resource type="Texture2D" uid="uid://b4cjt1ahhwvwy" path="res://sprites/enviro/decorations/decoration_2.png" id="12_neciy"]
 [ext_resource type="Texture2D" uid="uid://cctwqpvlfu6yl" path="res://sprites/enviro/decorations/decoration_4.png" id="13_w03br"]
 [ext_resource type="Texture2D" uid="uid://bv33trgmwkwvx" path="res://sprites/enviro/decorations/decoration_3.png" id="14_jr68i"]
 [ext_resource type="Texture2D" uid="uid://bnveft57om3d8" path="res://sprites/enviro/decorations/decoration_6.png" id="15_b344i"]
 [ext_resource type="Texture2D" uid="uid://wu4ppt58u1cu" path="res://sprites/enviro/decorations/decoration_5.png" id="16_gm4k0"]
 [ext_resource type="PackedScene" uid="uid://b882fewg5y6x5" path="res://scenes/player.tscn" id="17_mce2t"]
+[ext_resource type="Shader" uid="uid://dmoq6xdqvyshp" path="res://sprites/ui/logo_loop.gdshader" id="19_lrxh4"]
+[ext_resource type="Texture2D" uid="uid://cgwy7ub60s7pf" path="res://sprites/ui/logo_front.png" id="20_neciy"]
+[ext_resource type="Texture2D" uid="uid://dr37lokpy0n3d" path="res://sprites/ui/logo_back.png" id="20_w03br"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ib7db"]
 font = ExtResource("6_u26n3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jr68i"]
+shader = ExtResource("19_lrxh4")
+shader_parameter/direction = Vector2(-1, 0)
+shader_parameter/speed = 0.25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w03br"]
+shader = ExtResource("19_lrxh4")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed = 0.25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b344i"]
+shader = ExtResource("19_lrxh4")
+shader_parameter/direction = Vector2(0, 0)
+shader_parameter/speed = 0.25
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_htdhw"]
 sky_top_color = Color(0.394084, 0.179147, 0.423439, 1)
@@ -141,21 +159,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_khjys")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -208.0
-offset_right = 64.0
-offset_bottom = -80.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_3yumr")
 
 [node name="Buttons" type="Control" parent="."]
 layout_mode = 1
@@ -318,6 +321,64 @@ text = "QUIT"
 label_settings = SubResource("LabelSettings_ib7db")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Logo" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="TextureRect" parent="Logo"]
+visible = false
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jr68i")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -564.0
+offset_top = -96.5
+offset_right = 564.0
+offset_bottom = 96.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_w03br")
+
+[node name="Front" type="TextureRect" parent="Logo"]
+visible = false
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_w03br")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -564.0
+offset_top = -96.5
+offset_right = 564.0
+offset_bottom = 96.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_neciy")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Logo"]
+material = SubResource("ShaderMaterial_b344i")
+scale = Vector2(100, 100)
+mesh = ExtResource("11_w03br")
+texture = ExtResource("20_neciy")
 
 [node name="Border" type="NinePatchRect" parent="."]
 layout_mode = 1

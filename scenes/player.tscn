@@ -95,20 +95,6 @@ tracks/2/path = NodePath("Hand")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0.355724, 1.95536, 0.289772, 0.1, 1, 0.54001, 1.69058, 0.289772, 0.9, 1, 0.54001, 1.69058, 0.289772, 1, 1, 0.355724, 1.95536, 0.289772)
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AnimationPlayer")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"", -1, 1.0, false],
-"method": &"idle"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 resource_name = "generic"
@@ -176,20 +162,6 @@ tracks/1/path = NodePath("Body")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.05, 1, 0, 0.196679, 0, 0.15, 1, 0, 0.196679, 0, 0.2, 1, 0, 0, 0, 0.25, 1, 0, 0.196679, 0, 0.35, 1, 0, 0.196679, 0, 0.4, 1, 0, 0, 0, 0.45, 1, 0, 0.196679, 0, 0.55, 1, 0, 0.196679, 0, 0.6, 1, 0, 0, 0, 0.65, 1, 0, 0.196679, 0, 0.75, 1, 0, 0.196679, 0, 0.8, 1, 0, 0, 0)
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationPlayer")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"", -1, 1.0, false],
-"method": &"idle"
-}]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dqkch"]
 _data = {
