@@ -1469,6 +1469,7 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="Game Manager/RoundInfo/Atk"]
 layout_mode = 2
 texture = ExtResource("31_gxtfn")
+expand_mode = 2
 
 [node name="Atk" type="Label" parent="Game Manager/RoundInfo/Atk"]
 layout_mode = 2
@@ -1483,6 +1484,7 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="Game Manager/RoundInfo/Dfs"]
 layout_mode = 2
 texture = ExtResource("30_js0lu")
+expand_mode = 2
 
 [node name="Dfs" type="Label" parent="Game Manager/RoundInfo/Dfs"]
 layout_mode = 2
@@ -1497,6 +1499,7 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="Game Manager/RoundInfo/Hearts"]
 layout_mode = 2
 texture = ExtResource("28_v2yb1")
+expand_mode = 2
 
 [node name="Hearts" type="Label" parent="Game Manager/RoundInfo/Hearts"]
 layout_mode = 2
