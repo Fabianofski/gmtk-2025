@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://8kachair1hwq"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://c786qyu8hfn3j"]
 
 [ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_8cfqb"]
 [ext_resource type="Texture2D" uid="uid://b87awvsyfl8c8" path="res://sprites/cards/individual/club/9.png" id="2_jbjy2"]
@@ -11,6 +11,7 @@ suit = 1
 rarity = 0
 type = 0
 score = 9
+round_unlock = 0
 attack = 8
 defense = 2
 score_multiplier = 1

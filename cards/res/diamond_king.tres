@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dnpeoxf3mr113"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://nnrxtnfdtdi3"]
 
 [ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_m5gqw"]
 [ext_resource type="Texture2D" uid="uid://djri6p7s6agc5" path="res://sprites/cards/individual/diamond/K.png" id="2_5vpjs"]
@@ -11,6 +11,7 @@ suit = 0
 rarity = 0
 type = 1
 score = 13
+round_unlock = 0
 attack = 2
 defense = 8
 score_multiplier = 1

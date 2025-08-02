@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://cm85whoypbw7e"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://ci816n6pw0w1p"]
 
 [ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_0fp76"]
 [ext_resource type="Texture2D" uid="uid://bmowq7up2b66w" path="res://sprites/cards/individual/club/7.png" id="2_3tb1v"]
@@ -8,10 +8,16 @@ script = ExtResource("1_0fp76")
 sprite = ExtResource("2_3tb1v")
 id = "club_7"
 suit = 1
+rarity = 0
+type = 0
 score = 7
+round_unlock = 0
 attack = 4
 defense = 2
 score_multiplier = 1
 attack_multiplier = 1
 defense_multiplier = 1
+signal_name = ""
+signal_value = ""
+explanation = ""
 metadata/_custom_type_script = "uid://btup2q77vrcjp"

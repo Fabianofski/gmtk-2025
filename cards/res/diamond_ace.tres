@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://vvy6uqo7luw0"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://ckdov0pqblats"]
 
 [ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_bkiil"]
 [ext_resource type="Texture2D" uid="uid://bruchv1yc1m6r" path="res://sprites/cards/individual/diamond/A.png" id="2_mls5l"]
@@ -7,10 +7,17 @@
 script = ExtResource("1_bkiil")
 sprite = ExtResource("2_mls5l")
 id = "diamond_a"
+suit = 0
+rarity = 0
+type = 0
 score = 14
+round_unlock = 0
 attack = 2
 defense = 10
 score_multiplier = 1
 attack_multiplier = 1
 defense_multiplier = 1
+signal_name = ""
+signal_value = ""
+explanation = ""
 metadata/_custom_type_script = "uid://btup2q77vrcjp"

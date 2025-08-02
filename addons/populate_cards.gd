@@ -2,7 +2,7 @@
 extends EditorScript
 
 func _run():
-	var node = get_scene().get_node("Player Hand/Deck") # z.B. "Main" oder "CardsLoader"
+	var node = get_scene().get_node("Player Hand/Deck") 
 	var cards_folder = "res://cards/res"
 	var dir := DirAccess.open(cards_folder)
 	var cards = []

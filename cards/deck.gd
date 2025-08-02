@@ -12,10 +12,10 @@ var elapsed_time = 0.0
 
 func _init():
 	SignalBus.put_card_back_to_deck.connect(put_card_back_to_deck)
-	SignalBus.game_won.connect(game_won)
+	SignalBus.game_won.connect(reset_deck)
 
 func _ready():
-	cards_copy = cards.duplicate()
+	reset_deck(0)
 	update_label()
 
 func _process(delta: float) -> void: # Glitchy holo movement
@@ -28,8 +28,16 @@ func _process(delta: float) -> void: # Glitchy holo movement
 		cards_label.position = Vector3(0.055, 0, -0.381)
 		cards_label.scale = Vector3(1.411, 1.411, 1.411)
 
-func game_won(_round: int): 
-	cards_copy = cards.duplicate()
+func reset_deck(_round: int): 
+	cards_copy = []
+	var unlocked_cards = []
+	for card in cards: 
+		if card.round_unlock >= _round: 
+			cards_copy.append(card)
+		if card.round_unlock == _round:
+			print("Unlocked %s card" % card.id)
+			unlocked_cards.append(card)
+
 
 func put_card_back_to_deck(card: Card): 
 	cards_copy.insert(0, card)

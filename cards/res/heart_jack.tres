@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://b6sw4tmf1j2vl"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://crj2e7iwgqapd"]
 
 [ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_7tj4u"]
 [ext_resource type="Texture2D" uid="uid://ct3kfontn7lxc" path="res://sprites/cards/individual/heart/J.png" id="2_tfgi8"]
@@ -8,10 +8,16 @@ script = ExtResource("1_7tj4u")
 sprite = ExtResource("2_tfgi8")
 id = "heart_j"
 suit = 3
+rarity = 0
+type = 0
 score = 11
+round_unlock = 0
 attack = 2
 defense = 4
 score_multiplier = 1
 attack_multiplier = 1
 defense_multiplier = 1
+signal_name = ""
+signal_value = ""
+explanation = ""
 metadata/_custom_type_script = "uid://btup2q77vrcjp"
