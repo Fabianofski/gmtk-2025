@@ -5,34 +5,17 @@ extends Node
 @onready var cards_label: Label3D = $"CardsLeft3D"
 @onready var mesh: Node3D = $"mesh"
 var cards_copy: Array[Card] = []
-var cards_folder = "res://cards/res"
 
 # Used for hologram movement
 var glitchiness = 0.01
 var elapsed_time = 0.0
 
 func _init():
-	var dir := DirAccess.open(cards_folder)
-	if dir:
-		dir.list_dir_begin()
-		while true:
-			var file_name = dir.get_next()
-			if file_name == "":
-				break
-			if dir.current_is_dir():
-				continue
-			if file_name.ends_with(".tres") or file_name.ends_with(".res"):
-				var card = load(cards_folder + "/" + file_name)
-				if card is Card:
-					cards_copy.append(card)
-		dir.list_dir_end()
-
-	cards = cards_copy.duplicate()
-
 	SignalBus.put_card_back_to_deck.connect(put_card_back_to_deck)
 	SignalBus.game_won.connect(game_won)
 
 func _ready():
+	cards_copy = cards.duplicate()
 	update_label()
 
 func _process(delta: float) -> void: # Glitchy holo movement
@@ -46,23 +29,23 @@ func _process(delta: float) -> void: # Glitchy holo movement
 		cards_label.scale = Vector3(1.411, 1.411, 1.411)
 
 func game_won(_round: int): 
-	cards = cards_copy.duplicate()
+	cards_copy = cards.duplicate()
 
 func put_card_back_to_deck(card: Card): 
-	cards.insert(0, card)
+	cards_copy.insert(0, card)
 
 func shuffle_cards(): 
-	cards.shuffle()
+	cards_copy.shuffle()
 
 func update_label(): 
-	cards_label.text = "%d" % cards.size()
-	mesh.scale.y = float(cards.size()) / cards_copy.size()
-	mesh.visible = cards.size() > 0
+	cards_label.text = "%d" % cards_copy.size()
+	mesh.scale.y = float(cards_copy.size()) / cards_copy.size()
+	mesh.visible = cards_copy.size() > 0
 
 func draw_cards(amount: int) -> Array[Card]: 
 	var drawed_cards: Array[Card] = []
 	for i in amount:
-		var card = cards.pop_back()
+		var card = cards_copy.pop_back()
 		if card == null: 
 			if i == 0: 
 				SignalBus.game_over.emit("( RAN OUT OF CARDS )")
