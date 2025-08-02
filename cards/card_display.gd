@@ -52,16 +52,18 @@ func animate_card_score(id: String, score: int, addition: int):
 	score_animation_label.text = "%d + %d" % [score, addition] 
 
 	var tween = get_tree().create_tween()
-	tween.set_ease(Tween.EASE_OUT)
-	tween.tween_property(score_animation, "scale", Vector3.ONE, 0.5)
+	tween.set_ease(Tween.EASE_IN)
+	tween.tween_property(score_animation, "scale", Vector3.ONE, 0.25)
 
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.25).timeout
 	score_animation_label.text = "%d" % (score + addition) 
+	tween = get_tree().create_tween()
+	tween.tween_property(score_animation, "scale", Vector3(1.25, 1.25, 1.25), 0.25)
 	await get_tree().create_timer(0.25).timeout
 	
 	tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT)
-	tween.tween_property(score_animation, "scale", Vector3.ZERO, 0.5)
+	tween.tween_property(score_animation, "scale", Vector3.ZERO, 0.25)
 
 func next_round_started(state):
 	if selected and state == Game.STATE.Attack:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b7r5cmd7t0th8"]
+[gd_scene load_steps=14 format=3 uid="uid://b7r5cmd7t0th8"]
 
 [ext_resource type="Script" uid="uid://dsdyh0qfqepcn" path="res://cards/card_display.gd" id="1_ivai2"]
 [ext_resource type="Texture2D" uid="uid://diiibkn2s8khr" path="res://sprites/cards/back.png" id="2_4k7q8"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cvve6ey706sqt" path="res://sprites/cards/atk_icon.png" id="5_jsqqk"]
 [ext_resource type="Texture2D" uid="uid://c1i5y21d308ek" path="res://sprites/cards/def_icon.png" id="6_nwj5s"]
 [ext_resource type="AudioStream" uid="uid://pi50m1ksskhk" path="res://audio/draw.wav" id="8_auvip"]
+[ext_resource type="FontFile" uid="uid://umrofo8y2ps1" path="res://fonts/LCD14.otf" id="12_l8rp0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4k7q8"]
 size = Vector3(0.845, 1.18, 0.01)
@@ -127,4 +128,9 @@ stream = ExtResource("8_auvip")
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0.73076, 0)
 
 [node name="ScoreLabel" type="Label3D" parent="Score"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0)
+modulate = Color(0.572549, 0.909804, 0.752941, 1)
+outline_modulate = Color(0.227451, 0.247059, 0.368627, 0.501961)
 text = "5"
+font = ExtResource("12_l8rp0")
+outline_size = 4
