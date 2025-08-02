@@ -39,10 +39,12 @@ func _process(_delta: float) -> void: # Update score display
 		score_label.text = str(int(score_label.text)-1).pad_zeros(9)
 
 func select_card(card: Card): 
+	print("select %s" % card.id) 
 	selected_cards.append(card)
 	update_label()
 
 func deselect_card(card: Card): 
+	print("deselect %s" % card.id) 
 	var index = selected_cards.find_custom(func (x): return x.id == card.id)
 	selected_cards.remove_at(index)
 	update_label()

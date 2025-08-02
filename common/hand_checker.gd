@@ -33,10 +33,12 @@ static func check_for_straight(cards: Array[Card]) -> bool:
 		last_card_score = card.score
 	return straight_length >= 3
 
-static func check_for_bonus(cards: Array[Card]) -> Array[Bonus]:
+static func check_for_bonus(_cards: Array[Card]) -> Array[Bonus]:
 	var bonuses: Array[Bonus] = []
 
+	var cards = _cards.duplicate()
 	cards.sort_custom(sort_cards)
+
 	var score_counts = {}
 	var suit_counts = {}
 
