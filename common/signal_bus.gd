@@ -10,3 +10,6 @@ signal next_round_started(state)
 signal game_over(message)
 signal game_won(round)
 @warning_ignore_restore("unused_signal")
+
+func _ready() -> void:
+	get_window().min_size = Vector2i(1200, 520)
