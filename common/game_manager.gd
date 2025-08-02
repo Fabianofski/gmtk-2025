@@ -28,6 +28,7 @@ var state: STATE = STATE.Attack
 func _init():
 	SignalBus.select_card.connect(select_card)	
 	SignalBus.deselect_card.connect(deselect_card)	
+	SignalBus.add_hearts.connect(func(x): health += int(x); update_label())
 
 func _ready():
 	update_label()
@@ -80,11 +81,15 @@ func calc_atk_dfs_values(cards: Array[Card]):
 	var round_score = 0
 
 	for card in cards: 
+		if card.type != Card.CardType.Standard:
+			continue
 		atk += card.attack
 		dfs += card.defense
 		round_score += card.score
 
 	for card in cards: 
+		if card.type != Card.CardType.Multiplier:
+			continue
 		atk *= card.attack_multiplier
 		dfs *= card.defense_multiplier
 		round_score *= card.score_multiplier
@@ -101,6 +106,11 @@ func calc_atk_dfs_values(cards: Array[Card]):
 	}
 
 func next_round(): 
+	for card in selected_cards: 
+		if card.type != Card.CardType.Signal:
+			continue
+		SignalBus.emit_signal(card.signal_name, card.signal_value)
+
 	if state == STATE.Attack: 
 		var values = calc_atk_dfs_values(selected_cards)
 		score += values['score']

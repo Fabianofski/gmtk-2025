@@ -51,21 +51,8 @@ func next_round_started(state):
 func update_card(_card: Card): 
 	card = _card
 	front.texture = card.sprite
-	# Generate the attack/defense multiplier display only if it's different than 1
-	if card.attack_multiplier != 1:
-		atk_mult = "x%d" % card.attack_multiplier
-	else:
-		atk_mult = ""
-	if card.defense_multiplier != 1:
-		dfs_mult = "x%d" % card.defense_multiplier
-	else:
-		dfs_mult = ""
-	# Display attack and defense
-	atk_display.text = str(_card.attack) + atk_mult
-	dfs_display.text = str(_card.defense) + dfs_mult
-	# Show card number (a.k.a. score)
-	# NOTE: Having the percentage be included makes it look too busy, so simply show the multiplied number
-	card_number_display.text = str(card.score*card.score_multiplier)
+
+	card_number_display.text = str(card.score)
 	match card_number_display.text:
 		"11":
 			card_number_display.text = "J"
@@ -75,8 +62,8 @@ func update_card(_card: Card):
 			card_number_display.text = "K"
 		"14":
 			card_number_display.text = "A"
-	# Change number colour depending on the suit
-	if card.id.begins_with("heart") or card.id.begins_with("diamond"):
+
+	if card.suit == Card.Suits.Diamond or card.suit == Card.Suits.Heart:
 		card_number_display.modulate = Color("#E64539")
 	else:
 		card_number_display.modulate = Color("BLACK")
@@ -90,6 +77,18 @@ func update_card(_card: Card):
 			background.texture = gold_bg 
 		Card.Rarity.Crystal: 
 			background.texture = crystal_bg
+
+	match card.type: 
+		Card.CardType.Standard: 
+			atk_display.text = str(card.attack)
+			dfs_display.text = str(card.defense)
+		Card.CardType.Multiplier: 
+			atk_display.text = "%dx" % card.attack_multiplier
+			dfs_display.text = "%dx" % card.defense_multiplier
+		Card.CardType.Signal: 
+			atk_display.text = card.explanation
+			dfs_display.text = ""
+
 
 func _ready():
 	self.mouse_entered.connect(_on_mouse_entered)

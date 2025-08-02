@@ -7,10 +7,16 @@
 script = ExtResource("1_t18ln")
 sprite = ExtResource("2_xwq2i")
 id = "diamond_q"
+suit = 0
+rarity = 0
+type = 2
 score = 12
 attack = 2
 defense = 6
 score_multiplier = 1
 attack_multiplier = 1
 defense_multiplier = 1
+signal_name = "add_hearts"
+signal_value = "2"
+explanation = "Gives you back 2 hearts"
 metadata/_custom_type_script = "uid://btup2q77vrcjp"
