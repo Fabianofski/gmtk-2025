@@ -74,7 +74,7 @@ func update_label():
 		round_hearts.visible = diff < 0
 		round_hearts_label.text = str(diff)
 		state_info.text = "DEF"
-	health_label.text = str(health).pad_zeros(4)
+	health_label.text = str(max(0, health)).pad_zeros(4)
 
 func calc_atk_dfs_values(cards: Array[Card], animate: bool = false): 
 	animation_playing = animate
