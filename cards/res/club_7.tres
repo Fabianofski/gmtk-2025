@@ -7,6 +7,7 @@
 script = ExtResource("1_0fp76")
 sprite = ExtResource("2_3tb1v")
 id = "club_7"
+suit = 1
 score = 7
 attack = 4
 defense = 2

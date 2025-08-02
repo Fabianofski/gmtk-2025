@@ -7,6 +7,7 @@
 script = ExtResource("1_7tj4u")
 sprite = ExtResource("2_tfgi8")
 id = "heart_j"
+suit = 3
 score = 11
 attack = 2
 defense = 4

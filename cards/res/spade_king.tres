@@ -7,6 +7,7 @@
 script = ExtResource("1_m5gqw")
 sprite = ExtResource("2_5vpjs")
 id = "spade_k"
+suit = 2
 score = 13
 attack = 2
 defense = 8
