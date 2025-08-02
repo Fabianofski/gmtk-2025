@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=4 uid="uid://7irymsguxr1n"]
+[gd_scene load_steps=116 format=4 uid="uid://7irymsguxr1n"]
 
 [ext_resource type="Script" uid="uid://bfys28ih4t0op" path="res://scenes/camera_mvmt.gd" id="1_dinhu"]
 [ext_resource type="Script" uid="uid://ccrn643plqokb" path="res://cards/player_hand.gd" id="1_lbhrr"]

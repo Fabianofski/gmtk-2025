@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://b882fewg5y6x5"]
+[gd_scene load_steps=20 format=3 uid="uid://b882fewg5y6x5"]
 
 [ext_resource type="Texture2D" uid="uid://c8t0qfl1ijti2" path="res://sprites/player/shades_tex.png" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://bfxtvi31bc2b4" path="res://sprites/player/generic_shadow_tex.png" id="1_g2els"]
+[ext_resource type="Script" uid="uid://cvrde2ui6tra3" path="res://scenes/player_anim.gd" id="1_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://co24emyllcpo2" path="res://sprites/player/hand_shadow_tex.png" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://diiibkn2s8khr" path="res://sprites/cards/back.png" id="4_dqkch"]
 
@@ -94,6 +95,20 @@ tracks/2/path = NodePath("Hand")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0.355724, 1.95536, 0.289772, 0.1, 1, 0.54001, 1.69058, 0.289772, 0.9, 1, 0.54001, 1.69058, 0.289772, 1, 1, 0.355724, 1.95536, 0.289772)
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"", -1, 1.0, false],
+"method": &"idle"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 resource_name = "generic"
@@ -161,13 +176,20 @@ tracks/1/path = NodePath("Body")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.05, 1, 0, 0.196679, 0, 0.15, 1, 0, 0.196679, 0, 0.2, 1, 0, 0, 0, 0.25, 1, 0, 0.196679, 0, 0.35, 1, 0, 0.196679, 0, 0.4, 1, 0, 0, 0, 0.45, 1, 0, 0.196679, 0, 0.55, 1, 0, 0.196679, 0, 0.6, 1, 0, 0, 0, 0.65, 1, 0, 0.196679, 0, 0.75, 1, 0, 0.196679, 0, 0.8, 1, 0, 0, 0)
-tracks/2/type = "position_3d"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hand")
+tracks/2/path = NodePath("AnimationPlayer")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0.355724, 1.95536, 0.289772, 0.2, 1, 0.355724, 1.95536, 0.289772, 0.3, 1, -0.039893, 2.81067, 0.289772, 0.666667, 1, 0.55618, 2.75083, 0.289772, 0.766667, 1, 0.355724, 1.95536, 0.289772)
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"", -1, 1.0, false],
+"method": &"idle"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dqkch"]
 _data = {
@@ -179,6 +201,7 @@ _data = {
 }
 
 [node name="Time Travel Andy" type="Node3D"]
+script = ExtResource("1_qlg0r")
 
 [node name="Head" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.11364, 0, 0, 0, 1.09197, 0, 0, 0, 1.5, 0, 2.98, 0)

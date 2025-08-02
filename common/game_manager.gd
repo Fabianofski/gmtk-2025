@@ -124,7 +124,7 @@ func next_round():
 			last_played = selected_cards
 			state = STATE.Defense
 
-		goal_info.text = "Beat your own attack's " + str(values['atk']) + " points"
+		goal_info.text = "Defend against your own attack's " + str(values['atk']) + " points"
 	else: 
 		var hand = calc_atk_dfs_values(selected_cards)
 		var old_hand = calc_atk_dfs_values(last_played)
@@ -140,4 +140,5 @@ func next_round():
 
 	selected_cards = []
 	update_label()
+	SignalBus.defended_against_attack.emit(health)
 	SignalBus.next_round_started.emit(state)
