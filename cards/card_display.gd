@@ -95,8 +95,8 @@ func update_card(_card: Card):
 			special_holder.visible = false
 		Card.CardType.Signal: 
 			special_display.text = card.explanation
-			atk_def_holder.visible = true
-			special_holder.visible = false
+			atk_def_holder.visible = false
+			special_holder.visible = true
 
 
 func _ready():
