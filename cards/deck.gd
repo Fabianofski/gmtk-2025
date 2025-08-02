@@ -30,14 +30,13 @@ func _process(delta: float) -> void: # Glitchy holo movement
 
 func reset_deck(_round: int): 
 	cards_copy = []
-	var unlocked_cards = []
+	var unlocked_cards: Array[Card] = []
 	for card in cards: 
-		if card.round_unlock >= _round: 
+		if card.round_unlock <= _round: 
 			cards_copy.append(card)
-		if card.round_unlock == _round:
-			print("Unlocked %s card" % card.id)
+		if card.round_unlock == _round and _round != 0:
 			unlocked_cards.append(card)
-
+	SignalBus.card_unlocked.emit(unlocked_cards)
 
 func put_card_back_to_deck(card: Card): 
 	cards_copy.insert(0, card)

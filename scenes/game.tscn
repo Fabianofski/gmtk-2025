@@ -71,6 +71,7 @@
 [ext_resource type="Resource" uid="uid://bot3ct53j3krr" path="res://cards/res/diamond_8.tres" id="49_vniw0"]
 [ext_resource type="Resource" uid="uid://dqxiqpdybxie1" path="res://cards/res/heart_8.tres" id="50_15b3c"]
 [ext_resource type="Resource" uid="uid://dfbwo5oeescl0" path="res://cards/res/spade_8.tres" id="50_753oq"]
+[ext_resource type="Script" uid="uid://dslfm7evcbnfa" path="res://common/unlock_screen.gd" id="71_o8oq8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p57ef"]
 sky_top_color = Color(0.394084, 0.179147, 0.423439, 1)
@@ -1169,7 +1170,7 @@ stream = ExtResource("17_suyxu")
 
 [node name="Game Manager" type="Node3D" parent="."]
 script = ExtResource("4_lbhrr")
-round_target_scores = Array[int]([1000, 5000, 20000])
+round_target_scores = Array[int]([200, 500, 1000])
 
 [node name="Border" type="NinePatchRect" parent="Game Manager"]
 anchors_preset = 15
@@ -1725,6 +1726,10 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = SubResource("Theme_qnb83")
 text = "Du.. what?"
+
+[node name="UnlockScreen" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+script = ExtResource("71_o8oq8")
 
 [connection signal="pressed" from="Game Manager/Next Round/Button" to="Game Manager" method="next_round"]
 [connection signal="pressed" from="LoseScreen/Control/RestartBtn" to="LoseScreen/Control" method="restart"]

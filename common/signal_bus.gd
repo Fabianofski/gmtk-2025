@@ -9,6 +9,7 @@ signal put_card_back_to_deck(card)
 signal next_round_started(state)
 signal game_over(message)
 signal game_won(round)
+signal card_unlocked(cards)
 
 signal add_hearts(count)
 @warning_ignore_restore("unused_signal")
