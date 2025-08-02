@@ -62,7 +62,7 @@ func update_label():
 		round_hearts.visible = false
 		round_atk_label.text = str(hand['atk'])
 		round_bonus.text = ','.join(hand['bonuses'].map(func(b): return b.type + " (" + str(b.payout) + "x)"))
-		goal_info.text = "Score %d more points to win" % (max(0, target_score.call() - score))
+		goal_info.text = "Round %d: Score %d more points to win" % [current_round + 1, (max(0, target_score.call() - score))]
 		state_info.text = "ATK"
 	else: 
 		round_dfs.visible = true
@@ -124,7 +124,7 @@ func next_round():
 			last_played = selected_cards
 			state = STATE.Defense
 
-		goal_info.text = "Defend against your own attack's " + str(values['atk']) + " points"
+		goal_info.text = "Round %d: Defend against your own attack's %d points" % [current_round + 1, values['atk']]
 	else: 
 		var hand = calc_atk_dfs_values(selected_cards)
 		var old_hand = calc_atk_dfs_values(last_played)
