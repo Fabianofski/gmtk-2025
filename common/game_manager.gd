@@ -21,6 +21,7 @@ var last_played: Array[Card] = []
 @export var current_round: int = 0
 @export var round_target_scores: Array[int] = [] 
 var target_score = func(): return round_target_scores[current_round]
+var animation_playing = false
 
 enum STATE { Attack, Defense }
 var state: STATE = STATE.Attack
@@ -76,6 +77,7 @@ func update_label():
 	health_label.text = str(health).pad_zeros(4)
 
 func calc_atk_dfs_values(cards: Array[Card], animate: bool = false): 
+	animation_playing = animate
 	var atk = 0
 	var dfs = 0
 	var round_score = 0
@@ -104,6 +106,7 @@ func calc_atk_dfs_values(cards: Array[Card], animate: bool = false):
 	for bonus in bonuses: 
 		round_score = round_score * bonus.payout 
 
+	animation_playing = false
 	return {
 		'bonuses': bonuses,
 		'score': round_score, 
@@ -112,6 +115,8 @@ func calc_atk_dfs_values(cards: Array[Card], animate: bool = false):
 	}
 
 func next_round(): 
+	if animation_playing: 
+		return
 	for card in selected_cards: 
 		if card.type != Card.CardType.Signal:
 			continue
