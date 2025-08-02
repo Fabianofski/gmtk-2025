@@ -1644,6 +1644,7 @@ offset_right = 50.0
 offset_bottom = -254.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_default_cursor_shape = 2
 theme = SubResource("Theme_qnb83")
 text = "Restart"
 
@@ -1708,6 +1709,7 @@ offset_top = -47.0
 offset_right = 111.0
 offset_bottom = -16.0
 grow_vertical = 0
+mouse_default_cursor_shape = 2
 theme = SubResource("Theme_qnb83")
 text = "Oh yeah."
 
@@ -1724,6 +1726,7 @@ offset_right = -16.0
 offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_default_cursor_shape = 2
 theme = SubResource("Theme_qnb83")
 text = "Du.. what?"
 
