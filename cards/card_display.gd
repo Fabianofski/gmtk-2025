@@ -22,15 +22,13 @@ signal tween_to_position(pos, rot, time)
 @onready var atk_icon: Sprite3D = $"ATK_DEF/atk_icon"
 @onready var dfs_display: Label3D = $"ATK_DEF/dfs"
 @onready var dfs_icon: Sprite3D = $"ATK_DEF/dfs_icon"
+@export var score_texture: Texture2D; 
 
 @onready var special_holder: Node3D = $Special
 @onready var special_display: Node3D = $"Special/sp"
 
 @onready var score_animation: Node3D = $"Score"
 @onready var score_animation_label: Label3D = $"Score/ScoreLabel"
-
-var atk_mult: String = ""
-var dfs_mult: String = ""
 
 @onready var past_player_hand_parent: Node3D = get_node("../../PastPlayerHandCards")
 @onready var player_hand_parent: Node3D = get_node("../../PlayerHandCards")
@@ -112,8 +110,16 @@ func update_card(_card: Card):
 			atk_def_holder.visible = true
 			special_holder.visible = false
 		Card.CardType.Multiplier: 
-			atk_display.text = "%dx" % card.attack_multiplier
-			dfs_display.text = "%dx" % card.defense_multiplier
+			if card.attack_multiplier != 1: 
+				atk_display.text = "%dx" % card.attack_multiplier
+			else:
+				atk_display.text = "%dx" % card.score_multiplier
+				atk_icon.texture = score_texture
+			if card.defense_multiplier != 1: 
+				dfs_display.text = "%dx" % card.defense_multiplier
+			else:
+				dfs_display.text = "%dx" % card.score_multiplier
+				dfs_icon.texture = score_texture
 			atk_def_holder.visible = true
 			special_holder.visible = false
 		Card.CardType.Signal: 

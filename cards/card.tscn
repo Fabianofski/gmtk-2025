@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b7r5cmd7t0th8"]
+[gd_scene load_steps=15 format=3 uid="uid://b7r5cmd7t0th8"]
 
 [ext_resource type="Script" uid="uid://dsdyh0qfqepcn" path="res://cards/card_display.gd" id="1_ivai2"]
 [ext_resource type="Texture2D" uid="uid://diiibkn2s8khr" path="res://sprites/cards/back.png" id="2_4k7q8"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bx6wigvnmjjbm" path="res://sprites/cards/gold.png" id="4_l8rp0"]
 [ext_resource type="Texture2D" uid="uid://c2k5xwda3avdk" path="res://sprites/cards/crystal.png" id="5_e258s"]
 [ext_resource type="Texture2D" uid="uid://cvve6ey706sqt" path="res://sprites/cards/atk_icon.png" id="5_jsqqk"]
+[ext_resource type="Texture2D" uid="uid://dulivl7iah6i2" path="res://sprites/cards/score_icon.png" id="6_e258s"]
 [ext_resource type="Texture2D" uid="uid://c1i5y21d308ek" path="res://sprites/cards/def_icon.png" id="6_nwj5s"]
 [ext_resource type="AudioStream" uid="uid://pi50m1ksskhk" path="res://audio/draw.wav" id="8_auvip"]
 [ext_resource type="FontFile" uid="uid://umrofo8y2ps1" path="res://fonts/LCD14.otf" id="12_l8rp0"]
@@ -22,6 +23,7 @@ standard_bg = ExtResource("4_hel13")
 silver_bg = ExtResource("3_53nac")
 gold_bg = ExtResource("4_l8rp0")
 crystal_bg = ExtResource("5_e258s")
+score_texture = ExtResource("6_e258s")
 
 [node name="back" type="Sprite3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
