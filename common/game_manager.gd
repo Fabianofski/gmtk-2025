@@ -15,6 +15,7 @@ var last_played: Array[Card] = []
 @onready var round_atk_label: Label = $"RoundInfo/Atk/Atk"
 @onready var round_dfs: Control = $"RoundInfo/Dfs"
 @onready var round_dfs_label: Label = $"RoundInfo/Dfs/Dfs"
+@onready var round_bonus: Label = $"Bonus"
 
 @export var score: int = 0
 @export var current_round: int = 0
@@ -53,6 +54,7 @@ func update_label():
 		round_dfs.visible = false
 		round_hearts.visible = false
 		round_atk_label.text = str(hand['atk'])
+		round_bonus.text = ','.join(hand['bonuses'].map(func(b): return b.type + " (" + str(b.payout) + "x)"))
 		goal_info.text = "Score %d more points to win" % (max(0, target_score.call() - score))
 		state_info.text = "ATK"
 	else: 
@@ -81,9 +83,12 @@ func calc_atk_dfs_values(cards: Array[Card]):
 		dfs *= card.defense_multiplier
 		round_score *= card.score_multiplier
 
-	round_score = int(round_score * max(1, log(cards.size()) * 10))
+	var bonuses = HandChecker.check_for_bonus(cards)
+	for bonus in bonuses: 
+		round_score = round_score * bonus.payout 
 
 	return {
+		'bonuses': bonuses,
 		'score': round_score, 
 		'atk': atk, 
 		'dfs': dfs
