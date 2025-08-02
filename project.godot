@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalBus="*res://common/signal_bus.gd"
+MusicHandler="*res://common/music_handler.tscn"
 
 [display]
 

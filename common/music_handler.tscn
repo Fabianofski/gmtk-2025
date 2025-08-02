@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd8kxirxsw1"]
+
+[ext_resource type="Script" uid="uid://bxrnx2al4pnqf" path="res://common/music_handler.gd" id="1_7wyg5"]
+[ext_resource type="AudioStream" uid="uid://chxi8y2todcqk" path="res://audio/music.ogg" id="2_wwgq7"]
+
+[node name="Music Handler" type="Node"]
+script = ExtResource("1_7wyg5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wwgq7")
+autoplay = true
+bus = &"Music"
+parameters/looping = true

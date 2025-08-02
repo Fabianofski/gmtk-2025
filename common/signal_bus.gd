@@ -16,4 +16,4 @@ signal animate_card_score(card_id, current_score, addition)
 @warning_ignore_restore("unused_signal")
 
 func _ready() -> void:
-	get_window().min_size = Vector2i(1200, 520)
+	get_window().min_size = Vector2i(1200, 520) # Enforce a minimum window size
