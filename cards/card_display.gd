@@ -26,6 +26,9 @@ signal tween_to_position(pos, rot, time)
 @onready var special_holder: Node3D = $Special
 @onready var special_display: Node3D = $"Special/sp"
 
+@onready var score_animation: Node3D = $"Score"
+@onready var score_animation_label: Label3D = $"Score/ScoreLabel"
+
 var atk_mult: String = ""
 var dfs_mult: String = ""
 
@@ -41,6 +44,24 @@ func _init():
 	update.connect(update_card)
 	tween_to_position.connect(set_base_pos)
 	SignalBus.next_round_started.connect(next_round_started)
+	SignalBus.animate_card_score.connect(animate_card_score)
+
+func animate_card_score(id: String, score: int, addition: int): 
+	if id != card.id or not selected: 
+		return
+	score_animation_label.text = "%d + %d" % [score, addition] 
+
+	var tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property(score_animation, "scale", Vector3.ONE, 0.5)
+
+	await get_tree().create_timer(0.5).timeout
+	score_animation_label.text = "%d" % (score + addition) 
+	await get_tree().create_timer(0.25).timeout
+	
+	tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property(score_animation, "scale", Vector3.ZERO, 0.5)
 
 func next_round_started(state):
 	if selected and state == Game.STATE.Attack:

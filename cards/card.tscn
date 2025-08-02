@@ -122,3 +122,9 @@ horizontal_alignment = 0
 
 [node name="DrawSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("8_auvip")
+
+[node name="Score" type="Node3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0.73076, 0)
+
+[node name="ScoreLabel" type="Label3D" parent="Score"]
+text = "5"

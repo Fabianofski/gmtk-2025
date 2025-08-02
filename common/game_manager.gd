@@ -54,8 +54,8 @@ func deselect_card(card: Card):
 	update_label()
 
 func update_label(): 
-	var hand = calc_atk_dfs_values(selected_cards)
-	var old_hand = calc_atk_dfs_values(last_played)
+	var hand = await calc_atk_dfs_values(selected_cards)
+	var old_hand = await calc_atk_dfs_values(last_played)
 	round_bonus.text = ''
 	if state == STATE.Attack: 
 		round_dfs.visible = false
@@ -75,7 +75,7 @@ func update_label():
 		state_info.text = "DEF"
 	health_label.text = str(health).pad_zeros(4)
 
-func calc_atk_dfs_values(cards: Array[Card]): 
+func calc_atk_dfs_values(cards: Array[Card], animate: bool = false): 
 	var atk = 0
 	var dfs = 0
 	var round_score = 0
@@ -85,6 +85,9 @@ func calc_atk_dfs_values(cards: Array[Card]):
 			continue
 		atk += card.attack
 		dfs += card.defense
+		if animate: 
+			SignalBus.animate_card_score.emit(card.id, round_score, card.score)
+			await get_tree().create_timer(1).timeout
 		round_score += card.score
 
 	for card in cards: 
@@ -92,6 +95,9 @@ func calc_atk_dfs_values(cards: Array[Card]):
 			continue
 		atk *= card.attack_multiplier
 		dfs *= card.defense_multiplier
+		if animate and card.score_multiplier != 1: 
+			SignalBus.animate_card_score.emit(card.id, round_score, card.score_multiplier)
+			await get_tree().create_timer(1).timeout
 		round_score *= card.score_multiplier
 
 	var bonuses = HandChecker.check_for_bonus(cards)
@@ -112,7 +118,7 @@ func next_round():
 		SignalBus.emit_signal(card.signal_name, card.signal_value)
 
 	if state == STATE.Attack: 
-		var values = calc_atk_dfs_values(selected_cards)
+		var values = await calc_atk_dfs_values(selected_cards, true)
 		score += values['score']
 
 		if score >= target_score.call(): 
@@ -126,8 +132,8 @@ func next_round():
 
 		goal_info.text = "Round %d: Defend against your own attack's %d points" % [current_round + 1, values['atk']]
 	else: 
-		var hand = calc_atk_dfs_values(selected_cards)
-		var old_hand = calc_atk_dfs_values(last_played)
+		var hand = await calc_atk_dfs_values(selected_cards)
+		var old_hand = await calc_atk_dfs_values(last_played)
 		
 		var diff = hand['dfs'] - old_hand['atk']
 		if diff <= 0: 
