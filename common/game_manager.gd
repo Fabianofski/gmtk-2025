@@ -40,11 +40,12 @@ func _init():
 func _ready():
 	update_label()
 
-func _process(_delta: float) -> void: # Update score display
-	if int(score_label.text) < score:
-		score_label.text = str(int(score_label.text)+1).pad_zeros(9)
-	elif int(score_label.text) > score:
-		score_label.text = str(int(score_label.text)-1).pad_zeros(9)
+func _process(_delta: float) -> void:
+	var current_score = int(score_label.text)
+	var difference = score - current_score
+	if difference != 0:
+		var step: int = max(1, abs(difference) / 50)
+		score_label.text = str(current_score + step * sign(difference)).pad_zeros(9)
 
 func select_card(card: Card): 
 	print("select %s" % card.id) 
