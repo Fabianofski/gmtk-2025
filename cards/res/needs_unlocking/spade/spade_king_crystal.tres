@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://b74uehu15gqbx"]
+
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_bp8mh"]
+[ext_resource type="Texture2D" uid="uid://bj5u5ts6w7613" path="res://sprites/cards/individual/spade/K.png" id="2_cfe8q"]
+
+[resource]
+script = ExtResource("1_bp8mh")
+sprite = ExtResource("2_cfe8q")
+id = "spade_k_crystal"
+suit = 2
+rarity = 3
+type = 1
+score = 13
+unlocked = false
+attack = 0
+defense = 0
+score_multiplier = 1
+attack_multiplier = 1
+defense_multiplier = 6
+signal_name = ""
+signal_value = ""
+explanation = "6x to your defense"
+metadata/_custom_type_script = "uid://btup2q77vrcjp"

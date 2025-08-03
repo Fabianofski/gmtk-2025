@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://c8t0nonurdc13"]
+
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_y5eom"]
+[ext_resource type="Texture2D" uid="uid://ct3kfontn7lxc" path="res://sprites/cards/individual/heart/J.png" id="2_xstga"]
+
+[resource]
+script = ExtResource("1_y5eom")
+sprite = ExtResource("2_xstga")
+id = "heart_j_crystal"
+suit = 3
+rarity = 3
+type = 0
+score = 11
+unlocked = true
+attack = 2
+defense = 6
+score_multiplier = 1
+attack_multiplier = 1
+defense_multiplier = 1
+signal_name = ""
+signal_value = ""
+explanation = ""
+metadata/_custom_type_script = "uid://btup2q77vrcjp"

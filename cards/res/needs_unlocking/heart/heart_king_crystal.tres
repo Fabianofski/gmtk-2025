@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://bgqm3slpckabq"]
+
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_i1wu7"]
+[ext_resource type="Texture2D" uid="uid://bw4ubw7b4im85" path="res://sprites/cards/individual/heart/K.png" id="2_r1mvo"]
+
+[resource]
+script = ExtResource("1_i1wu7")
+sprite = ExtResource("2_r1mvo")
+id = "heart_k_crystal"
+suit = 3
+rarity = 3
+type = 1
+score = 13
+unlocked = false
+attack = 0
+defense = 0
+score_multiplier = 1
+attack_multiplier = 1
+defense_multiplier = 6
+signal_name = ""
+signal_value = ""
+explanation = "6x to your defense"
+metadata/_custom_type_script = "uid://btup2q77vrcjp"

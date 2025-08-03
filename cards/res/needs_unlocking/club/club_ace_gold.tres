@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://qoucvvhq7uqn"]
+
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_ma4wi"]
+[ext_resource type="Texture2D" uid="uid://do2xe651cmrus" path="res://sprites/cards/individual/club/A.png" id="2_3q1p8"]
+
+[resource]
+script = ExtResource("1_ma4wi")
+sprite = ExtResource("2_3q1p8")
+id = "club_a_gold"
+suit = 1
+rarity = 2
+type = 1
+score = 14
+unlocked = false
+attack = 0
+defense = 0
+score_multiplier = 4
+attack_multiplier = 1
+defense_multiplier = 1
+signal_name = ""
+signal_value = ""
+explanation = "x4 to your score"
+metadata/_custom_type_script = "uid://btup2q77vrcjp"

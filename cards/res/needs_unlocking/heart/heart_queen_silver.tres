@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://c60m52thlmtb5"]
+
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_biwbi"]
+[ext_resource type="Texture2D" uid="uid://bpc22gwlx30mu" path="res://sprites/cards/individual/heart/Q.png" id="2_speua"]
+
+[resource]
+script = ExtResource("1_biwbi")
+sprite = ExtResource("2_speua")
+id = "heart_q_silver"
+suit = 3
+rarity = 1
+type = 2
+score = 12
+unlocked = false
+attack = 0
+defense = 0
+score_multiplier = 1
+attack_multiplier = 1
+defense_multiplier = 1
+signal_name = "add_hearts"
+signal_value = "2"
+explanation = "Gives you back 2 hearts"
+metadata/_custom_type_script = "uid://btup2q77vrcjp"

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://bgkddidh0ev27"]
+
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_da3ut"]
+[ext_resource type="Texture2D" uid="uid://00uddg1lblci" path="res://sprites/cards/individual/club/K.png" id="2_cgdjj"]
+
+[resource]
+script = ExtResource("1_da3ut")
+sprite = ExtResource("2_cgdjj")
+id = "club_k_crystal"
+suit = 1
+rarity = 3
+type = 1
+score = 13
+unlocked = false
+attack = 0
+defense = 0
+score_multiplier = 1
+attack_multiplier = 1
+defense_multiplier = 6
+signal_name = ""
+signal_value = ""
+explanation = "6x to your defense"
+metadata/_custom_type_script = "uid://btup2q77vrcjp"

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://cvwwjn50ocyg5"]
+
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_6hwft"]
+[ext_resource type="Texture2D" uid="uid://cndhv8ucevu8" path="res://sprites/cards/individual/club/J.png" id="2_piwal"]
+
+[resource]
+script = ExtResource("1_6hwft")
+sprite = ExtResource("2_piwal")
+id = "club_j_crystal"
+suit = 1
+rarity = 3
+type = 0
+score = 11
+unlocked = true
+attack = 2
+defense = 6
+score_multiplier = 1
+attack_multiplier = 1
+defense_multiplier = 1
+signal_name = ""
+signal_value = ""
+explanation = ""
+metadata/_custom_type_script = "uid://btup2q77vrcjp"

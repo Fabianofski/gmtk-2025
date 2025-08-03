@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://smyhcoxnnuc2"]
+
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_221gm"]
+[ext_resource type="Texture2D" uid="uid://do2g7g3gy2nj" path="res://sprites/cards/individual/heart/A.png" id="2_fptcb"]
+
+[resource]
+script = ExtResource("1_221gm")
+sprite = ExtResource("2_fptcb")
+id = "heart_a_crystal"
+suit = 3
+rarity = 3
+type = 1
+score = 14
+unlocked = false
+attack = 0
+defense = 0
+score_multiplier = 6
+attack_multiplier = 1
+defense_multiplier = 1
+signal_name = ""
+signal_value = ""
+explanation = "x6 to your score"
+metadata/_custom_type_script = "uid://btup2q77vrcjp"
