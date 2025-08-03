@@ -1189,7 +1189,7 @@ stream = ExtResource("17_suyxu")
 
 [node name="Game Manager" type="Node3D" parent="."]
 script = ExtResource("4_lbhrr")
-round_target_scores = Array[int]([200, 500, 1000])
+round_target_scores = Array[int]([100, 500, 1000])
 
 [node name="Border" type="NinePatchRect" parent="Game Manager"]
 anchors_preset = 15
@@ -1590,6 +1590,22 @@ grow_horizontal = 2
 grow_vertical = 0
 label_settings = SubResource("LabelSettings_kvpfn")
 horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Game Manager"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -89.0
+offset_right = 167.0
+offset_bottom = 90.0
+grow_vertical = 2
+text = "3 Card Score Bonus: 
+Pair: 2x
+Flush: 3x 
+Straight: 4x
+Three of a kind: 5x
+"
 
 [node name="LoseScreen" type="Node3D" parent="."]
 

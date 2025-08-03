@@ -4,7 +4,6 @@ static var pair_payout = 2
 static var flush_payout = 3
 static var straight_payout = 4
 static var three_of_a_kind_payout = 5
-static var straight_flush_payout = 6
 
 class Bonus:
 	var type: String
@@ -30,6 +29,8 @@ static func check_for_straight(cards: Array[Card]) -> bool:
 			straight_length += 1 
 		else: 
 			straight_length = 1
+		if straight_length >= 3:
+			return true
 		last_card_score = card.score
 	return straight_length >= 3
 
@@ -46,19 +47,16 @@ static func check_for_bonus(_cards: Array[Card]) -> Array[Bonus]:
 		score_counts[card.score] = score_counts.get(card.score, 0) + 1
 		suit_counts[card.suit] = suit_counts.get(card.suit, 0) + 1
 
-	if score_counts.values().has(2):
+	for i in score_counts.values().filter(func(x): return x == 2):
 		bonuses.append(Bonus.new("Pair", pair_payout))
 
-	if suit_counts.values().any(func(x): return x >= 3):
+	for i in suit_counts.values().filter(func(x): return x >= 3):
 		bonuses.append(Bonus.new("Flush", flush_payout))
 
 	if check_for_straight(cards):
 		bonuses.append(Bonus.new("Straight", straight_payout))
 
-	if score_counts.values().any(func(x): return x >= 3):
+	for i in score_counts.values().filter(func(x): return x >= 3):
 		bonuses.append(Bonus.new("Three of a Kind", three_of_a_kind_payout))
-
-	if check_for_straight(cards):
-		bonuses.append(Bonus.new("Straight Flush", straight_flush_payout))
 
 	return bonuses
