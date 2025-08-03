@@ -18,6 +18,7 @@ var last_played: Array[Card] = []
 @onready var round_bonus: Label = $"Bonus"
 @onready var score_tick_sound: AudioStreamPlayer3D = $"ScoreTickSound"
 @onready var lose_heart_sound: AudioStreamPlayer3D = $"LoseHeartSound"
+@onready var level_up_sound: AudioStreamPlayer3D = $"LevelUpSound"
 
 @export var score: int = 0
 @export var current_round: int = 0
@@ -49,8 +50,6 @@ func _process(_delta: float) -> void:
 		var step: int = max(1, abs(difference) / 50)
 		score_label.text = str(current_score + step * sign(difference)).pad_zeros(9)
 		score_tick_sound.play()
-	elif score_tick_sound.playing:
-		score_tick_sound.stop()
 
 func select_card(card: Card): 
 	print("select %s" % card.id) 
@@ -147,6 +146,7 @@ func next_round():
 			print("WON!")
 			# score = 0
 			while score >= target_score():
+				level_up_sound.play()
 				current_round += 1
 			SignalBus.game_won.emit(current_round)
 		else:
