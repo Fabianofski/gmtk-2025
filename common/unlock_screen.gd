@@ -8,7 +8,7 @@ func _init():
 func card_unlock(cards: Array[Card]):
 	print("Unlocked ", cards)
 	var card_count = cards.size()
-	var spacing = 1 
+	var spacing = 1.25 
 	var start_x = -(card_count - 1) * 0.5 * spacing
 
 	var tween

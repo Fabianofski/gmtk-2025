@@ -117,7 +117,7 @@ func calc_atk_dfs_values(cards: Array[Card], animate: bool = false):
 	for bonus in bonuses: 
 		if animate: 
 			SignalBus.animate_bonus_score.emit(bonus.type, round_score, bonus.payout)
-			await get_tree().create_timer(2).timeout
+			await get_tree().create_timer(1).timeout
 		round_score = round_score * bonus.payout 
 
 	animation_playing = false

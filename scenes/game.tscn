@@ -1243,7 +1243,7 @@ stream = ExtResource("17_suyxu")
 
 [node name="Game Manager" type="Node3D" parent="."]
 script = ExtResource("4_lbhrr")
-round_target_scores = Array[int]([100, 500, 1000])
+round_target_scores = Array[int]([250, 750, 1500, 3000, 5000, 8000, 15000, 20000])
 
 [node name="Border" type="NinePatchRect" parent="Game Manager"]
 anchors_preset = 15
