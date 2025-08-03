@@ -1131,11 +1131,12 @@ text = "Cards left: 36"
 
 [node name="CardsLeft3D" type="Label3D" parent="Player Hand/Deck"]
 transform = Transform3D(-1.3968, -1.23333e-07, 0.141713, -0.198047, 6.16666e-08, -0.999478, 1.13455e-07, -1.41077, -5.60775e-08, 0.0549459, 4.47035e-08, -0.381341)
+pixel_size = 0.001
 modulate = Color(0.5733, 0.91, 0.752873, 0.768627)
 outline_modulate = Color(0.2294, 0.248147, 0.37, 0.501961)
 text = "6969"
 font = ExtResource("17_ssvqc")
-font_size = 24
+font_size = 120
 outline_size = 4
 
 [node name="PlayerHandCards" type="Node3D" parent="Player Hand"]
@@ -1805,18 +1806,22 @@ transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 1.38, 2)
 
 [node name="BonusLabel" type="Label3D" parent="BonusScorePopup/Score"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0.171356, 0)
+pixel_size = 0.001
 modulate = Color(0.572549, 0.909804, 0.752941, 1)
 outline_modulate = Color(0.227451, 0.247059, 0.368627, 0.501961)
 text = "THREE OF A KIND"
 font = ExtResource("17_ssvqc")
+font_size = 160
 outline_size = 4
 
 [node name="ScoreLabel" type="Label3D" parent="BonusScorePopup/Score"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0)
+pixel_size = 0.001
 modulate = Color(0.572549, 0.909804, 0.752941, 1)
 outline_modulate = Color(0.227451, 0.247059, 0.368627, 0.501961)
 text = "5x5"
 font = ExtResource("17_ssvqc")
+font_size = 160
 outline_size = 4
 
 [connection signal="pressed" from="Game Manager/Next Round/Button" to="Game Manager" method="next_round"]
