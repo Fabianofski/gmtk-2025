@@ -1,149 +1,99 @@
-[gd_scene load_steps=15 format=3 uid="uid://wxekvpfvx45h"]
+[gd_scene load_steps=11 format=3 uid="uid://wxekvpfvx45h"]
 
-[ext_resource type="Script" uid="uid://dsdyh0qfqepcn" path="res://cards/card_display.gd" id="1_ot464"]
+[ext_resource type="Script" uid="uid://kjofmo4qfbpl" path="res://cards/ui_card_display.gd" id="1_3tmxr"]
 [ext_resource type="Texture2D" uid="uid://c82ech2rrb005" path="res://sprites/cards/blank.png" id="2_u118b"]
 [ext_resource type="Texture2D" uid="uid://biid600nkqlct" path="res://sprites/cards/silver.png" id="3_4wj85"]
 [ext_resource type="Texture2D" uid="uid://bx6wigvnmjjbm" path="res://sprites/cards/gold.png" id="4_3gy5e"]
 [ext_resource type="Texture2D" uid="uid://c2k5xwda3avdk" path="res://sprites/cards/crystal.png" id="5_5vt3j"]
 [ext_resource type="Texture2D" uid="uid://dulivl7iah6i2" path="res://sprites/cards/score_icon.png" id="6_uqixv"]
-[ext_resource type="Texture2D" uid="uid://diiibkn2s8khr" path="res://sprites/cards/back.png" id="7_rw4mt"]
 [ext_resource type="Texture2D" uid="uid://cnslyp8mawj3h" path="res://sprites/cards/template.png" id="8_2ka5x"]
-[ext_resource type="FontFile" uid="uid://d3pvmoqj76svu" path="res://fonts/Lexend-Regular.ttf" id="9_idw2d"]
 [ext_resource type="Texture2D" uid="uid://cvve6ey706sqt" path="res://sprites/cards/atk_icon.png" id="10_tnckj"]
 [ext_resource type="Texture2D" uid="uid://c1i5y21d308ek" path="res://sprites/cards/def_icon.png" id="11_yuenf"]
-[ext_resource type="AudioStream" uid="uid://pi50m1ksskhk" path="res://audio/draw.wav" id="12_1a146"]
-[ext_resource type="FontFile" uid="uid://umrofo8y2ps1" path="res://fonts/LCD14.otf" id="13_8oy0c"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4k7q8"]
-size = Vector3(0.845, 1.18, 0.01)
+[sub_resource type="LabelSettings" id="LabelSettings_3tmxr"]
+font_size = 8
 
-[node name="Card" type="Area3D"]
-script = ExtResource("1_ot464")
+[node name="Card" type="Control"]
+custom_minimum_size = Vector2(84, 119)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1196.0
+offset_bottom = -601.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+script = ExtResource("1_3tmxr")
 standard_bg = ExtResource("2_u118b")
 silver_bg = ExtResource("3_4wj85")
 gold_bg = ExtResource("4_3gy5e")
 crystal_bg = ExtResource("5_5vt3j")
 score_texture = ExtResource("6_uqixv")
 
-[node name="back" type="Sprite3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-double_sided = false
-texture_filter = 0
-texture = ExtResource("7_rw4mt")
-
-[node name="outline" type="Sprite3D" parent="."]
-transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1, 0, 0, 0)
-visible = false
-modulate = Color(0, 0, 0, 1)
-double_sided = false
-texture_filter = 0
-render_priority = -1
+[node name="card_bg" type="TextureRect" parent="."]
+layout_mode = 0
 texture = ExtResource("2_u118b")
 
-[node name="card_bg" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
-double_sided = false
-texture_filter = 0
-texture = ExtResource("2_u118b")
-
-[node name="front" type="Sprite3D" parent="."]
-double_sided = false
-texture_filter = 0
+[node name="front" type="TextureRect" parent="."]
+layout_mode = 0
 texture = ExtResource("8_2ka5x")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_4k7q8")
+[node name="ATK_DEF" type="Control" parent="."]
+anchors_preset = 0
 
-[node name="ATK_DEF" type="Node3D" parent="."]
-
-[node name="dfs" type="Label3D" parent="ATK_DEF"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0744162, -0.4, 0.022)
-sorting_offset = 1.0
-shaded = true
-double_sided = false
-texture_filter = 0
+[node name="dfs" type="Label" parent="ATK_DEF"]
 modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 29.0
+offset_top = 87.0
+offset_right = 39.0
+offset_bottom = 110.0
 text = "6"
-font = ExtResource("9_idw2d")
-outline_size = 0
-horizontal_alignment = 0
 
-[node name="atk" type="Label3D" parent="ATK_DEF"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0744162, -0.2, 0)
-sorting_offset = 1.0
-shaded = true
-double_sided = false
-texture_filter = 0
+[node name="atk" type="Label" parent="ATK_DEF"]
 modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 29.0
+offset_top = 67.0
+offset_right = 39.0
+offset_bottom = 90.0
 text = "6"
-font = ExtResource("9_idw2d")
-outline_size = 0
-horizontal_alignment = 0
 
-[node name="atk_icon" type="Sprite3D" parent="ATK_DEF"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297382, -0.195949, 0.0173785)
-sorting_offset = 1.0
-double_sided = false
-texture_filter = 0
+[node name="atk_icon" type="TextureRect" parent="ATK_DEF"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 70.0
+offset_right = 20.0
+offset_bottom = 86.0
 texture = ExtResource("10_tnckj")
 
-[node name="dfs_icon" type="Sprite3D" parent="ATK_DEF"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297382, -0.400168, 0.0173785)
-sorting_offset = 1.0
-double_sided = false
-texture_filter = 0
+[node name="dfs_icon" type="TextureRect" parent="ATK_DEF"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 90.0
+offset_right = 20.0
+offset_bottom = 106.0
 texture = ExtResource("11_yuenf")
 
-[node name="Special" type="Node3D" parent="."]
+[node name="Special" type="Control" parent="."]
+anchors_preset = 0
 
-[node name="sp" type="Label3D" parent="Special"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.388255, -0.0654165, 0)
-sorting_offset = 1.0
-shaded = true
-double_sided = false
-texture_filter = 0
+[node name="sp" type="Label" parent="Special"]
 modulate = Color(0, 0, 0, 1)
+offset_left = 5.0
+offset_top = 65.0
+offset_right = 80.0
+offset_bottom = 887.0
 text = "Sphinx of black quartz, judge my vow!"
-font = ExtResource("9_idw2d")
-font_size = 22
-outline_size = 0
-horizontal_alignment = 0
-vertical_alignment = 0
+label_settings = SubResource("LabelSettings_3tmxr")
 autowrap_mode = 3
-width = 160.0
 
-[node name="Card Number" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.385088, 0.483134, 0.0055145)
-sorting_offset = 1.0
-double_sided = false
-texture_filter = 0
+[node name="Card Number" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 5.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = 22.0
 text = "6"
-font = ExtResource("9_idw2d")
-outline_size = 0
-horizontal_alignment = 0
-
-[node name="DrawSound" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("12_1a146")
-
-[node name="Score" type="Node3D" parent="."]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0.73076, 0)
-
-[node name="ScoreLabel" type="Label3D" parent="Score"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0)
-modulate = Color(0.572549, 0.909804, 0.752941, 1)
-outline_modulate = Color(0.227451, 0.247059, 0.368627, 0.501961)
-text = "5"
-font = ExtResource("13_8oy0c")
-outline_size = 4
-
-[node name="Unlocked" type="Label3D" parent="."]
-transform = Transform3D(1.41077, 0, 0, 0, 1.41077, 0, 0, 0, 1.00947, 0, 0.80099, 0)
-visible = false
-modulate = Color(0.5733, 0.91, 0.752873, 0.768627)
-outline_modulate = Color(0.2294, 0.248147, 0.37, 0.501961)
-text = "ADDED TO
-DECK"
-font = ExtResource("13_8oy0c")
-font_size = 24
-outline_size = 4
