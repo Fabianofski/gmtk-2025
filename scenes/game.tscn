@@ -1093,11 +1093,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.800049, -4.01387)
 
 [node name="Bonus Info" type="Sprite3D" parent="Room"]
 transform = Transform3D(0.45, 0, 0, 0, -1.96701e-08, 0.45, 0, -0.45, -1.96701e-08, 0, 2.06179, 1)
+visible = false
 texture_filter = 0
 texture = ExtResource("12_js0lu")
 
 [node name="Bonus Info2" type="Sprite3D" parent="Room"]
 transform = Transform3D(-0.45, -3.93403e-08, -1.71962e-15, 0, -1.96701e-08, 0.45, -3.93403e-08, 0.45, 1.96701e-08, -0.127942, 2.06179, -1)
+visible = false
 texture_filter = 0
 texture = ExtResource("12_js0lu")
 
