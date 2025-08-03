@@ -41,20 +41,18 @@ func _process(_delta: float) -> void: # Update score display
 		score_label.text = str(int(score_label.text)-1).pad_zeros(9)
 
 func select_card(card: Card): 
-	if !animation_playing:
-		print("select %s" % card.id) 
-		selected_cards.append(card)
-		update_label()
+	print("select %s" % card.id) 
+	selected_cards.append(card)
+	update_label()
 
 func deselect_card(card: Card): 
-	if !animation_playing:
-		print("deselect %s" % card.id) 
-		var index = selected_cards.find_custom(func (x): return x.id == card.id)
-		if index == -1: 
-			print("Couldnt find %s in selected cards" % card.id)
-			return
-		selected_cards.remove_at(index)
-		update_label()
+	print("deselect %s" % card.id) 
+	var index = selected_cards.find_custom(func (x): return x.id == card.id)
+	if index == -1: 
+		print("Couldnt find %s in selected cards" % card.id)
+		return
+	selected_cards.remove_at(index)
+	update_label()
 
 func update_label(): 
 	var hand = await calc_atk_dfs_values(selected_cards)
