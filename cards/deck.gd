@@ -38,6 +38,11 @@ func reset_deck(_round: int):
 			unlocked_cards.append(card)
 	cards_copy.shuffle()
 	SignalBus.card_unlocked.emit(unlocked_cards)
+	if _round == 0: 
+		return
+	cards_label.text = "DECK RESET"
+	await get_tree().create_timer(2).timeout
+	cards_label.text = "%d" % cards_copy.size()
 
 func put_card_back_to_deck(card: Card): 
 	cards_copy.insert(0, card)
@@ -46,7 +51,8 @@ func shuffle_cards():
 	cards_copy.shuffle()
 
 func update_label(): 
-	cards_label.text = "%d" % cards_copy.size()
+	if cards_label.text != "DECK RESET": 
+		cards_label.text = "%d" % cards_copy.size()
 	mesh.scale.y = float(cards_copy.size()) / cards_copy.size()
 	mesh.visible = cards_copy.size() > 0
 

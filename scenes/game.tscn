@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=4 uid="uid://7irymsguxr1n"]
+[gd_scene load_steps=124 format=4 uid="uid://7irymsguxr1n"]
 
 [ext_resource type="Script" uid="uid://bfys28ih4t0op" path="res://scenes/camera_mvmt.gd" id="1_dinhu"]
 [ext_resource type="Script" uid="uid://ccrn643plqokb" path="res://cards/player_hand.gd" id="1_lbhrr"]
@@ -79,6 +79,7 @@
 [ext_resource type="Script" uid="uid://dslfm7evcbnfa" path="res://common/unlock_screen.gd" id="71_o8oq8"]
 [ext_resource type="Script" uid="uid://m511fxmwcds4" path="res://common/bonus_score_popup.gd" id="73_2iuns"]
 [ext_resource type="AudioStream" uid="uid://b7kaqaew1i7np" path="res://audio/Blip12.wav" id="75_2gnni"]
+[ext_resource type="AudioStream" uid="uid://bmh5idv5iwhru" path="res://audio/Boom2.wav" id="75_vgxg3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p57ef"]
 sky_top_color = Color(0.394084, 0.179147, 0.423439, 1)
@@ -1613,6 +1614,10 @@ Flush: 3x
 Straight: 4x
 Three of a kind: 5x
 "
+
+[node name="LoseHeartSound" type="AudioStreamPlayer3D" parent="Game Manager"]
+stream = ExtResource("75_vgxg3")
+volume_db = 4.156
 
 [node name="ScoreTickSound" type="AudioStreamPlayer3D" parent="Game Manager"]
 stream = ExtResource("75_2gnni")
