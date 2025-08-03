@@ -16,6 +16,7 @@ var last_played: Array[Card] = []
 @onready var round_dfs: Control = $"RoundInfo/Dfs"
 @onready var round_dfs_label: Label = $"RoundInfo/Dfs/Dfs"
 @onready var round_bonus: Label = $"Bonus"
+@onready var score_tick_sound: AudioStreamPlayer3D = $"ScoreTickSound"
 
 @export var score: int = 0
 @export var current_round: int = 0
@@ -46,6 +47,9 @@ func _process(_delta: float) -> void:
 	if difference != 0:
 		var step: int = max(1, abs(difference) / 50)
 		score_label.text = str(current_score + step * sign(difference)).pad_zeros(9)
+		score_tick_sound.play()
+	elif score_tick_sound.playing:
+		score_tick_sound.stop()
 
 func select_card(card: Card): 
 	print("select %s" % card.id) 
