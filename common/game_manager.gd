@@ -50,6 +50,7 @@ func _process(_delta: float) -> void:
 func select_card(card: Card): 
 	print("select %s" % card.id) 
 	selected_cards.append(card)
+	SignalBus.selected_cards = selected_cards.size()
 	update_label()
 
 func deselect_card(card: Card): 

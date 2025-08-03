@@ -1,6 +1,7 @@
 extends Node
 
 var tutorial_shown = false
+var selected_cards = 0
 
 var scoring_sfx: int = 0
 
