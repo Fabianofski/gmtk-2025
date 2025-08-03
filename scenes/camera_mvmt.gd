@@ -5,11 +5,13 @@ extends Camera3D
 const MOUSE_SENS = 0.00004 # Magic numbers!
 
 var base_pos: Vector3
+var base_rot: Vector3
 
 func _ready():
 	SignalBus.next_round_started.connect(_switch_sides)
 	time_travel_fx.modulate.a = 0
 	base_pos = camera.position
+	base_rot = camera.rotation
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -26,6 +28,8 @@ func _input(event):
 			camera.rotation_degrees.x = -15.0
 		
 		camera.rotation.z = 0 # NOTE: When the player switches sides, instead of rotating the camera, rotate the decorations. EZ!
+	if Input.is_action_just_pressed("reset_cam"):
+		camera.rotation = base_rot
 
 func _switch_sides(state):
 	MusicHandler.wind_tape("next_round")
