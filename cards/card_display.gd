@@ -163,9 +163,11 @@ func _unhandled_input(event):
 
 	selected = not selected
 	outline.visible = selected
+	
 	if not draw_sound.playing:
 		draw_sound.pitch_scale = randf_range(.8, 1)
 		draw_sound.play()
+	
 	if selected: 
 		SignalBus.select_card.emit(card)
 	else: 
