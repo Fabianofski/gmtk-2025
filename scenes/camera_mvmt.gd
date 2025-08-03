@@ -33,7 +33,7 @@ func _input(event):
 	if Input.is_action_just_pressed("reset_cam"):
 		camera.rotation = base_rot
 
-func _switch_sides(state):
+func _switch_sides(_state):
 	is_in_game = true
 	MusicHandler.wind_tape("next_round")
 	camera.position += Vector3(0, 1, -1)

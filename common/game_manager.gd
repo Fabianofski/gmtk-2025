@@ -151,6 +151,7 @@ func next_round():
 		
 		var diff = hand['dfs'] - old_hand['atk']
 		if diff <= 0: 
+			SignalBus.show_text_popup.emit("%d hearts" % diff)
 			health += diff
 
 		if health <= 0: 

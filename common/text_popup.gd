@@ -10,6 +10,7 @@ var tween_playing = false
 func _init():
 	SignalBus.game_won.connect(func(x): show_text("Round %d" % (x + 1)))
 	SignalBus.next_round_started.connect(round_started)
+	SignalBus.show_text_popup.connect(show_text)
 
 func _ready():
 	show_text("Round 1")
