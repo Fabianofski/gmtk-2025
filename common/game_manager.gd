@@ -17,6 +17,7 @@ var last_played: Array[Card] = []
 @onready var round_dfs_label: Label = $"RoundInfo/Dfs/Dfs"
 @onready var round_bonus: Label = $"Bonus"
 @onready var score_tick_sound: AudioStreamPlayer3D = $"ScoreTickSound"
+@onready var lose_heart_sound: AudioStreamPlayer3D = $"LoseHeartSound"
 
 @export var score: int = 0
 @export var current_round: int = 0
@@ -159,6 +160,7 @@ func next_round():
 		
 		var diff = hand['dfs'] - old_hand['atk']
 		if diff < 0: 
+			lose_heart_sound.play()
 			SignalBus.show_text_popup.emit("%d hearts" % diff)
 			health += diff
 
