@@ -13,7 +13,7 @@ var muted: bool = false
 func _ready() -> void:
 	main_menu_music.play()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("mute_music"):
 		muted = !muted
 		print("music mute is "+str(muted))
@@ -48,6 +48,6 @@ func wind_tape(sitch):
 			tween.tween_property(game_music, "pitch_scale", 1.0, 0.25)
 
 func play_scoring_sfx():
-	scoring_sfx_player.stream = scoring_sfx_array[SignalBus.scoring_sfx]
+	scoring_sfx_player.stream = scoring_sfx_array[min(scoring_sfx_array.size() - 1, SignalBus.scoring_sfx)]
 	scoring_sfx_player.play()
 	SignalBus.scoring_sfx += 1

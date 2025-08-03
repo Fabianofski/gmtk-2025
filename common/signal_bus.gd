@@ -15,6 +15,7 @@ signal card_unlocked(cards)
 signal defended_against_attack(health)
 signal add_hearts(count)
 signal animate_card_score(card_id, current_score, addition)
+signal animate_bonus_score(bonus, current_score, multiplier)
 @warning_ignore_restore("unused_signal")
 
 func _ready() -> void:

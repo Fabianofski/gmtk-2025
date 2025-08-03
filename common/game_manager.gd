@@ -110,6 +110,9 @@ func calc_atk_dfs_values(cards: Array[Card], animate: bool = false):
 
 	var bonuses = HandChecker.check_for_bonus(cards)
 	for bonus in bonuses: 
+		if animate: 
+			SignalBus.animate_bonus_score.emit(bonus.type, round_score, bonus.payout)
+			await get_tree().create_timer(2).timeout
 		round_score = round_score * bonus.payout 
 
 	animation_playing = false
