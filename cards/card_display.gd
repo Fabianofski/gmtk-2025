@@ -30,6 +30,8 @@ signal tween_to_position(pos, rot, time)
 @onready var score_animation: Node3D = $"Score"
 @onready var score_animation_label: Label3D = $"Score/ScoreLabel"
 
+@onready var unlocked: Label3D = $Unlocked
+
 @onready var past_player_hand_parent: Node3D = get_node("../../PastPlayerHandCards")
 @onready var player_hand_parent: Node3D = get_node("../../PlayerHandCards")
 
@@ -76,7 +78,7 @@ func next_round_started(state):
 func update_card(_card: Card): 
 	card = _card
 	front.texture = card.sprite
-
+	unlocked.visible = false
 	card_number_display.text = str(card.score)
 	match card_number_display.text:
 		"11":
@@ -174,3 +176,6 @@ func _on_mouse_exited() -> void:
 	Input.set_default_cursor_shape(Input.CursorShape.CURSOR_ARROW)
 	if not selected: 
 		tween_to_new_position(Vector3(base_pos.x, 0, base_pos.z), base_rot, 0.2)
+
+func make_unlock_text_visible():
+	unlocked.visible = true # simple as

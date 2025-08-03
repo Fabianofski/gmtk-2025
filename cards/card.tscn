@@ -136,3 +136,13 @@ outline_modulate = Color(0.227451, 0.247059, 0.368627, 0.501961)
 text = "5"
 font = ExtResource("12_l8rp0")
 outline_size = 4
+
+[node name="Unlocked" type="Label3D" parent="."]
+transform = Transform3D(1.41077, 0, 0, 0, 1.41077, 0, 0, 0, 1.00947, 0, 0.746, 0)
+visible = false
+modulate = Color(0.5733, 0.91, 0.752873, 0.768627)
+outline_modulate = Color(0.2294, 0.248147, 0.37, 0.501961)
+text = "UNLOCKED"
+font = ExtResource("12_l8rp0")
+font_size = 24
+outline_size = 4
