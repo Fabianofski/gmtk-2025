@@ -8,11 +8,22 @@ extends Node
 preload("res://audio/sfx/card_score_sfx_3.ogg"), preload("res://audio/sfx/card_score_sfx_4.ogg"),
 preload("res://audio/sfx/card_score_sfx_5.ogg"), preload("res://audio/sfx/card_score_sfx_6.ogg")]
 
+var muted: bool = false
+
 func _ready() -> void:
 	main_menu_music.play()
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("mute_music"):
+		muted = !muted
+		print("music mute is "+str(muted))
+		if main_menu_music.playing:
+			main_menu_music.volume_db = -8.0 + (-80 * int(muted))
+		elif !main_menu_music.playing:
+			game_music.volume_db = -8.0 + (-80 * int(muted))
+
 func switch_to_game_music():
-	game_music.volume_db = -8.0
+	game_music.volume_db = -8.0 + (-80 * int(muted))
 	main_menu_music.stop()
 
 func wind_tape(sitch):
