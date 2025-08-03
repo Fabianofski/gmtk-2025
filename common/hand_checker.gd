@@ -27,7 +27,7 @@ static func check_for_straight(cards: Array[Card]) -> bool:
 	for card in cards: 
 		if last_card_score + 1 == card.score: 
 			straight_length += 1 
-		else: 
+		elif last_card_score != card.score: 
 			straight_length = 1
 		if straight_length >= 3:
 			return true
