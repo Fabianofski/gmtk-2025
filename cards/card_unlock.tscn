@@ -95,6 +95,7 @@ anchors_preset = 0
 
 [node name="sp" type="Label" parent="Special"]
 modulate = Color(0, 0, 0, 1)
+layout_mode = 0
 offset_left = 9.0
 offset_top = 131.0
 offset_right = 160.0
