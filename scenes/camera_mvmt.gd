@@ -7,6 +7,8 @@ const MOUSE_SENS = 0.00004 # Magic numbers!
 var base_pos: Vector3
 var base_rot: Vector3
 
+var is_in_game: bool = false
+
 func _ready():
 	SignalBus.next_round_started.connect(_switch_sides)
 	time_travel_fx.modulate.a = 0
@@ -15,10 +17,10 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		if camera.rotation_degrees.y < -7.4:
-			camera.rotation_degrees.x = -7.3
-		elif camera.rotation_degrees.y > 7.4:
-			camera.rotation_degrees.x = 7.3
+		if camera.rotation_degrees.y < -7.4 and is_in_game:
+			camera.rotation_degrees.y = -7.3
+		elif camera.rotation_degrees.y > 7.4 and is_in_game:
+			camera.rotation_degrees.y = 7.3
 		else:
 			camera.rotate_y(-event.relative.x * MOUSE_SENS)
 		
@@ -32,6 +34,7 @@ func _input(event):
 		camera.rotation = base_rot
 
 func _switch_sides(state):
+	is_in_game = true
 	MusicHandler.wind_tape("next_round")
 	camera.position += Vector3(0, 1, -1)
 	time_travel_fx.modulate.a = 1.0
