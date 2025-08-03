@@ -10,7 +10,7 @@ func _init():
 func animate_bonus_score(bonus: String, score: int, multiplier: int):
 	print("animate bonus")
 	score_label.text = "%dx%d" % [score, multiplier]
-	bonus_label.text = bonus
+	bonus_label.text = bonus.to_upper()
 	
 	MusicHandler.play_scoring_sfx()
 	
@@ -18,11 +18,11 @@ func animate_bonus_score(bonus: String, score: int, multiplier: int):
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(score_animation, "scale", Vector3.ONE, 0.1)
 
-	await get_tree().create_timer(0.25).timeout
+	await get_tree().create_timer(0.5).timeout
 	score_label.text = "%d" % (score * multiplier) 
 	tween = get_tree().create_tween()
 	tween.tween_property(score_animation, "scale", Vector3(1.25, 1.25, 1.25), 0.25)
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.75).timeout
 	
 	tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT)
