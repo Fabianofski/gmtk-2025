@@ -1,17 +1,17 @@
 [gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://b0vmwhp6j1hy7"]
 
-[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_uopyn"]
-[ext_resource type="Texture2D" uid="uid://bruchv1yc1m6r" path="res://sprites/cards/individual/diamond/A.png" id="2_uopyn"]
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_6th02"]
+[ext_resource type="Texture2D" uid="uid://bruchv1yc1m6r" path="res://sprites/cards/individual/diamond/A.png" id="2_esk2l"]
 
 [resource]
-script = ExtResource("1_uopyn")
-sprite = ExtResource("2_uopyn")
+script = ExtResource("1_6th02")
+sprite = ExtResource("2_esk2l")
 id = "diamond_a_gold"
 suit = 0
 rarity = 2
 type = 1
 score = 14
-round_unlock = 1
+round_unlock = 5
 attack = 2
 defense = 10
 score_multiplier = 4

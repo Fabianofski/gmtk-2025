@@ -60,6 +60,7 @@ func deselect_card(card: Card):
 		print("Couldnt find %s in selected cards" % card.id)
 		return
 	selected_cards.remove_at(index)
+	SignalBus.selected_cards = selected_cards.size()
 	update_label()
 
 func update_label(): 
@@ -165,5 +166,6 @@ func next_round():
 	selected_cards = []
 	update_label()
 	SignalBus.scoring_sfx = 0
+	SignalBus.selected_cards = 0
 	SignalBus.defended_against_attack.emit(health)
 	SignalBus.next_round_started.emit(state)

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://b2sl6605740fu"]
+
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_v7bsx"]
+[ext_resource type="Texture2D" uid="uid://ct3kfontn7lxc" path="res://sprites/cards/individual/heart/J.png" id="2_gd1pw"]
+
+[resource]
+script = ExtResource("1_v7bsx")
+sprite = ExtResource("2_gd1pw")
+id = "heart_j_silver"
+suit = 3
+rarity = 1
+type = 0
+score = 11
+round_unlock = 4
+attack = 2
+defense = 8
+score_multiplier = 1
+attack_multiplier = 1
+defense_multiplier = 1
+signal_name = ""
+signal_value = ""
+explanation = ""
+metadata/_custom_type_script = "uid://btup2q77vrcjp"

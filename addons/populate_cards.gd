@@ -1,5 +1,6 @@
 @tool
 extends EditorScript
+var card_ids: Array[String] = []
 
 func _run():
 	var node = get_scene().get_node("Player Hand/Deck") 
@@ -23,8 +24,11 @@ func look_for_cards(cards_folder):
 				cards.append_array(look_for_cards(path))
 			if file_name.ends_with(".tres") or file_name.ends_with(".res"):
 				var card = load(path)
-				if card is Resource:
+				if card is Card:
 					cards.append(card)
+					if card.id in card_ids:
+						print("WARNING: %s already in use!!" % card.id)
+					card_ids.append(card.id)
 		dir.list_dir_end()
 
 	return cards

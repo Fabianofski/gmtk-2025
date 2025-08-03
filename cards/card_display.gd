@@ -160,9 +160,11 @@ func tween_to_new_position(pos: Vector3, rot: Vector3, time: float):
 
 func _unhandled_input(event):
 	var left_click = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed
-	if card_used or not left_click or not mouse_on_card or SignalBus.selected_cards >= 4:
+	if card_used or not left_click or not mouse_on_card:
 		return 
 
+	if not selected and SignalBus.selected_cards >= 4:
+		return
 	selected = not selected
 	outline.visible = selected
 	
