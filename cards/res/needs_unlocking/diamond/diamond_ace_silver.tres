@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://cba5uxdffqtif"]
+
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_tx8q2"]
+[ext_resource type="Texture2D" uid="uid://bruchv1yc1m6r" path="res://sprites/cards/individual/diamond/A.png" id="2_gh1ud"]
+
+[resource]
+script = ExtResource("1_tx8q2")
+sprite = ExtResource("2_gh1ud")
+id = "diamond_a_silver"
+suit = 0
+rarity = 1
+type = 1
+score = 14
+unlocked = false
+attack = 0
+defense = 0
+score_multiplier = 2
+attack_multiplier = 1
+defense_multiplier = 1
+signal_name = ""
+signal_value = ""
+explanation = "x2 to your score"
+metadata/_custom_type_script = "uid://btup2q77vrcjp"

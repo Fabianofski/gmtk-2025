@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://bqu34qq7vspuu"]
+
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_r3omt"]
+[ext_resource type="Texture2D" uid="uid://c1xsf5snyc7gf" path="res://sprites/cards/individual/diamond/J.png" id="2_1jjj1"]
+
+[resource]
+script = ExtResource("1_r3omt")
+sprite = ExtResource("2_1jjj1")
+id = "diamond_j_crystal"
+suit = 0
+rarity = 3
+type = 0
+score = 11
+unlocked = true
+attack = 2
+defense = 6
+score_multiplier = 1
+attack_multiplier = 1
+defense_multiplier = 1
+signal_name = ""
+signal_value = ""
+explanation = ""
+metadata/_custom_type_script = "uid://btup2q77vrcjp"

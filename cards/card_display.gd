@@ -49,7 +49,7 @@ func _init():
 func animate_card_score(id: String, score: int, addition: int): 
 	if id != card.id or not selected: 
 		return
-	var type = "x" if card.type == Card.CardType.Multiplier else "+"
+	var type = "x" if card.score != addition else "+"
 	score_animation_label.text = "%d %s %d" % [score, type, addition]
 	
 	MusicHandler.play_scoring_sfx()
@@ -59,7 +59,7 @@ func animate_card_score(id: String, score: int, addition: int):
 	tween.tween_property(score_animation, "scale", Vector3.ONE, 0.1)
 
 	await get_tree().create_timer(0.25).timeout
-	var final_score = score * addition if card.type == Card.CardType.Multiplier else score + addition
+	var final_score = score * addition if card.score != addition else score + addition
 	score_animation_label.text = "%d" % final_score 
 	tween = get_tree().create_tween()
 	tween.tween_property(score_animation, "scale", Vector3(1.25, 1.25, 1.25), 0.1)

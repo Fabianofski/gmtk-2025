@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dqufxc7aaaima"]
+
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_yl6ub"]
+[ext_resource type="Texture2D" uid="uid://psb7d2x2uk7w" path="res://sprites/cards/individual/diamond/Q.png" id="2_bor34"]
+
+[resource]
+script = ExtResource("1_yl6ub")
+sprite = ExtResource("2_bor34")
+id = "diamond_q_gold"
+suit = 0
+rarity = 2
+type = 2
+score = 12
+unlocked = false
+attack = 0
+defense = 0
+score_multiplier = 1
+attack_multiplier = 1
+defense_multiplier = 1
+signal_name = "add_hearts"
+signal_value = "4"
+explanation = "Gives you back 4 hearts"
+metadata/_custom_type_script = "uid://btup2q77vrcjp"
