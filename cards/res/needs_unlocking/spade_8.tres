@@ -1,17 +1,17 @@
 [gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dcu730jtuoimv"]
 
-[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_otn3r"]
-[ext_resource type="Texture2D" uid="uid://bcowq8a112u2m" path="res://sprites/cards/individual/spade/8.png" id="2_7cxpy"]
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_0b2i6"]
+[ext_resource type="Texture2D" uid="uid://bcowq8a112u2m" path="res://sprites/cards/individual/spade/8.png" id="2_hvevu"]
 
 [resource]
-script = ExtResource("1_otn3r")
-sprite = ExtResource("2_7cxpy")
+script = ExtResource("1_0b2i6")
+sprite = ExtResource("2_hvevu")
 id = "spade_8_crystal"
 suit = 2
 rarity = 3
 type = 1
 score = 8
-round_unlock = 3
+unlocked = false
 attack = 6
 defense = 2
 score_multiplier = 2

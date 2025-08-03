@@ -1,21 +1,21 @@
 [gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dx3x4pmgoxqgb"]
 
-[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_rnsob"]
-[ext_resource type="Texture2D" uid="uid://50q0b3ppp1mv" path="res://sprites/cards/individual/spade/7.png" id="2_yrrit"]
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_3le8e"]
+[ext_resource type="Texture2D" uid="uid://50q0b3ppp1mv" path="res://sprites/cards/individual/spade/7.png" id="2_sp6h5"]
 
 [resource]
-script = ExtResource("1_rnsob")
-sprite = ExtResource("2_yrrit")
+script = ExtResource("1_3le8e")
+sprite = ExtResource("2_sp6h5")
 id = "spade_7_crystal"
 suit = 2
 rarity = 3
 type = 1
 score = 7
-round_unlock = 3
+unlocked = false
 attack = 0
 defense = 0
 score_multiplier = 1
-attack_multiplier = 1
+attack_multiplier = 2
 defense_multiplier = 1
 signal_name = ""
 signal_value = ""

@@ -1,17 +1,17 @@
 [gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://b36ctieydaqnv"]
 
-[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_w2g2w"]
-[ext_resource type="Texture2D" uid="uid://dthdge1yntpcx" path="res://sprites/cards/individual/club/10.png" id="2_cavpx"]
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_jflgg"]
+[ext_resource type="Texture2D" uid="uid://dthdge1yntpcx" path="res://sprites/cards/individual/club/10.png" id="2_he46y"]
 
 [resource]
-script = ExtResource("1_w2g2w")
-sprite = ExtResource("2_cavpx")
+script = ExtResource("1_jflgg")
+sprite = ExtResource("2_he46y")
 id = "club_10_silver"
 suit = 1
 rarity = 1
 type = 0
 score = 10
-round_unlock = 4
+unlocked = false
 attack = 6
 defense = 2
 score_multiplier = 1

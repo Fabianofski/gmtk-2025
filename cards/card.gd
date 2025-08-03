@@ -12,7 +12,8 @@ enum CardType { Standard, Multiplier, Signal }
 @export var rarity: Rarity = Rarity.Standard
 @export var type: CardType = CardType.Standard
 @export var score: int = 0
-@export var round_unlock = 0
+@export var unlocked = true
+var unlocked_temp = false
 
 @export_category("Standard")
 @export var attack: int = 0

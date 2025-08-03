@@ -13,6 +13,7 @@ var elapsed_time = 0.0
 func _init():
 	SignalBus.put_card_back_to_deck.connect(put_card_back_to_deck)
 	SignalBus.game_won.connect(reset_deck)
+	cards.shuffle()
 
 func _ready():
 	reset_deck(0)
@@ -32,10 +33,17 @@ func reset_deck(_round: int):
 	cards_copy = []
 	var unlocked_cards: Array[Card] = []
 	for card in cards: 
-		if card.round_unlock <= _round: 
+		if _round == 0: 
+			card.unlocked_temp = card.unlocked
+
+		if _round != 0 and not card.unlocked_temp and unlocked_cards.size() < 3:
+			var will_unlock = randf() < 0.15 or unlocked_cards.size() == 0
+			if will_unlock: 
+				unlocked_cards.append(card)
+				card.unlocked_temp = true
+
+		if card.unlocked_temp:
 			cards_copy.append(card)
-		if card.round_unlock == _round and _round != 0:
-			unlocked_cards.append(card)
 	cards_copy.shuffle()
 	SignalBus.card_unlocked.emit(unlocked_cards)
 	if _round == 0: 

@@ -1,17 +1,17 @@
 [gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://b2sl6605740fu"]
 
-[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_v7bsx"]
-[ext_resource type="Texture2D" uid="uid://ct3kfontn7lxc" path="res://sprites/cards/individual/heart/J.png" id="2_gd1pw"]
+[ext_resource type="Script" uid="uid://btup2q77vrcjp" path="res://cards/card.gd" id="1_f5t60"]
+[ext_resource type="Texture2D" uid="uid://ct3kfontn7lxc" path="res://sprites/cards/individual/heart/J.png" id="2_hhhjs"]
 
 [resource]
-script = ExtResource("1_v7bsx")
-sprite = ExtResource("2_gd1pw")
+script = ExtResource("1_f5t60")
+sprite = ExtResource("2_hhhjs")
 id = "heart_j_silver"
 suit = 3
 rarity = 1
 type = 0
 score = 11
-round_unlock = 4
+unlocked = false
 attack = 2
 defense = 8
 score_multiplier = 1
