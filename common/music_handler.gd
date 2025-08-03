@@ -23,4 +23,10 @@ func wind_tape(sitch):
 			var tween = get_tree().create_tween()
 			tween = get_tree().create_tween()
 			tween.set_ease(Tween.EASE_IN)
-			tween.tween_property(game_music, "pitch_scale", 0.25, 1)
+			tween.tween_property(game_music, "pitch_scale", 0.25, 2)
+		"next_round":
+			game_music.pitch_scale = randf_range(0.25, 1.5)
+			var tween = get_tree().create_tween()
+			tween = get_tree().create_tween()
+			tween.set_ease(Tween.EASE_OUT)
+			tween.tween_property(game_music, "pitch_scale", 1.0, 0.25)

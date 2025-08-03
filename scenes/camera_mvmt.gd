@@ -21,6 +21,7 @@ func _input(event):
 			camera.rotation.z = 0 # NOTE: When the player switches sides, instead of rotating the camera, rotate the decorations. EZ!
 
 func _switch_sides(state):
+	MusicHandler.wind_tape("next_round")
 	camera.position += Vector3(0, 1, -1)
 	time_travel_fx.modulate.a = 1.0
 	var tween = get_tree().create_tween()
