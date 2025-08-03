@@ -7,6 +7,7 @@ func _ready() -> void:
 
 func _switch_sides(state):
 	var tween := create_tween()
+	tween.set_ease(Tween.EASE_OUT)
 	match state:
 		Game.STATE.Attack:
 			tween.tween_property(decoration, "rotation_degrees:y", 0, 0.5)
