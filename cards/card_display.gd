@@ -111,7 +111,7 @@ func update_card(_card: Card):
 			dfs_display.text = str(card.defense)
 			atk_def_holder.visible = true
 			special_holder.visible = false
-		Card.CardType.Multiplier: 
+		Card.CardType.Multiplier:
 			if card.attack_multiplier != 1: 
 				atk_display.text = "%dx" % card.attack_multiplier
 			else:
@@ -124,6 +124,10 @@ func update_card(_card: Card):
 				dfs_icon.texture = score_texture
 			atk_def_holder.visible = true
 			special_holder.visible = false
+			if card.explanation != "": # Should the "explanation" field not be empty...
+				special_display.text = card.explanation
+				atk_def_holder.visible = false
+				special_holder.visible = true
 		Card.CardType.Signal: 
 			special_display.text = card.explanation
 			atk_def_holder.visible = false

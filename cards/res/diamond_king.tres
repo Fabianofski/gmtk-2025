@@ -19,5 +19,5 @@ attack_multiplier = 2
 defense_multiplier = 1
 signal_name = ""
 signal_value = ""
-explanation = ""
+explanation = "x2 to your score, but x2 to your attack"
 metadata/_custom_type_script = "uid://btup2q77vrcjp"
