@@ -9,6 +9,7 @@ var progress : Array[float]
 
 func _ready() -> void:
 	ResourceLoader.load_threaded_request(TARGET_SCENE) # "Hello, may I have one game scene please?"
+	MusicHandler.switch_to_game_music() # Self-explanatory
 
 func _process(delta: float) -> void:
 	loading_status = ResourceLoader.load_threaded_get_status(TARGET_SCENE, progress)
