@@ -96,8 +96,6 @@ func calc_atk_dfs_values(cards: Array[Card], animate: bool = false):
 	var round_score = 0
 
 	for card in cards: 
-		if card.type != Card.CardType.Standard:
-			continue
 		atk += card.attack
 		dfs += card.defense
 		if animate: 
