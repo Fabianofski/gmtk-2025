@@ -3,6 +3,11 @@ extends Node
 @onready var game_music: AudioStreamPlayer = $"Game Music"
 @onready var main_menu_music: AudioStreamPlayer = $"Main Menu"
 
+@onready var scoring_sfx_player: AudioStreamPlayer = $"Scoring SFX"
+@onready var scoring_sfx_array = [preload("res://audio/sfx/card_score_sfx_1.ogg"), preload("res://audio/sfx/card_score_sfx_2.ogg"),
+preload("res://audio/sfx/card_score_sfx_3.ogg"), preload("res://audio/sfx/card_score_sfx_4.ogg"),
+preload("res://audio/sfx/card_score_sfx_5.ogg"), preload("res://audio/sfx/card_score_sfx_6.ogg")]
+
 func _ready() -> void:
 	main_menu_music.play()
 
@@ -30,3 +35,8 @@ func wind_tape(sitch):
 			tween = get_tree().create_tween()
 			tween.set_ease(Tween.EASE_OUT)
 			tween.tween_property(game_music, "pitch_scale", 1.0, 0.25)
+
+func play_scoring_sfx():
+	scoring_sfx_player.stream = scoring_sfx_array[SignalBus.scoring_sfx]
+	scoring_sfx_player.play()
+	SignalBus.scoring_sfx += 1

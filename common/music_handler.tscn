@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd8kxirxsw1"]
+[gd_scene load_steps=5 format=3 uid="uid://cd8kxirxsw1"]
 
 [ext_resource type="Script" uid="uid://bxrnx2al4pnqf" path="res://common/music_handler.gd" id="1_7wyg5"]
 [ext_resource type="AudioStream" uid="uid://chxi8y2todcqk" path="res://audio/music.ogg" id="2_wwgq7"]
 [ext_resource type="AudioStream" uid="uid://chgeyca6gxdfo" path="res://audio/menumusic.ogg" id="3_wy34r"]
+[ext_resource type="AudioStream" uid="uid://chg7321xjoxo3" path="res://audio/sfx/card_score_sfx_1.ogg" id="4_6mmcd"]
 
 [node name="Music Handler" type="Node"]
 script = ExtResource("1_7wyg5")
@@ -19,3 +20,7 @@ stream = ExtResource("3_wy34r")
 volume_db = -8.0
 bus = &"Music"
 parameters/looping = true
+
+[node name="Scoring SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6mmcd")
+max_polyphony = 7

@@ -49,8 +49,10 @@ func _init():
 func animate_card_score(id: String, score: int, addition: int): 
 	if id != card.id or not selected: 
 		return
-	score_animation_label.text = "%d + %d" % [score, addition] 
-
+	score_animation_label.text = "%d + %d" % [score, addition]
+	
+	MusicHandler.play_scoring_sfx()
+	
 	var tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(score_animation, "scale", Vector3.ONE, 0.25)

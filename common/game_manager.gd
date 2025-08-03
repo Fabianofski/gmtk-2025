@@ -151,5 +151,6 @@ func next_round():
 
 	selected_cards = []
 	update_label()
+	SignalBus.scoring_sfx = 0
 	SignalBus.defended_against_attack.emit(health)
 	SignalBus.next_round_started.emit(state)

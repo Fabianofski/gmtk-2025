@@ -2,6 +2,8 @@ extends Node
 
 var tutorial_shown = false
 
+var scoring_sfx: int = 0
+
 @warning_ignore_start("unused_signal")
 signal select_card(card)
 signal deselect_card(card)
