@@ -7,8 +7,8 @@ func _ready() -> void:
 	main_menu_music.play()
 
 func switch_to_game_music():
+	game_music.volume_db = -8.0
 	main_menu_music.stop()
-	game_music.play()
 
 func wind_tape(sitch):
 	match sitch:
