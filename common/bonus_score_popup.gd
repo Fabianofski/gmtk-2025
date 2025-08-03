@@ -27,5 +27,3 @@ func animate_bonus_score(bonus: String, score: int, multiplier: int):
 	tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(score_animation, "scale", Vector3.ZERO, 0.1)
-
-

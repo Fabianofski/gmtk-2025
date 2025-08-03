@@ -1657,8 +1657,10 @@ text = "3 Card Score Bonus:
 Pair: 2x
 Flush: 3x 
 Straight: 4x
-Three of a kind: 5x
+Three of a Kind: 5x
 "
+label_settings = SubResource("LabelSettings_kvpfn")
+vertical_alignment = 1
 
 [node name="LevelUpSound" type="AudioStreamPlayer3D" parent="Game Manager"]
 stream = ExtResource("75_4nbsr")
@@ -1752,6 +1754,7 @@ text = "Restart"
 [node name="Tutorial" type="Node3D" parent="."]
 
 [node name="Control" type="Control" parent="Tutorial"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
