@@ -49,7 +49,8 @@ func _init():
 func animate_card_score(id: String, score: int, addition: int): 
 	if id != card.id or not selected: 
 		return
-	score_animation_label.text = "%d + %d" % [score, addition]
+	var type = "*" if card.type == Card.CardType.Multiplier else "+"
+	score_animation_label.text = "%d %s %d" % [score, type, addition]
 	
 	MusicHandler.play_scoring_sfx()
 	
@@ -58,7 +59,8 @@ func animate_card_score(id: String, score: int, addition: int):
 	tween.tween_property(score_animation, "scale", Vector3.ONE, 0.25)
 
 	await get_tree().create_timer(0.25).timeout
-	score_animation_label.text = "%d" % (score + addition) 
+	var final_score = score * addition if card.type == Card.CardType.Multiplier else score + addition
+	score_animation_label.text = "%d" % final_score 
 	tween = get_tree().create_tween()
 	tween.tween_property(score_animation, "scale", Vector3(1.25, 1.25, 1.25), 0.25)
 	await get_tree().create_timer(0.25).timeout
@@ -189,4 +191,5 @@ func _on_mouse_exited() -> void:
 		tween_to_new_position(Vector3(base_pos.x, 0, base_pos.z), base_rot, 0.2)
 
 func make_unlock_text_visible():
+	card_used = true
 	unlocked.visible = true # simple as

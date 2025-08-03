@@ -15,7 +15,7 @@ func card_unlock(cards: Array[Card]):
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_OUT)
 		tween.tween_property(self, "scale", Vector3.ONE, 0.5)
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(5).timeout
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(self, "scale", Vector3.ZERO, 0.5)

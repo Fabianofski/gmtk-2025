@@ -20,11 +20,17 @@ var last_played: Array[Card] = []
 @export var score: int = 0
 @export var current_round: int = 0
 @export var round_target_scores: Array[int] = [] 
-var target_score = func(): return round_target_scores[current_round]
 var animation_playing = false
 
 enum STATE { Attack, Defense }
 var state: STATE = STATE.Attack
+
+func target_score(): 
+	if current_round < round_target_scores.size(): 
+		return round_target_scores[current_round]
+	else: 
+		var size = round_target_scores.size() - 1
+		return round_target_scores[size] * (current_round - size + 1)
 
 func _init():
 	SignalBus.select_card.connect(select_card)	
@@ -63,7 +69,7 @@ func update_label():
 		round_hearts.visible = false
 		round_atk_label.text = str(hand['atk'])
 		round_bonus.text = ','.join(hand['bonuses'].map(func(b): return b.type + " (" + str(b.payout) + "x)"))
-		goal_info.text = "Round %d: Score %d more points to win" % [current_round + 1, (max(0, target_score.call() - score))]
+		goal_info.text = "Round %d: Score %d more points to win" % [current_round + 1, (max(0, target_score() - score))]
 		state_info.text = "ATK"
 	else: 
 		round_dfs.visible = true
@@ -126,7 +132,7 @@ func next_round():
 		var values = await calc_atk_dfs_values(selected_cards, true)
 		score += values['score']
 
-		if score >= target_score.call(): 
+		if score >= target_score(): 
 			print("WON!")
 			score = 0
 			current_round += 1
