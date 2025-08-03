@@ -36,6 +36,7 @@ func reset_deck(_round: int):
 			cards_copy.append(card)
 		if card.round_unlock == _round and _round != 0:
 			unlocked_cards.append(card)
+	cards_copy.shuffle()
 	SignalBus.card_unlocked.emit(unlocked_cards)
 
 func put_card_back_to_deck(card: Card): 

@@ -69,7 +69,7 @@ func update_label():
 		round_hearts.visible = false
 		round_atk_label.text = str(hand['atk'])
 		round_bonus.text = ','.join(hand['bonuses'].map(func(b): return b.type + " (" + str(b.payout) + "x)"))
-		goal_info.text = "Round %d: Score %d more points to win" % [current_round + 1, (max(0, target_score() - score))]
+		goal_info.text = "Lvl %d: Score %d more points to win" % [current_round + 1, (max(0, target_score() - score))]
 		state_info.text = "ATK"
 	else: 
 		round_dfs.visible = true
@@ -137,20 +137,21 @@ func next_round():
 
 		if score >= target_score(): 
 			print("WON!")
-			score = 0
-			current_round += 1
+			# score = 0
+			while score >= target_score():
+				current_round += 1
 			SignalBus.game_won.emit(current_round)
 		else:
 			last_played = selected_cards
 			state = STATE.Defense
 
-		goal_info.text = "Round %d: Defend against your own attack's %d points" % [current_round + 1, values['atk']]
+		goal_info.text = "Lvl %d: Defend against your own attack's %d points" % [current_round + 1, values['atk']]
 	else: 
 		var hand = await calc_atk_dfs_values(selected_cards)
 		var old_hand = await calc_atk_dfs_values(last_played)
 		
 		var diff = hand['dfs'] - old_hand['atk']
-		if diff <= 0: 
+		if diff < 0: 
 			SignalBus.show_text_popup.emit("%d hearts" % diff)
 			health += diff
 
