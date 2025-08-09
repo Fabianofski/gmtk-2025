@@ -8,29 +8,23 @@ extends Node
 preload("res://audio/sfx/card_score_sfx_3.ogg"), preload("res://audio/sfx/card_score_sfx_4.ogg"),
 preload("res://audio/sfx/card_score_sfx_5.ogg"), preload("res://audio/sfx/card_score_sfx_6.ogg")]
 
-var muted: bool = false
+var sfx_volume: float = 1.0
+var music_volume: float = 0.8
+@onready var music_bus = AudioServer.get_bus_index("Music")
+@onready var sfx_bus = AudioServer.get_bus_index("SFX")
 
 func _ready() -> void:
 	main_menu_music.play()
-
-#func _process(_delta: float) -> void:
-	#if Input.is_action_just_pressed("mute_music"):
-		#muted = !muted
-		#print("music mute is "+str(muted))
-		#if main_menu_music.playing:
-			#main_menu_music.volume_db = -8.0 + (-80 * int(muted))
-		#elif !main_menu_music.playing:
-			#game_music.volume_db = -8.0 + (-80 * int(muted))
 
 func switch_music(track):
 	game_music.pitch_scale = 1.0 # Reset pitch shenanigans
 	match track:
 		"game":
-			game_music.volume_db = -8.0 + (-80 * int(muted))
+			game_music.volume_db = music_volume
 			main_menu_music.volume_db = -80.0
 		"title":
 			game_music.volume_db = -80.0
-			main_menu_music.volume_db = -8.0 + (-80 * int(muted))
+			main_menu_music.volume_db = music_volume
 
 func wind_tape(sitch):
 	match sitch:
@@ -57,3 +51,7 @@ func play_scoring_sfx():
 	scoring_sfx_player.stream = scoring_sfx_array[min(scoring_sfx_array.size() - 1, SignalBus.scoring_sfx)]
 	scoring_sfx_player.play()
 	SignalBus.scoring_sfx += 1
+
+func adjust_sound():
+	AudioServer.set_bus_volume_db(music_bus, linear_to_db(music_volume))
+	AudioServer.set_bus_volume_db(sfx_bus, linear_to_db(sfx_volume))

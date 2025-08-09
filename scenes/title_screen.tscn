@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dh2aif2andq34"]
+[gd_scene load_steps=53 format=3 uid="uid://dh2aif2andq34"]
 
 [ext_resource type="Texture2D" uid="uid://b08bw6k7cmojr" path="res://sprites/ui/panel_light.png" id="1_e54dn"]
 [ext_resource type="Script" uid="uid://3eumkkea5rvb" path="res://scenes/title_screen.gd" id="1_khjys"]
@@ -168,6 +168,13 @@ Button/styles/hover = SubResource("StyleBoxFlat_r2n6p")
 Button/styles/normal = SubResource("StyleBoxFlat_vvi2r")
 Button/styles/pressed = SubResource("StyleBoxFlat_deyyv")
 
+[sub_resource type="LabelSettings" id="LabelSettings_jr68i"]
+font = ExtResource("23_jr68i")
+font_size = 12
+font_color = Color(0.639216, 0.654902, 0.760784, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Title Screen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -198,9 +205,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -93.0
+offset_left = -165.0
 offset_top = -20.0
-offset_right = -53.0
+offset_right = -125.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -247,7 +254,7 @@ texture_normal = ExtResource("3_cs5ya")
 texture_pressed = ExtResource("4_mykxm")
 texture_hover = ExtResource("5_tklts")
 
-[node name="Exit Button Text" type="Label" parent="Buttons/Play"]
+[node name="Start Button Text" type="Label" parent="Buttons/Play"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -265,6 +272,80 @@ label_settings = SubResource("LabelSettings_ib7db")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Options" type="Control" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button BG Top" type="NinePatchRect" parent="Buttons/Options"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -4.0
+offset_right = 71.0
+offset_bottom = 28.0
+texture = ExtResource("1_e54dn")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Button BG Front" type="NinePatchRect" parent="Buttons/Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = 8.0
+offset_right = 50.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3yumr")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Options" type="TextureButton" parent="Buttons/Options"]
+layout_mode = 1
+offset_left = -17.0
+offset_top = -28.0
+offset_right = 59.0
+offset_bottom = 24.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_cs5ya")
+texture_pressed = ExtResource("4_mykxm")
+texture_hover = ExtResource("5_tklts")
+
+[node name="Options Button Text" type="Label" parent="Buttons/Options"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -7.0
+offset_right = 51.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "OPTIONS"
+label_settings = SubResource("LabelSettings_ib7db")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Quit" type="Control" parent="Buttons"]
 layout_mode = 1
 anchors_preset = 8
@@ -272,9 +353,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 52.0
+offset_left = 124.0
 offset_top = -20.0
-offset_right = 92.0
+offset_right = 164.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -621,7 +702,182 @@ context_menu_enabled = false
 middle_mouse_paste_enabled = false
 draw_control_chars = true
 
+[node name="Options Menu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Options Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Mouse Input Blocker" type="ColorRect" parent="Options Menu/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Options Panel" type="NinePatchRect" parent="Options Menu/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -128.0
+offset_right = 210.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3yumr")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Credits" type="Label" parent="Options Menu/Control/Options Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -210.0
+offset_top = -33.0
+offset_right = 210.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Pętla, by F4B1 (code), Santum (art) and nanumerino (music)."
+label_settings = SubResource("LabelSettings_jr68i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Back Button" type="Button" parent="Options Menu/Control/Options Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -39.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 39.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_gm4k0")
+text = "X"
+
+[node name="Music Volume Label" type="Label" parent="Options Menu/Control/Options Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -78.0
+offset_right = 404.0
+offset_bottom = -34.0
+grow_vertical = 2
+text = "Music volume:"
+label_settings = SubResource("LabelSettings_b344i")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Music Volume Slider" type="HSlider" parent="Options Menu/Control/Options Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -274.0
+offset_top = -64.0
+offset_right = -20.0
+offset_bottom = -48.0
+grow_horizontal = 0
+grow_vertical = 2
+max_value = 1.0
+step = 0.05
+scrollable = false
+
+[node name="SFX Volume Label" type="Label" parent="Options Menu/Control/Options Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -22.0
+offset_right = 404.0
+offset_bottom = 22.0
+grow_vertical = 2
+text = "SFX volume:"
+label_settings = SubResource("LabelSettings_b344i")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="SFX Volume Slider" type="HSlider" parent="Options Menu/Control/Options Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -274.0
+offset_top = -8.0
+offset_right = -20.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+max_value = 1.0
+step = 0.05
+scrollable = false
+
+[node name="Tutorial Label" type="Label" parent="Options Menu/Control/Options Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = 34.0
+offset_right = 404.0
+offset_bottom = 78.0
+grow_vertical = 2
+text = "Enable tutorial on next play:"
+label_settings = SubResource("LabelSettings_b344i")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Tutorial Checkbox" type="CheckBox" parent="Options Menu/Control/Options Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = 44.0
+offset_right = -20.0
+offset_bottom = 68.0
+grow_horizontal = 0
+grow_vertical = 2
+
 [connection signal="pressed" from="Buttons/Play/Start Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Buttons/Options/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Buttons/Quit/Exit Button" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="New Game Menu/Control/New Game Panel/Back Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="New Game Menu/Control/New Game Panel/Next Button" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Options Menu/Control/Options Panel/Back Button" to="." method="_on_back_button_pressed"]
+[connection signal="value_changed" from="Options Menu/Control/Options Panel/Music Volume Slider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="Options Menu/Control/Options Panel/SFX Volume Slider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="pressed" from="Options Menu/Control/Options Panel/Tutorial Checkbox" to="." method="_on_tutorial_checkbox_pressed"]

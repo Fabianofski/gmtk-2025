@@ -24,3 +24,4 @@ parameters/looping = true
 [node name="Scoring SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_6mmcd")
 max_polyphony = 7
+bus = &"SFX"
