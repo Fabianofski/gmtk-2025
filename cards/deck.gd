@@ -66,6 +66,7 @@ func _shuffle(array: Array, rng: RandomNumberGenerator): # Implementation of Fis
 		var temp = array[i]
 		array[i] = array[j]
 		array[j] = temp
+	return array
 
 func update_label(): 
 	if cards_label.text != "DECK RESET": 

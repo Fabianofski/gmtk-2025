@@ -20,5 +20,4 @@ func _on_next_button_pressed() -> void:
 		SignalBus.rng.seed = hash(seed_input.text)
 	else:
 		SignalBus.rng.seed = hash(SignalBus.rng.randf())
-	SignalBus.rng.state = 0
 	get_tree().change_scene_to_file("res://scenes/loading_scene.tscn")
