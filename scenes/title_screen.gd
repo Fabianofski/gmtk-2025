@@ -27,4 +27,5 @@ func _on_next_button_pressed() -> void:
 	else:
 		SignalBus.has_set_custom_seed = false
 		SignalBus.rng.seed = hash(SignalBus.rng.randf())
+	SignalBus.rng.state = hash(SignalBus.rng.seed)
 	SignalBus.load_scene("game")
