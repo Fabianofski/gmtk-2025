@@ -14,6 +14,8 @@ var line_to_display: int = 0
 var positions: Array = [Vector2(422, 277), Vector2(815, 450), Vector2(28, 100), Vector2(815, 100), Vector2(422, 112)]
 
 func _ready() -> void:
+	if SignalBus.tutorial_shown == true:
+		self.queue_free()
 	SignalBus.next_round_started.connect(_should_be_shown)
 	_refresh_text()
 
@@ -37,7 +39,9 @@ func _should_be_shown(state) -> void:
 		mouse_input_blocker.mouse_filter = Control.MOUSE_FILTER_STOP
 
 func _refresh_text() -> void:
-	if line_to_display == -1 or line_to_display == 26: # Delete node if no more text
+	if line_to_display == -1 or line_to_display == 26: # Clean house if no more text
+		SignalBus.tutorial_shown = true
+		SignalBus.has_set_custom_seed = false
 		self.queue_free()
 	tutorial_text.text = tr("tutorial_str_%d" % line_to_display) # Set text
 	match line_to_display: # Change buttons (NOTE: Yes the duplicates are ugly)

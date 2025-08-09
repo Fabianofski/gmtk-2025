@@ -60,14 +60,6 @@ func shuffle_cards() -> void:
 	# Shuffle the cards_copy array with our beloved deterministic RNG
 	_shuffle(cards_copy, SignalBus.rng)
 
-func _shuffle(array: Array, rng: RandomNumberGenerator): # Implementation of Fisher–Yates shuffle (https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#The_modern_algorithm)
-	for i in array.size() - 2:
-		var j = rng.randi_range(i, array.size() - 1)
-		var temp = array[i]
-		array[i] = array[j]
-		array[j] = temp
-	return array
-
 func update_label(): 
 	if cards_label.text != "DECK RESET": 
 		cards_label.text = "%d" % cards_copy.size()
@@ -89,3 +81,11 @@ func draw_cards(amount: int) -> Array[Card]:
 			drawed_cards.append(card)
 	update_label()
 	return drawed_cards
+
+func _shuffle(array: Array, rng: RandomNumberGenerator): # Implementation of Fisher–Yates shuffle (https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#The_modern_algorithm)
+	for i in array.size() - 2:
+		var j = rng.randi_range(i, array.size() - 1)
+		var temp = array[i]
+		array[i] = array[j]
+		array[j] = temp
+	return array
