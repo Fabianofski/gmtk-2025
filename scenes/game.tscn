@@ -2668,7 +2668,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_qnb83")
-text = "Ok"
+text = "OK"
 
 [connection signal="pressed" from="Game Manager/Next Round/Button" to="Game Manager" method="next_round"]
 [connection signal="pressed" from="LoseScreen/Control/RestartBtn" to="LoseScreen/Control" method="restart"]

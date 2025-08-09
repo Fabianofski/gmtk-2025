@@ -46,7 +46,7 @@ func _ready():
 
 func _process(_delta: float) -> void:
 	var current_score = int(score_label.text)
-	var difference = score - current_score
+	var difference = max(0, target_score() - score) - current_score
 	if difference != 0:
 		var step: int = max(1, abs(difference) / 50)
 		score_label.text = str(current_score + step * sign(difference)).pad_zeros(9)
