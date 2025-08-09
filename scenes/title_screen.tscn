@@ -599,6 +599,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_gm4k0")
+disabled = true
 text = "Start new game"
 
 [node name="Seed Input" type="LineEdit" parent="New Game Menu/Control/New Game Panel"]

@@ -13,3 +13,6 @@ func game_over(message: String):
 func restart(): 
 	MusicHandler.wind_tape("restart")
 	get_tree().reload_current_scene()
+
+func _on_quit_btn_pressed() -> void:
+	SignalBus.load_scene("title")

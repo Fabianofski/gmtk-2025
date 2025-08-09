@@ -5,6 +5,8 @@ var rng = RandomNumberGenerator.new()
 var tutorial_shown = false
 var selected_cards = 0
 
+var scene_to_load_next: String = "title"
+
 var scoring_sfx: int = 0
 
 @warning_ignore_start("unused_signal")
@@ -28,3 +30,7 @@ func _ready() -> void:
 
 func query_rng() -> void:
 	print("The current RNG seed is "+str(rng.seed)+".")
+
+func load_scene(scene) -> void:
+	scene_to_load_next = scene
+	get_tree().change_scene_to_file("res://scenes/loading_scene.tscn")

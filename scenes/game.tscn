@@ -2448,15 +2448,32 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -50.0
+offset_left = -150.0
 offset_top = -285.0
-offset_right = 50.0
+offset_right = -50.0
 offset_bottom = -254.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_qnb83")
 text = "Restart"
+
+[node name="QuitBtn" type="Button" parent="LoseScreen/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = -285.0
+offset_right = 146.0
+offset_bottom = -254.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_qnb83")
+text = "Give up"
 
 [node name="Tutorial" type="Node3D" parent="."]
 
@@ -2647,6 +2664,7 @@ text = "Ok"
 
 [connection signal="pressed" from="Game Manager/Next Round/Button" to="Game Manager" method="next_round"]
 [connection signal="pressed" from="LoseScreen/Control/RestartBtn" to="LoseScreen/Control" method="restart"]
+[connection signal="pressed" from="LoseScreen/Control/QuitBtn" to="LoseScreen/Control" method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="Tutorial/Control/Tutorial Panel/Back Button" to="Tutorial/Control" method="_on_back_button_pressed"]
 [connection signal="pressed" from="Tutorial/Control/Tutorial Panel/Next Button" to="Tutorial/Control" method="_on_next_button_pressed"]
 [connection signal="pressed" from="UnlockScreen/OkBtn" to="UnlockScreen" method="deactivate_screen"]

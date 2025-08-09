@@ -13,18 +13,24 @@ var muted: bool = false
 func _ready() -> void:
 	main_menu_music.play()
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("mute_music"):
-		muted = !muted
-		print("music mute is "+str(muted))
-		if main_menu_music.playing:
-			main_menu_music.volume_db = -8.0 + (-80 * int(muted))
-		elif !main_menu_music.playing:
-			game_music.volume_db = -8.0 + (-80 * int(muted))
+#func _process(_delta: float) -> void:
+	#if Input.is_action_just_pressed("mute_music"):
+		#muted = !muted
+		#print("music mute is "+str(muted))
+		#if main_menu_music.playing:
+			#main_menu_music.volume_db = -8.0 + (-80 * int(muted))
+		#elif !main_menu_music.playing:
+			#game_music.volume_db = -8.0 + (-80 * int(muted))
 
-func switch_to_game_music():
-	game_music.volume_db = -8.0 + (-80 * int(muted))
-	main_menu_music.stop()
+func switch_music(track):
+	game_music.pitch_scale = 1.0 # Reset pitch shenanigans
+	match track:
+		"game":
+			game_music.volume_db = -8.0 + (-80 * int(muted))
+			main_menu_music.volume_db = -80.0
+		"title":
+			game_music.volume_db = -80.0
+			main_menu_music.volume_db = -8.0 + (-80 * int(muted))
 
 func wind_tape(sitch):
 	match sitch:
