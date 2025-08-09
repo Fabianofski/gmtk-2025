@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dh2aif2andq34"]
+[gd_scene load_steps=52 format=3 uid="uid://dh2aif2andq34"]
 
 [ext_resource type="Texture2D" uid="uid://b08bw6k7cmojr" path="res://sprites/ui/panel_light.png" id="1_e54dn"]
 [ext_resource type="Script" uid="uid://3eumkkea5rvb" path="res://scenes/title_screen.gd" id="1_khjys"]
@@ -22,6 +22,7 @@
 [ext_resource type="Shader" uid="uid://dmoq6xdqvyshp" path="res://sprites/ui/logo_loop.gdshader" id="19_lrxh4"]
 [ext_resource type="Texture2D" uid="uid://cgwy7ub60s7pf" path="res://sprites/ui/logo_front.png" id="20_neciy"]
 [ext_resource type="Texture2D" uid="uid://dr37lokpy0n3d" path="res://sprites/ui/logo_back.png" id="20_w03br"]
+[ext_resource type="FontFile" uid="uid://d3pvmoqj76svu" path="res://fonts/Lexend-Regular.ttf" id="23_jr68i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ib7db"]
 font = ExtResource("6_u26n3")
@@ -145,6 +146,27 @@ material = SubResource("StandardMaterial3D_ssvqc")
 
 [sub_resource type="QuadMesh" id="QuadMesh_86x6n"]
 material = SubResource("StandardMaterial3D_ssvqc")
+
+[sub_resource type="LabelSettings" id="LabelSettings_b344i"]
+font = ExtResource("23_jr68i")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvi2r"]
+bg_color = Color(0.678431, 0.184314, 0.270588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2n6p"]
+bg_color = Color(0.901961, 0.270588, 0.223529, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_deyyv"]
+bg_color = Color(0.470588, 0.113725, 0.309804, 1)
+
+[sub_resource type="Theme" id="Theme_gm4k0"]
+Button/fonts/font = ExtResource("23_jr68i")
+Button/styles/focus = SubResource("StyleBoxFlat_vvi2r")
+Button/styles/hover = SubResource("StyleBoxFlat_r2n6p")
+Button/styles/normal = SubResource("StyleBoxFlat_vvi2r")
+Button/styles/pressed = SubResource("StyleBoxFlat_deyyv")
 
 [node name="Title Screen" type="Control"]
 layout_mode = 3
@@ -488,5 +510,117 @@ skeleton = NodePath("../..")
 [node name="Time Travel Andy" parent="BG/Room" instance=ExtResource("17_mce2t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.103, 0.800049, -4.01387)
 
+[node name="New Game Menu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="New Game Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Mouse Input Blocker" type="ColorRect" parent="New Game Menu/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="New Game Panel" type="NinePatchRect" parent="New Game Menu/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -76.0
+offset_right = 210.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3yumr")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Placeholder" type="Label" parent="New Game Menu/Control/New Game Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -210.0
+offset_right = 210.0
+offset_bottom = 44.0
+grow_horizontal = 2
+text = "Placeholder new game screen"
+label_settings = SubResource("LabelSettings_b344i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Back Button" type="Button" parent="New Game Menu/Control/New Game Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -39.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 39.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_gm4k0")
+text = "X"
+
+[node name="Next Button" type="Button" parent="New Game Menu/Control/New Game Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -202.0
+offset_top = -39.0
+offset_right = 202.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_gm4k0")
+text = "Start new game"
+
+[node name="Seed Input" type="LineEdit" parent="New Game Menu/Control/New Game Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = -18.0
+offset_right = 188.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "( LEAVE EMPTY FOR RANDOM SEED )"
+alignment = 1
+context_menu_enabled = false
+middle_mouse_paste_enabled = false
+draw_control_chars = true
+
 [connection signal="pressed" from="Buttons/Play/Start Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Buttons/Quit/Exit Button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="New Game Menu/Control/New Game Panel/Back Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="New Game Menu/Control/New Game Panel/Next Button" to="." method="_on_next_button_pressed"]

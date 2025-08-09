@@ -13,7 +13,8 @@ var elapsed_time = 0.0
 func _init():
 	SignalBus.put_card_back_to_deck.connect(put_card_back_to_deck)
 	SignalBus.game_won.connect(reset_deck)
-	cards.shuffle()
+	# Shuffle the cards array based on our instanced RNG, and not the global RNG (uncontrollable seed)
+	_shuffle(cards, SignalBus.rng)
 
 func _ready():
 	reset_deck(0)
@@ -37,14 +38,14 @@ func reset_deck(_round: int):
 			card.unlocked_temp = card.unlocked
 
 		if _round != 0 and not card.unlocked_temp and unlocked_cards.size() < 3:
-			var will_unlock = randf() < 0.15 or unlocked_cards.size() == 0
+			var will_unlock = SignalBus.rng.randf() < 0.15 or unlocked_cards.size() == 0
 			if will_unlock: 
 				unlocked_cards.append(card)
 				card.unlocked_temp = true
 
 		if card.unlocked_temp:
 			cards_copy.append(card)
-	cards_copy.shuffle()
+	_shuffle(cards_copy, SignalBus.rng)
 	SignalBus.card_unlocked.emit(unlocked_cards)
 	if _round == 0: 
 		return
@@ -55,8 +56,16 @@ func reset_deck(_round: int):
 func put_card_back_to_deck(card: Card): 
 	cards_copy.insert(0, card)
 
-func shuffle_cards(): 
-	cards_copy.shuffle()
+func shuffle_cards() -> void: 
+	# Shuffle the cards_copy array with our beloved deterministic RNG
+	_shuffle(cards_copy, SignalBus.rng)
+
+func _shuffle(array: Array, rng: RandomNumberGenerator): # Implementation of Fisher–Yates shuffle (https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#The_modern_algorithm)
+	for i in array.size() - 2:
+		var j = rng.randi_range(i, array.size() - 1)
+		var temp = array[i]
+		array[i] = array[j]
+		array[j] = temp
 
 func update_label(): 
 	if cards_label.text != "DECK RESET": 

@@ -1627,21 +1627,21 @@ font = SubResource("FontFile_5newe")
 font_size = 24
 font_color = Color(0.901961, 0.270588, 0.223529, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvi2r"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5ny5"]
 bg_color = Color(0.678431, 0.184314, 0.270588, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2n6p"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ss2i"]
 bg_color = Color(0.901961, 0.270588, 0.223529, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_deyyv"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1id2h"]
 bg_color = Color(0.470588, 0.113725, 0.309804, 1)
 
 [sub_resource type="Theme" id="Theme_qnb83"]
 Button/fonts/font = ExtResource("19_264po")
-Button/styles/focus = SubResource("StyleBoxFlat_vvi2r")
-Button/styles/hover = SubResource("StyleBoxFlat_r2n6p")
-Button/styles/normal = SubResource("StyleBoxFlat_vvi2r")
-Button/styles/pressed = SubResource("StyleBoxFlat_deyyv")
+Button/styles/focus = SubResource("StyleBoxFlat_o5ny5")
+Button/styles/hover = SubResource("StyleBoxFlat_7ss2i")
+Button/styles/normal = SubResource("StyleBoxFlat_o5ny5")
+Button/styles/pressed = SubResource("StyleBoxFlat_1id2h")
 
 [sub_resource type="LabelSettings" id="LabelSettings_e1j6l"]
 font = ExtResource("19_264po")

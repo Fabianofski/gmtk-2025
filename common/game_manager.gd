@@ -42,6 +42,7 @@ func _init():
 
 func _ready():
 	update_label()
+	SignalBus.query_rng()
 
 func _process(_delta: float) -> void:
 	var current_score = int(score_label.text)

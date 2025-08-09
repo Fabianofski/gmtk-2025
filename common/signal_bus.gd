@@ -1,5 +1,7 @@
 extends Node
 
+var rng = RandomNumberGenerator.new()
+
 var tutorial_shown = false
 var selected_cards = 0
 
@@ -22,3 +24,7 @@ signal animate_bonus_score(bonus, current_score, multiplier)
 
 func _ready() -> void:
 	get_window().min_size = Vector2i(1200, 520) # Enforce a minimum window size
+	query_rng()
+
+func query_rng() -> void:
+	print("The current RNG seed is "+str(rng.seed)+".")
