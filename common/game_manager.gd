@@ -130,7 +130,7 @@ func calc_atk_dfs_values(cards: Array[Card], animate: bool = false):
 	}
 
 func next_round(): 
-	if animation_playing: 
+	if animation_playing or selected_cards.is_empty() == true: 
 		return
 	for card in selected_cards: 
 		if card.type != Card.CardType.Signal:
