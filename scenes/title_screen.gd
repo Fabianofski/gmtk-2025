@@ -19,9 +19,12 @@ func _on_back_button_pressed() -> void:
 
 func _on_next_button_pressed() -> void:
 	if SignalBus.tutorial_shown == false:
+		SignalBus.has_set_custom_seed = true
 		SignalBus.rng.seed = hash("TUTORIAL")
 	elif seed_input.text != "" and SignalBus.tutorial_shown == true:
+		SignalBus.has_set_custom_seed = true
 		SignalBus.rng.seed = hash(seed_input.text)
 	else:
+		SignalBus.has_set_custom_seed = false
 		SignalBus.rng.seed = hash(SignalBus.rng.randf())
 	SignalBus.load_scene("game")

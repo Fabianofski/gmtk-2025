@@ -11,6 +11,8 @@ func game_over(message: String):
 	message_label.text = message
 
 func restart(): 
+	if SignalBus.has_set_custom_seed == false:
+		SignalBus.rng.seed = hash(SignalBus.rng.randf())
 	MusicHandler.wind_tape("restart")
 	get_tree().reload_current_scene()
 

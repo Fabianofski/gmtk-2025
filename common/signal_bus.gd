@@ -1,6 +1,7 @@
 extends Node
 
 var rng = RandomNumberGenerator.new()
+var has_set_custom_seed = false
 
 var tutorial_shown = false
 var selected_cards = 0
@@ -29,7 +30,7 @@ func _ready() -> void:
 	query_rng()
 
 func query_rng() -> void:
-	print("The current RNG seed is "+str(rng.seed)+".")
+	print("The current RNG seed is "+str(rng.seed)+". That a custom seed has been set is "+str(has_set_custom_seed)+".")
 
 func load_scene(scene) -> void:
 	scene_to_load_next = scene
