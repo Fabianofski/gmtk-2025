@@ -20,6 +20,7 @@ func switch_music(track):
 	game_music.pitch_scale = 1.0 # Reset pitch shenanigans
 	match track:
 		"game":
+			game_music.seek(0)
 			game_music.volume_db = music_volume
 			main_menu_music.volume_db = -80.0
 		"title":
