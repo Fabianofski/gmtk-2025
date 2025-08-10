@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dh2aif2andq34"]
+[gd_scene load_steps=54 format=3 uid="uid://dh2aif2andq34"]
 
 [ext_resource type="Texture2D" uid="uid://b08bw6k7cmojr" path="res://sprites/ui/panel_light.png" id="1_e54dn"]
 [ext_resource type="Script" uid="uid://3eumkkea5rvb" path="res://scenes/title_screen.gd" id="1_khjys"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cgwy7ub60s7pf" path="res://sprites/ui/logo_front.png" id="20_neciy"]
 [ext_resource type="Texture2D" uid="uid://dr37lokpy0n3d" path="res://sprites/ui/logo_back.png" id="20_w03br"]
 [ext_resource type="FontFile" uid="uid://d3pvmoqj76svu" path="res://fonts/Lexend-Regular.ttf" id="23_jr68i"]
+[ext_resource type="Script" uid="uid://b3of17tb8ikvu" path="res://common/options_menu.gd" id="24_b344i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ib7db"]
 font = ExtResource("6_u26n3")
@@ -710,6 +711,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("24_b344i")
 
 [node name="Control" type="Control" parent="Options Menu"]
 layout_mode = 1
@@ -877,7 +879,7 @@ grow_vertical = 2
 [connection signal="pressed" from="Buttons/Quit/Exit Button" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="New Game Menu/Control/New Game Panel/Back Button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="New Game Menu/Control/New Game Panel/Next Button" to="." method="_on_next_button_pressed"]
-[connection signal="pressed" from="Options Menu/Control/Options Panel/Back Button" to="." method="_on_back_button_pressed"]
-[connection signal="value_changed" from="Options Menu/Control/Options Panel/Music Volume Slider" to="." method="_on_music_volume_slider_value_changed"]
-[connection signal="value_changed" from="Options Menu/Control/Options Panel/SFX Volume Slider" to="." method="_on_sfx_volume_slider_value_changed"]
-[connection signal="pressed" from="Options Menu/Control/Options Panel/Tutorial Checkbox" to="." method="_on_tutorial_checkbox_pressed"]
+[connection signal="pressed" from="Options Menu/Control/Options Panel/Back Button" to="Options Menu" method="_on_back_button_pressed"]
+[connection signal="value_changed" from="Options Menu/Control/Options Panel/Music Volume Slider" to="Options Menu" method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="Options Menu/Control/Options Panel/SFX Volume Slider" to="Options Menu" method="_on_sfx_volume_slider_value_changed"]
+[connection signal="pressed" from="Options Menu/Control/Options Panel/Tutorial Checkbox" to="Options Menu" method="_on_tutorial_checkbox_pressed"]

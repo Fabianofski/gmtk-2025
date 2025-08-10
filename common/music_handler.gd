@@ -9,7 +9,7 @@ preload("res://audio/sfx/card_score_sfx_3.ogg"), preload("res://audio/sfx/card_s
 preload("res://audio/sfx/card_score_sfx_5.ogg"), preload("res://audio/sfx/card_score_sfx_6.ogg")]
 
 var sfx_volume: float = 1.0
-var music_volume: float = 0.8
+var music_volume: float = 0.5
 @onready var music_bus = AudioServer.get_bus_index("Music")
 @onready var sfx_bus = AudioServer.get_bus_index("SFX")
 
