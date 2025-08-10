@@ -12,7 +12,7 @@ func game_over(message: String):
 
 func restart(): 
 	if SignalBus.has_set_custom_seed == false:
-		SignalBus.rng.seed = hash(SignalBus.rng.randf())
+		SignalBus.rng.seed = hash(SignalBus.rng.randf() + Time.get_unix_time_from_system())
 	SignalBus.rng.state = hash(SignalBus.rng.seed)
 	MusicHandler.wind_tape("restart")
 	get_tree().reload_current_scene()

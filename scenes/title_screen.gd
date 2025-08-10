@@ -32,6 +32,6 @@ func _on_next_button_pressed() -> void:
 		SignalBus.rng.seed = hash(seed_input.text)
 	else:
 		SignalBus.has_set_custom_seed = false
-		SignalBus.rng.seed = hash(SignalBus.rng.randf())
+		SignalBus.rng.seed = hash(SignalBus.rng.randf() + Time.get_unix_time_from_system()) # Add the current time to the random number for extra unpredictability
 	SignalBus.rng.state = hash(SignalBus.rng.seed)
 	SignalBus.load_scene("game")
