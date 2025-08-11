@@ -148,11 +148,6 @@ material = SubResource("StandardMaterial3D_ssvqc")
 [sub_resource type="QuadMesh" id="QuadMesh_86x6n"]
 material = SubResource("StandardMaterial3D_ssvqc")
 
-[sub_resource type="LabelSettings" id="LabelSettings_b344i"]
-font = ExtResource("23_jr68i")
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvi2r"]
 bg_color = Color(0.678431, 0.184314, 0.270588, 1)
 
@@ -168,6 +163,11 @@ Button/styles/focus = SubResource("StyleBoxFlat_vvi2r")
 Button/styles/hover = SubResource("StyleBoxFlat_r2n6p")
 Button/styles/normal = SubResource("StyleBoxFlat_vvi2r")
 Button/styles/pressed = SubResource("StyleBoxFlat_deyyv")
+
+[sub_resource type="LabelSettings" id="LabelSettings_b344i"]
+font = ExtResource("23_jr68i")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jr68i"]
 font = ExtResource("23_jr68i")
@@ -626,9 +626,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -210.0
-offset_top = -76.0
+offset_top = -81.0
 offset_right = 210.0
-offset_bottom = 76.0
+offset_bottom = 81.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_3yumr")
@@ -636,21 +636,6 @@ patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
-
-[node name="Placeholder" type="Label" parent="New Game Menu/Control/New Game Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -210.0
-offset_right = 210.0
-offset_bottom = 44.0
-grow_horizontal = 2
-text = "Placeholder new game screen"
-label_settings = SubResource("LabelSettings_b344i")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="Back Button" type="Button" parent="New Game Menu/Control/New Game Panel"]
 layout_mode = 1
@@ -684,6 +669,21 @@ theme = SubResource("Theme_gm4k0")
 disabled = true
 text = "Start new game"
 
+[node name="Seed Label" type="Label" parent="New Game Menu/Control/New Game Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 11.0
+offset_top = -22.0
+offset_right = 99.0
+offset_bottom = 22.0
+grow_vertical = 2
+text = "Seed:"
+label_settings = SubResource("LabelSettings_b344i")
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="Seed Input" type="LineEdit" parent="New Game Menu/Control/New Game Panel"]
 layout_mode = 1
 anchors_preset = 8
@@ -691,17 +691,32 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -188.0
+offset_left = -103.0
 offset_top = -18.0
-offset_right = 188.0
+offset_right = 202.0
 offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
-placeholder_text = "( LEAVE EMPTY FOR RANDOM SEED )"
+placeholder_text = "( LEAVE EMPTY FOR RANDOM )"
 alignment = 1
 context_menu_enabled = false
 middle_mouse_paste_enabled = false
 draw_control_chars = true
+
+[node name="Stats" type="Label" parent="New Game Menu/Control/New Game Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -70.0
+offset_right = 342.0
+offset_bottom = -26.0
+grow_vertical = 2
+text = "Your highest score: 123456789
+Your highest level: 123456789"
+label_settings = SubResource("LabelSettings_jr68i")
+autowrap_mode = 2
 
 [node name="Options Menu" type="Control" parent="."]
 visible = false

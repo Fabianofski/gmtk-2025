@@ -39,6 +39,7 @@ func _init():
 	SignalBus.select_card.connect(select_card)	
 	SignalBus.deselect_card.connect(deselect_card)	
 	SignalBus.add_hearts.connect(func(x): health += int(x); update_label())
+	SignalBus.game_over.connect(game_over)
 
 func _ready():
 	update_label()
@@ -174,3 +175,11 @@ func next_round():
 	SignalBus.selected_cards = 0
 	SignalBus.defended_against_attack.emit(health)
 	SignalBus.next_round_started.emit(state)
+
+func game_over(state): # Save to file
+	if score > SaveFile.load_from_file("playerinfo").highest_score_reached:
+		SaveFile.save_to_file("playerinfo", "highest_score_reached", score)
+		print("New high score: "+str(score))
+	if current_round > SaveFile.load_from_file("playerinfo").highest_level_reached:
+		SaveFile.save_to_file("playerinfo", "highest_level_reached", current_round)
+		print("New highest level: "+str(current_round))

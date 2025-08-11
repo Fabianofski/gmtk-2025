@@ -2,10 +2,14 @@ extends Control
 
 @onready var new_game_menu: Control = $"New Game Menu"
 @onready var seed_input: LineEdit = $"New Game Menu/Control/New Game Panel/Seed Input"
+@onready var stats: Label = $"New Game Menu/Control/New Game Panel/Stats"
 
 @onready var next_button: Button = $"New Game Menu/Control/New Game Panel/Next Button"
 
 @onready var options_menu: Control = $"Options Menu"
+
+func _ready() -> void:
+	stats.text = "Your highest score: "+str(SaveFile.load_from_file("playerinfo").highest_score_reached)+"\nYour highest level: "+str(SaveFile.load_from_file("playerinfo").highest_level_reached + 1)
 
 func _on_start_button_pressed() -> void:
 	next_button.disabled = false
