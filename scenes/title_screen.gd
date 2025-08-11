@@ -9,7 +9,7 @@ extends Control
 @onready var options_menu: Control = $"Options Menu"
 
 func _ready() -> void:
-	stats.text = "Your highest score: "+str(SaveFile.load_from_file("playerinfo").highest_score_reached)+"\nYour highest level: "+str(SaveFile.load_from_file("playerinfo").highest_level_reached + 1)
+	stats.text = "Your highest score: "+str(SaveFile.load_from_file("playerinfo").highest_score_reached)+"\nYour highest level reached: "+str(SaveFile.load_from_file("playerinfo").highest_level_reached + 1)
 
 func _on_start_button_pressed() -> void:
 	next_button.disabled = false

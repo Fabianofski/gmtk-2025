@@ -719,7 +719,6 @@ label_settings = SubResource("LabelSettings_jr68i")
 autowrap_mode = 2
 
 [node name="Options Menu" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -802,9 +801,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 16.0
-offset_top = -78.0
+offset_top = -70.0
 offset_right = 404.0
-offset_bottom = -34.0
+offset_bottom = -26.0
 grow_vertical = 2
 text = "Music volume:"
 label_settings = SubResource("LabelSettings_b344i")
@@ -819,9 +818,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -274.0
-offset_top = -64.0
+offset_top = -56.0
 offset_right = -20.0
-offset_bottom = -48.0
+offset_bottom = -40.0
 grow_horizontal = 0
 grow_vertical = 2
 max_value = 1.0
@@ -834,9 +833,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 16.0
-offset_top = -22.0
+offset_top = -14.0
 offset_right = 404.0
-offset_bottom = 22.0
+offset_bottom = 30.0
 grow_vertical = 2
 text = "SFX volume:"
 label_settings = SubResource("LabelSettings_b344i")
@@ -851,9 +850,8 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -274.0
-offset_top = -8.0
 offset_right = -20.0
-offset_bottom = 8.0
+offset_bottom = 16.0
 grow_horizontal = 0
 grow_vertical = 2
 max_value = 1.0
@@ -866,9 +864,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 16.0
-offset_top = 34.0
+offset_top = 42.0
 offset_right = 404.0
-offset_bottom = 78.0
+offset_bottom = 86.0
 grow_vertical = 2
 text = "Enable tutorial on next play:"
 label_settings = SubResource("LabelSettings_b344i")
@@ -883,11 +881,21 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -44.0
-offset_top = 44.0
+offset_top = 52.0
 offset_right = -20.0
-offset_bottom = 68.0
+offset_bottom = 76.0
 grow_horizontal = 0
 grow_vertical = 2
+
+[node name="Clear Data" type="Button" parent="Options Menu/Control/Options Panel"]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 221.0
+offset_bottom = 39.0
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_gm4k0")
+text = "Clear data (INSTANT!!!)"
 
 [connection signal="pressed" from="Buttons/Play/Start Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Buttons/Options/Options" to="." method="_on_options_pressed"]
@@ -898,3 +906,4 @@ grow_vertical = 2
 [connection signal="value_changed" from="Options Menu/Control/Options Panel/Music Volume Slider" to="Options Menu" method="_on_music_volume_slider_value_changed"]
 [connection signal="value_changed" from="Options Menu/Control/Options Panel/SFX Volume Slider" to="Options Menu" method="_on_sfx_volume_slider_value_changed"]
 [connection signal="pressed" from="Options Menu/Control/Options Panel/Tutorial Checkbox" to="Options Menu" method="_on_tutorial_checkbox_pressed"]
+[connection signal="pressed" from="Options Menu/Control/Options Panel/Clear Data" to="Options Menu" method="_on_clear_data_pressed"]
