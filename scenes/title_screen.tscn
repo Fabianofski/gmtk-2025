@@ -719,6 +719,7 @@ label_settings = SubResource("LabelSettings_jr68i")
 autowrap_mode = 2
 
 [node name="Options Menu" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
