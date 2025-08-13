@@ -2,6 +2,7 @@ class_name Deck
 extends Node 
 
 @export var cards: Array[Card] = []
+@export var forced_card_draws: Array[Card] = []
 @onready var cards_label: Label3D = $"CardsLeft3D"
 @onready var mesh: Node3D = $"mesh"
 var cards_copy: Array[Card] = []
@@ -13,6 +14,7 @@ var elapsed_time = 0.0
 func _init():
 	SignalBus.put_card_back_to_deck.connect(put_card_back_to_deck)
 	SignalBus.game_won.connect(reset_deck)
+	SignalBus.forced_card_draws.connect(func(forced_cards): forced_card_draws.append_array(forced_cards))
 	# Shuffle the cards array based on our instanced RNG, and not the global RNG (uncontrollable seed)
 	_shuffle(cards, SignalBus.rng)
 
@@ -69,7 +71,13 @@ func update_label():
 func draw_cards(amount: int) -> Array[Card]: 
 	var drawed_cards: Array[Card] = []
 	for i in amount:
-		var card = cards_copy.pop_back()
+		var card
+		if forced_card_draws.size() > 0: 
+			card = forced_card_draws.pop_front()
+			var og_card_idx = cards.find_custom(func(x): return x.id == card.id)
+			cards.remove_at(og_card_idx)
+		else:
+			card = cards_copy.pop_back()
 		if card == null: 
 			if i == 0: 
 				SignalBus.game_over.emit("( RAN OUT OF CARDS )")

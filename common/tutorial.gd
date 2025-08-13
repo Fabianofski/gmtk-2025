@@ -8,6 +8,10 @@ extends Control
 
 @onready var mouse_input_blocker: ColorRect = $"Mouse Input Blocker"
 
+@export var forced_cards: Array[Card]
+# SignalBus.force_card_draw.emit(forced_cards)
+# set the cards in the inspector and then call this SignalBus Signal where you need it :)
+
 var line_to_display: int = 0
 
 # Centre, bottom right, top left, top right, top
