@@ -52,6 +52,8 @@ func _refresh_text() -> void:
 		0:
 			back_button.text = tr("tutorial_btn_0_intro")
 			next_button.text = tr("tutorial_btn_1_intro")
+			SignalBus.force_card_draw.emit(forced_cards)
+			SignalBus.force_clear_hand.emit(0)
 		1:
 			back_button.text = tr("tutorial_btn_0_default")
 			next_button.text = tr("tutorial_btn_1_default")

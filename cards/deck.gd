@@ -14,7 +14,7 @@ var elapsed_time = 0.0
 func _init():
 	SignalBus.put_card_back_to_deck.connect(put_card_back_to_deck)
 	SignalBus.game_won.connect(reset_deck)
-	SignalBus.forced_card_draws.connect(func(forced_cards): forced_card_draws.append_array(forced_cards))
+	SignalBus.force_card_draw.connect(func(forced_cards): forced_card_draws.append_array(forced_cards))
 	# Shuffle the cards array based on our instanced RNG, and not the global RNG (uncontrollable seed)
 	_shuffle(cards, SignalBus.rng)
 

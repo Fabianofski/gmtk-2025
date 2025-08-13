@@ -2526,6 +2526,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("24_e1j6l")
+forced_cards = Array[ExtResource("15_veukt")]([ExtResource("42_fkywm"), ExtResource("42_fkywm"), ExtResource("42_fkywm"), ExtResource("42_fkywm"), ExtResource("42_fkywm"), ExtResource("42_fkywm")])
 
 [node name="Mouse Input Blocker" type="ColorRect" parent="Tutorial/Control"]
 layout_mode = 1

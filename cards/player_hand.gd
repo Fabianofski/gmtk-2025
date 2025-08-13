@@ -12,6 +12,7 @@ func _ready():
 	SignalBus.deselect_card.connect(add_card_back_to_hand)	
 	SignalBus.next_round_started.connect(draw_cards)
 	SignalBus.game_won.connect(game_won)
+	SignalBus.force_clear_hand.connect(game_won)
 
 	deck.shuffle_cards() 
 	hand.append_array(deck.draw_cards(max_cards))
@@ -41,6 +42,7 @@ func draw_cards(_state):
 	hand.append_array(new_cards)
 
 func clear_cards(node: Node3D): 
+	print("Clear cards")
 	for child in node.get_children(): 
 		child.queue_free()
 
