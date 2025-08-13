@@ -21,6 +21,8 @@ func _ready() -> void:
 	if SignalBus.tutorial_shown == true:
 		self.queue_free()
 	SignalBus.next_round_started.connect(_should_be_shown)
+	SignalBus.force_card_draw.emit(forced_cards)
+	SignalBus.force_clear_hand.emit(0)
 	_refresh_text()
 
 func _on_back_button_pressed() -> void:
@@ -52,8 +54,6 @@ func _refresh_text() -> void:
 		0:
 			back_button.text = tr("tutorial_btn_0_intro")
 			next_button.text = tr("tutorial_btn_1_intro")
-			SignalBus.force_card_draw.emit(forced_cards)
-			SignalBus.force_clear_hand.emit(0)
 		1:
 			back_button.text = tr("tutorial_btn_0_default")
 			next_button.text = tr("tutorial_btn_1_default")
