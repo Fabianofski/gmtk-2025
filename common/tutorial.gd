@@ -20,9 +20,10 @@ var positions: Array = [Vector2(422, 277), Vector2(815, 450), Vector2(28, 100), 
 func _ready() -> void:
 	if SignalBus.tutorial_shown == true:
 		self.queue_free()
+	else:
+		SignalBus.force_card_draw.emit(forced_cards)
+		SignalBus.force_clear_hand.emit(0)
 	SignalBus.next_round_started.connect(_should_be_shown)
-	SignalBus.force_card_draw.emit(forced_cards)
-	SignalBus.force_clear_hand.emit(0)
 	_refresh_text()
 
 func _on_back_button_pressed() -> void:
@@ -48,6 +49,7 @@ func _refresh_text() -> void:
 	if line_to_display == -1 or line_to_display == 26: # Clean house if no more text
 		SignalBus.tutorial_shown = true
 		SignalBus.has_set_custom_seed = false
+		SaveFile.save_to_file("options", "has_seen_tutorial", true)
 		self.queue_free()
 	tutorial_text.text = tr("tutorial_str_%d" % line_to_display) # Set text
 	match line_to_display: # Change buttons (NOTE: Yes the duplicates are ugly)
