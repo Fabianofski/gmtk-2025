@@ -131,6 +131,7 @@ func calc_atk_dfs_values(cards: Array[Card], animate: bool = false):
 	}
 
 func next_round(): 
+	SignalBus.card_select_lock.emit(true)
 	if animation_playing or selected_cards.is_empty() == true: 
 		return
 	for card in selected_cards: 
@@ -175,6 +176,7 @@ func next_round():
 	SignalBus.selected_cards = 0
 	SignalBus.defended_against_attack.emit(health)
 	SignalBus.next_round_started.emit(state)
+	SignalBus.card_select_lock.emit(false)
 
 func game_over(state): # Save to file
 	if score > SaveFile.load_from_file("playerinfo").highest_score_reached:

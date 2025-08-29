@@ -5,6 +5,7 @@ var card: Card = null
 var selected: bool = false
 var card_used: bool = false
 var mouse_on_card: bool = false
+var is_scoring: bool = false
 signal update
 signal tween_to_position(pos, rot, time)
 @onready var front: Sprite3D = $front
@@ -45,6 +46,7 @@ func _init():
 	tween_to_position.connect(set_base_pos)
 	SignalBus.next_round_started.connect(next_round_started)
 	SignalBus.animate_card_score.connect(animate_card_score)
+	SignalBus.card_select_lock.connect(toggle_card_select_lock)
 
 func animate_card_score(id: String, score: int, addition: int): 
 	if id != card.id or not selected: 
@@ -162,7 +164,8 @@ func _unhandled_input(event):
 	var left_click = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed
 	if card_used or not left_click or not mouse_on_card:
 		return 
-
+	if is_scoring:
+		return
 	if not selected and SignalBus.selected_cards >= 4:
 		return
 	selected = not selected
@@ -195,3 +198,6 @@ func _on_mouse_exited() -> void:
 func make_unlock_text_visible():
 	card_used = true
 	unlocked.visible = true # simple as
+
+func toggle_card_select_lock(bool):
+	is_scoring = bool
